@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.mfxcore.controls.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="556.0" prefWidth="322.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="profileImage" fitHeight="139.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" />
+            <MFXButton fx:id="editProfilePicButton" prefHeight="30.0" prefWidth="126.0" text="Edit Profile Photo">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </MFXButton>
+            <Label fx:id="usernameLabel" prefHeight="30.0" prefWidth="74.0" text="Username">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="emailLabel" prefHeight="18.0" prefWidth="72.0" text="Email" />
+            <MFXButton fx:id="deleteAccButton" prefHeight="42.0" prefWidth="126.0" text="Delete Account" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="64.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="appLogoImg" fitHeight="93.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" />
+            <MFXButton fx:id="budgetCalculatorButton" text="Budget Calculator" />
+            <MFXButton fx:id="homePageButton" text="Homepage" />
+            <MFXButton fx:id="profilePageButton" text="View Profile" />
+            <AnchorPane prefHeight="94.0" prefWidth="426.0">
+               <children>
+                  <Label fx:id="profilePageLabel" layoutX="298.0" layoutY="47.0" text="Profile Page">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </top>
+   <right>
+      <VBox prefHeight="594.0" prefWidth="359.0" BorderPane.alignment="BOTTOM_CENTER">
+         <children>
+            <Label />
+            <HBox prefHeight="106.0" prefWidth="359.0">
+               <children>
+                  <Label fx:id="currentPasswordlabel" prefHeight="18.0" prefWidth="159.0" text="Current Password:  " />
+                  <MFXPasswordField fx:id="currentPasswordField" prefHeight="37.0" prefWidth="206.0">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </MFXPasswordField>
+               </children>
+               <opaqueInsets>
+                  <Insets top="50.0" />
+               </opaqueInsets>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="newPasswordLabel" prefHeight="18.0" prefWidth="156.0" text="New Password:" />
+                  <MFXPasswordField fx:id="newPasswordField" prefHeight="55.0" prefWidth="209.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="104.0" prefWidth="359.0">
+               <children>
+                  <Label fx:id="retypePasswordLabel" prefHeight="18.0" prefWidth="154.0" text="Retype New Password:" />
+                  <MFXPasswordField fx:id="retypePasswordFIeld" prefHeight="55.0" prefWidth="204.0" />
+               </children>
+            </HBox>
+            <MFXButton fx:id="applyButton" text="Apply" />
+            <Label />
+            <ComboBox fx:id="currencyList" prefWidth="150.0" promptText="Select Currency" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets top="70.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+</BorderPane>
