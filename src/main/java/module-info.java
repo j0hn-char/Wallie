@@ -1,6 +1,5 @@
 module application.walliedev {
-    requires javafx.controls;
-    requires javafx.fxml;
+    requires MaterialFX;
 
 
     opens application.walliedev to javafx.fxml;
