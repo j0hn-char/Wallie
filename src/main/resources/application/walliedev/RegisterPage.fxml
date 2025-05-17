@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.mfxcore.controls.Label?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="479.0" layoutY="165.0" text="Register">
+         <font>
+            <Font name="OCR A Extended" size="50.0" />
+         </font>
+      </Label>
+      <MFXTextField fx:id="usernameTxt" layoutX="474.0" layoutY="271.0" prefHeight="0.0" prefWidth="252.0" promptText="Username">
+         <font>
+            <Font size="20.0" />
+         </font></MFXTextField>
+      <MFXPasswordField fx:id="pswdTxt" layoutX="474.0" layoutY="334.0" prefHeight="49.0" prefWidth="252.0" promptText="Password">
+         <font>
+            <Font size="20.0" />
+         </font></MFXPasswordField>
+      <MFXPasswordField fx:id="retypeTxt" layoutX="474.0" layoutY="400.0" prefHeight="49.0" prefWidth="252.0" promptText="Retype Password">
+         <font>
+            <Font size="20.0" />
+         </font></MFXPasswordField>
+      <MFXTextField fx:id="emailTxt" layoutX="474.0" layoutY="461.0" prefHeight="49.0" prefWidth="252.0" promptText="E-mail">
+         <font>
+            <Font size="20.0" />
+         </font></MFXTextField>
+      <MFXButton buttonType="RAISED" layoutX="474.0" layoutY="536.0" prefHeight="37.0" prefWidth="252.0" text="Register">
+         <font>
+            <Font size="15.0" />
+         </font></MFXButton>
+      <Hyperlink fx:id="loginLink" layoutX="504.0" layoutY="604.0" text="Login page" />
+      <Label layoutX="474.0" layoutY="607.0" text="Go to" />
+   </children>
+</AnchorPane>

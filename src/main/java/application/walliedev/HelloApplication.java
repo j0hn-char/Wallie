@@ -21,7 +21,7 @@ public class HelloApplication extends Application {
                 .setResolveAssets(true)
                 .build()
                 .setGlobal();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RegisterPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
