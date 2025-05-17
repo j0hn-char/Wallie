@@ -1,0 +1,54 @@
+/* Customizing MaterialFX Primary Colors */
+.root {
+    -fx-background-color: #F0F0F0; /* Light background color */
+}
+
+/* Customizing MFXButton Style */
+.mfx-button {
+    -fx-background-color: #4CAF50; /* Primary color: Green */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-font-size: 16px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.3, 0, 2);
+}
+
+/* Customizing MFXTextField Style */
+.mfx-text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #4CAF50; /* Primary color: Green */
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 12px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+/* Customizing MFXCheckbox Style */
+.mfx-checkbox .box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 2px;
+    -fx-min-width: 18px;
+    -fx-min-height: 18px;
+}
+
+/* Customizing MFXCheckbox Mark */
+.mfx-checkbox:selected .mark {
+    -fx-background-color: #4CAF50;
+    -fx-border-color: #4CAF50;
+}
+
+.mfx-checkbox .mark {
+    -fx-background-color: transparent;
+    -fx-stroke: #4CAF50;
+    -fx-stroke-width: 2px;
+}
+
+.mfx-ripple {
+    -fx-ripple-fill: #4CAF50; /* green */
+}
+
+.mfx-ripple .ripple {
+    -fx-background-color: #4CAF50;
+}
