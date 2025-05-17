@@ -20,7 +20,7 @@ public class WallieApplication extends Application {
                 .setResolveAssets(true)
                 .build()
                 .setGlobal();
-        FXMLLoader fxmlLoader = new FXMLLoader(WallieApplication.class.getResource("LoginPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(WallieApplication.class.getResource("RegisterPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
