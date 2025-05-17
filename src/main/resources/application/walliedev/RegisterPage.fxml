@@ -15,19 +15,19 @@
             <Font name="OCR A Extended" size="50.0" />
          </font>
       </Label>
-      <MFXTextField fx:id="usernameTxt" layoutX="474.0" layoutY="271.0" prefHeight="0.0" prefWidth="252.0" promptText="Username">
+      <MFXTextField fx:id="usernameTxt" floatMode="BORDER" layoutX="474.0" layoutY="271.0" prefHeight="0.0" prefWidth="252.0" promptText="Username" style="-fx-font-size: 17;">
          <font>
-            <Font size="20.0" />
+            <Font size="1.0" />
          </font></MFXTextField>
-      <MFXPasswordField fx:id="pswdTxt" layoutX="474.0" layoutY="334.0" prefHeight="49.0" prefWidth="252.0" promptText="Password">
+      <MFXPasswordField fx:id="pswdTxt" floatMode="BORDER" layoutX="474.0" layoutY="334.0" prefHeight="49.0" prefWidth="252.0" promptText="Password" style="-fx-font-size: 17;">
          <font>
             <Font size="20.0" />
          </font></MFXPasswordField>
-      <MFXPasswordField fx:id="retypeTxt" layoutX="474.0" layoutY="400.0" prefHeight="49.0" prefWidth="252.0" promptText="Retype Password">
+      <MFXPasswordField fx:id="retypeTxt" floatMode="BORDER" layoutX="474.0" layoutY="400.0" prefHeight="49.0" prefWidth="252.0" promptText="Retype Password" style="-fx-font-size: 17;">
          <font>
             <Font size="20.0" />
          </font></MFXPasswordField>
-      <MFXTextField fx:id="emailTxt" layoutX="474.0" layoutY="461.0" prefHeight="49.0" prefWidth="252.0" promptText="E-mail">
+      <MFXTextField fx:id="emailTxt" floatMode="BORDER" layoutX="474.0" layoutY="461.0" prefHeight="49.0" prefWidth="252.0" promptText="E-mail" style="-fx-font-size: 17;">
          <font>
             <Font size="20.0" />
          </font></MFXTextField>
