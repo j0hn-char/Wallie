@@ -24,6 +24,7 @@ public class WallieApplication extends Application {
                 .setGlobal();
         FXMLLoader fxmlLoader = new FXMLLoader(WallieApplication.class.getResource("LoginPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
 
         stage.setResizable(false);
         stage.getIcons().add(new Image(getClass().getResource("/images/WallieW.png").toExternalForm()));

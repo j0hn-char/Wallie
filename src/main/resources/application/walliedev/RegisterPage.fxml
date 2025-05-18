@@ -43,11 +43,11 @@
          <textFill>
             <Color red="0.3607843220233917" green="0.30588236451148987" blue="0.30588236451148987" opacity="0.8700000047683716" />
          </textFill></MFXTextField>
-      <MFXButton buttonType="RAISED" layoutX="474.0" layoutY="514.0" prefHeight="37.0" prefWidth="252.0" style="-fx-background-color: #988686; -fx-font-size: 17; -fx-text-fill: #d1d0d0; -fx-font-family: Segoe UI Symbol;" text="Register">
+      <MFXButton buttonType="RAISED" layoutX="474.0" layoutY="514.0" onAction="#checkFields" prefHeight="37.0" prefWidth="252.0" style="-fx-background-color: #988686; -fx-font-size: 17; -fx-text-fill: #d1d0d0; -fx-font-family: Segoe UI Symbol;" text="Register">
          <font>
             <Font size="15.0" />
          </font></MFXButton>
-      <Hyperlink fx:id="loginLink" layoutX="635.0" layoutY="600.0" onAction="#switchToLogin" text="Sign in" textFill="#5c4e4e">
+      <Hyperlink layoutX="635.0" layoutY="600.0" onAction="#switchToLogin" text="Sign in" textFill="#5c4e4e">
          <font>
             <Font name="Segoe UI Bold Italic" size="17.0" />
          </font></Hyperlink>
@@ -65,5 +65,10 @@
             <Image url="@../../images/wallieLogo.png" />
          </image>
       </ImageView>
+      <Label fx:id="errorLabel" layoutX="515.0" layoutY="630.0" prefHeight="20.0" prefWidth="171.0" textAlignment="CENTER" textFill="#ab4545">
+         <font>
+            <Font name="Segoe UI Symbol" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
