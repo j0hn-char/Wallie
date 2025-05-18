@@ -23,7 +23,7 @@
          <font>
             <Font size="20.0" />
          </font></MFXPasswordField>
-      <MFXPasswordField fx:id="retypeTxt" floatMode="BORDER" layoutX="474.0" layoutY="400.0" prefHeight="49.0" prefWidth="252.0" promptText="Retype Password" style="-fx-font-size: 17;">
+      <MFXPasswordField fx:id="retypeTxt" floatMode="BORDER" layoutX="474.0" layoutY="400.0" prefHeight="49.0" prefWidth="252.0" promptText="Confirm Password" style="-fx-font-size: 17;">
          <font>
             <Font size="20.0" />
          </font></MFXPasswordField>

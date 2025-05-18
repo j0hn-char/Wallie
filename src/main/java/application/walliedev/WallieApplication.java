@@ -6,6 +6,7 @@ import io.github.palexdev.materialfx.theming.UserAgentBuilder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,12 +21,10 @@ public class WallieApplication extends Application {
                 .setResolveAssets(true)
                 .build()
                 .setGlobal();
-        FXMLLoader fxmlLoader = new FXMLLoader(WallieApplication.class.getResource("RegisterPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(WallieApplication.class.getResource("LoginPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
-
-        stage.setTitle("Hello!");
+        stage.setTitle("Wallie");
         stage.setScene(scene);
         stage.show();
     }

@@ -5,29 +5,51 @@
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import io.github.palexdev.mfxcore.controls.Label?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #988686;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.LoginController">
    <children>
-      <Label layoutX="524.0" layoutY="244.0" text="Login">
+      <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#5c4e4e" height="281.0" layoutX="433.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="335.0" />
+      <MFXTextField id="usernameTxt" fx:id="usernameTxt" floatMode="BORDER" layoutX="474.0" layoutY="331.0" prefHeight="0.0" prefWidth="252.0" promptText="Username" style="-fx-font-size: 17; -fx-background-color: #d1d0d0;">
          <font>
-            <Font name="OCR A Extended" size="50.0" />
+            <Font name="Roboto Light" size="1.0" />
          </font>
-      </Label>
-      <MFXTextField fx:id="usernameTxt" floatMode="BORDER" layoutX="474.0" layoutY="349.0" prefHeight="0.0" prefWidth="252.0" promptText="Username" style="-fx-font-size: 17;">
+         <textFill>
+            <Color red="0.3607843220233917" green="0.30588236451148987" blue="0.30588236451148987" opacity="0.8700000047683716" />
+         </textFill></MFXTextField>
+      <MFXPasswordField fx:id="pswdTxt" floatMode="BORDER" layoutX="474.0" layoutY="394.0" prefHeight="49.0" prefWidth="252.0" promptText="Password" style="-fx-font-size: 17; -fx-background-color: #d1d0d0;">
          <font>
-            <Font size="1.0" />
-         </font></MFXTextField>
-      <MFXPasswordField fx:id="pswdTxt" floatMode="BORDER" layoutX="474.0" layoutY="412.0" prefHeight="49.0" prefWidth="252.0" promptText="Password" style="-fx-font-size: 17;">
-         <font>
-            <Font size="20.0" />
-         </font></MFXPasswordField>
-      <MFXButton buttonType="RAISED" layoutX="474.0" layoutY="478.0" prefHeight="37.0" prefWidth="252.0" text="Login">
+            <Font size="17.0" />
+         </font>
+         <textFill>
+            <Color red="0.3607843220233917" green="0.30588236451148987" blue="0.30588236451148987" opacity="0.8700000047683716" />
+         </textFill></MFXPasswordField>
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL3" layoutX="474.0" layoutY="460.0" prefHeight="37.0" prefWidth="252.0" style="-fx-font-family: Roboto; -fx-font-size: 17; -fx-background-color: #988686; -fx-text-fill: #d1d0d0;" text="Login" textFill="#d1d0d0">
          <font>
             <Font size="15.0" />
          </font></MFXButton>
-      <Hyperlink fx:id="RegisterLink" layoutX="505.0" layoutY="533.0" onAction="#switchToRegister" text="Register page" />
-      <Label layoutX="475.0" layoutY="536.0" text="Go to" />
+      <Hyperlink fx:id="RegisterLink" layoutX="645.0" layoutY="565.0" onAction="#switchToRegister" text="Sign up" textFill="#5c4e4e">
+         <font>
+            <Font name="Segoe UI Bold Italic" size="17.0" />
+         </font></Hyperlink>
+      <Label layoutX="468.0" layoutY="567.0" text="Dont have an account?" textFill="#5c4e4e">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font></Label>
+      <Label layoutX="441.0" layoutY="224.0" text="Welcome to" textFill="#d1d0d0">
+         <font>
+            <Font name="Segoe UI Symbol" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="200.0" fitWidth="245.0" layoutX="591.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/wallieLogo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
