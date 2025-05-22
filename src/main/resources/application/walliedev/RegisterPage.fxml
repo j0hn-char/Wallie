@@ -56,7 +56,7 @@
          <font>
             <Font size="15.0" />
          </font></MFXButton>
-      <Label fx:id="errorLabel" layoutX="515.0" layoutY="630.0" prefHeight="20.0" prefWidth="171.0" textAlignment="CENTER" textFill="#ab4545">
+      <Label fx:id="errorLabel" layoutX="515.0" layoutY="630.0" prefHeight="20.0" prefWidth="171.0" textAlignment="CENTER" textFill="#eb5858">
          <font>
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>
