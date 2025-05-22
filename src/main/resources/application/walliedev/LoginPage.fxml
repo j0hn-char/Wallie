@@ -50,7 +50,7 @@
          <font>
             <Font name="Segoe UI Bold Italic" size="17.0" />
          </font></Hyperlink>
-      <Label layoutX="480.0" layoutY="568.0" text="Dont have an account?" textFill="#23036a">
+      <Label layoutX="480.0" layoutY="568.0" text="Don't have an account?" textFill="#23036a">
          <font>
             <Font name="Segoe UI Italic" size="17.0" />
          </font></Label>
