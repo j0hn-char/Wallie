@@ -2,6 +2,7 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
@@ -81,5 +82,20 @@
             <Font name="Segoe UI Italic" size="17.0" />
          </font>
       </Label>
+      <Rectangle fx:id="blur" arcHeight="5.0" arcWidth="5.0" fill="#f3e9ff" height="800.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <MFXProgressSpinner fx:id="spinner" layoutX="544.0" layoutY="344.0" prefHeight="113.0" prefWidth="113.0" visible="false">
+         <color1>
+            <Color red="0.5555555820465088" green="0.25925925374031067" blue="1.0" />
+         </color1>
+         <color2>
+            <Color red="0.34385964274406433" green="0.011695906519889832" blue="0.8421052694320679" />
+         </color2>
+         <color3>
+            <Color red="0.44070014357566833" green="0.24025341868400574" blue="0.7631579041481018" />
+         </color3>
+         <color4>
+            <Color red="0.38333332538604736" blue="1.0" />
+         </color4>
+      </MFXProgressSpinner>
    </children>
 </AnchorPane>

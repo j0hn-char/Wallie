@@ -1,7 +1,9 @@
 package application.walliedev;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import javax.mail.MessagingException;
@@ -28,6 +31,12 @@ public class RegisterController {
 
     @FXML
     Label errorLabel;
+
+    @FXML
+    MFXProgressSpinner spinner;
+
+    @FXML
+    Rectangle blur;
 
     private Stage stage;
     private Scene scene;
@@ -91,11 +100,13 @@ public class RegisterController {
 
     public void registerButtonPressed(ActionEvent event){
         if(checkFields()) {
-            registerUser();
+            registerUser(event);
         }
     }
 
-    public void registerUser() {
+    public void registerUser(ActionEvent event) {
+        spinner.setVisible(true);
+        blur.setVisible(true);
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -124,11 +135,35 @@ public class RegisterController {
             statement.executeUpdate(insertToRegister);
             System.out.println("User has been created!!");
 
-            try {
-                EmailSender.sendEmail(email, "Welcome to Wallie!", "Hello" + username + "you have successfully registered to Wallie");
-            } catch (MessagingException e) {
-                e.printStackTrace();
-            }
+            Task<Void> emailTask = new Task<>() {
+                @Override
+                protected Void call() {
+                    try {
+                        EmailSender.sendEmail(email, "Welcome to Wallie!", "Hello " + username + ", you have successfully registered to Wallie");
+                    } catch (MessagingException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
+            };
+
+            emailTask.setOnSucceeded(e -> {
+                spinner.setVisible(false);
+                blur.setVisible(false);
+                System.out.println("Email sent successfully");
+                try {
+                    switchToLogin(event);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+            emailTask.setOnFailed(e -> {
+                spinner.setVisible(false);
+                blur.setVisible(false);
+                System.out.println("Email failed to send");
+            });
+
+            new Thread(emailTask).start();
 
         } catch (Exception e) {
             e.printStackTrace();
