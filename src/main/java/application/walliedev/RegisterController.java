@@ -77,7 +77,7 @@ public class RegisterController {
         {
             pswdTxt.getStyleClass().add("error-field");
             retypeTxt.getStyleClass().add("error-field");
-            //errorLabel2.setText("the password fields dont match");
+            //errorLabel2.setText("the password fields do not match");
             System.out.println("Passwords do not match!");
             fieldsAreOk = false;
         }
