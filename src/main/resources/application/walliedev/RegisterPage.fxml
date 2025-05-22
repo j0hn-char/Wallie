@@ -43,7 +43,7 @@
          <textFill>
             <Color red="0.3607843220233917" green="0.30588236451148987" blue="0.30588236451148987" opacity="0.8700000047683716" />
          </textFill></MFXTextField>
-      <MFXButton buttonType="RAISED" layoutX="474.0" layoutY="514.0" onAction="#registerButtonPressed" prefHeight="37.0" prefWidth="252.0" style="-fx-background-color: #988686; -fx-font-size: 17; -fx-text-fill: #d1d0d0; -fx-font-family: Segoe UI Symbol;" text="Register">
+      <MFXButton buttonType="RAISED" layoutX="474.0" layoutY="514.0" onAction="#checkFields" prefHeight="37.0" prefWidth="252.0" style="-fx-background-color: #988686; -fx-font-size: 17; -fx-text-fill: #d1d0d0; -fx-font-family: Segoe UI Symbol;" text="Register">
          <font>
             <Font size="15.0" />
          </font></MFXButton>
@@ -70,10 +70,5 @@
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>
       </Label>
-      <MFXButton buttonType="RAISED" layoutX="484.0" layoutY="524.0" onAction="#registerButtonPressed" prefHeight="37.0" prefWidth="252.0" style="-fx-background-color: #988686; -fx-font-size: 17; -fx-text-fill: #d1d0d0; -fx-font-family: Segoe UI Symbol;" text="Register">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </MFXButton>
    </children>
 </AnchorPane>
