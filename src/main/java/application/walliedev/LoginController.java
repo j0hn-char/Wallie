@@ -76,7 +76,7 @@ public class LoginController {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String verifyLogin = "SELECT count(1) FROM users WHERE username = '" + usernameTxt.getText() + "' AND password = '" + pswdTxt.getText() + "'";
+        String verifyLogin = "SELECT count(1) FROM users WHERE username = '" + usernameTxt.getText().trim() + "' AND password = '" + pswdTxt.getText() + "'";
 
         try{
 
