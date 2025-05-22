@@ -12,6 +12,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import javax.mail.MessagingException;
 import javax.swing.plaf.nimbus.State;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -122,6 +123,12 @@ public class RegisterController {
 
             statement.executeUpdate(insertToRegister);
             System.out.println("User has been created!!");
+
+            try {
+                EmailSender.sendEmail(email, "Welcome to Wallie!", "Hello" + username + "you have successfully registered to Wallie");
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
