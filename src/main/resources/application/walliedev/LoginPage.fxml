@@ -42,7 +42,7 @@
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill></MFXPasswordField>
-      <MFXButton buttonType="RAISED" depthLevel="LEVEL3" layoutX="474.0" layoutY="464.0" onAction="#checkFields" prefHeight="48.0" prefWidth="252.0" style="-fx-background-color: #6200ee; -fx-font-size: 18; -fx-text-fill: #cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI Symbol; -fx-border-radius: 15; -fx-background-radius: 15;" text="Login" textFill="#d1d0d0">
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL3" layoutX="474.0" layoutY="464.0" onAction="#loginButtonPressed" prefHeight="48.0" prefWidth="252.0" style="-fx-background-color: #6200ee; -fx-font-size: 18; -fx-text-fill: #cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI Symbol; -fx-border-radius: 15; -fx-background-radius: 15;" text="Login" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font></MFXButton>
