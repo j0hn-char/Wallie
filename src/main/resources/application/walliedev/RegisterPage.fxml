@@ -2,7 +2,6 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
-<?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import io.github.palexdev.mfxcore.controls.Label?>
 <?import javafx.scene.control.Hyperlink?>
@@ -44,11 +43,11 @@
          <textFill>
             <Color red="0.3607843220233917" green="0.30588236451148987" blue="0.30588236451148987" opacity="0.8700000047683716" />
          </textFill></MFXTextField>
-      <MFXButton buttonType="RAISED" layoutX="475.0" layoutY="510.0" onAction="#registerButtonPressed" prefHeight="48.0" prefWidth="252.0" style="-fx-background-color: #6200ee; -fx-font-size: 18; -fx-text-fill: #cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI Symbol; -fx-border-radius: 15; -fx-background-radius: 15;" text="Register">
+      <MFXButton buttonType="RAISED" layoutX="474.0" layoutY="514.0" onAction="#checkFields" prefHeight="37.0" prefWidth="252.0" style="-fx-background-color: #988686; -fx-font-size: 17; -fx-text-fill: #d1d0d0; -fx-font-family: Segoe UI Symbol;" text="Register">
          <font>
             <Font size="15.0" />
          </font></MFXButton>
-      <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="374.0" layoutY="630.0" prefHeight="20.0" prefWidth="453.0" textAlignment="CENTER" textFill="#ab4545">
+      <Hyperlink layoutX="635.0" layoutY="600.0" onAction="#switchToLogin" text="Sign in" textFill="#5c4e4e">
          <font>
             <Font name="Segoe UI Bold Italic" size="17.0" />
          </font></Hyperlink>
@@ -71,20 +70,5 @@
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>
       </Label>
-      <Rectangle fx:id="blur" arcHeight="5.0" arcWidth="5.0" fill="#f3e9ff" height="800.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
-      <MFXProgressSpinner fx:id="spinner" layoutX="544.0" layoutY="344.0" prefHeight="113.0" prefWidth="113.0" visible="false">
-         <color1>
-            <Color red="0.5555555820465088" green="0.25925925374031067" blue="1.0" />
-         </color1>
-         <color2>
-            <Color red="0.34385964274406433" green="0.011695906519889832" blue="0.8421052694320679" />
-         </color2>
-         <color3>
-            <Color red="0.44070014357566833" green="0.24025341868400574" blue="0.7631579041481018" />
-         </color3>
-         <color4>
-            <Color red="0.38333332538604736" blue="1.0" />
-         </color4>
-      </MFXProgressSpinner>
    </children>
 </AnchorPane>
