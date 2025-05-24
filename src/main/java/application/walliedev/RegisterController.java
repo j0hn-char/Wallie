@@ -11,10 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
-import javax.swing.plaf.nimbus.State;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.io.File;
 import java.net.URL;
@@ -94,7 +91,7 @@ public class RegisterController {
         }
     }
 
-    public void registerUser() {
+    public void registerUser(){
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -105,28 +102,8 @@ public class RegisterController {
         int preferredCurrency = 1;
         int profileImg = 1;
 
-        String checkIfExistsQuery = "SELECT COUNT(*) FROM Users WHERE username = '" + username + "' OR email = '" + email + "'";
-
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet resultSet = statement.executeQuery(checkIfExistsQuery);
-
-            if (resultSet.next() && resultSet.getInt(1) > 0) {
-                System.out.println("Username or email already exists!");
-                return;
-            }
-
-            String insertFields = "INSERT INTO Users(username, password, email, preferredCurrency, profileImg) VALUES ('";
-            String insertValues = username + "','" + password + "','" + email + "','" + preferredCurrency + "','" + profileImg + "')";
-            String insertToRegister = insertFields + insertValues;
-
-            statement.executeUpdate(insertToRegister);
-            System.out.println("User has been created!!");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-
+        String insertFields = "";
+        String insertValues = "";
+        String insertToRegister = insertFields + insertValues;
     }
 }
