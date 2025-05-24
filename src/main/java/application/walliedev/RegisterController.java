@@ -84,14 +84,18 @@ public class RegisterController {
             fieldsAreOk = false;
             emailTxt.getStyleClass().add("error-field");
             errorLabel.setText("please fill out all the fields");
+        }else if(!emailTxt.getText().trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")){
+            emailTxt.getStyleClass().add("error-field");
+            errorLabel.setText("Please enter a valid email address");
+            fieldsAreOk = false;
         }
 
         if(!pswdTxt.getText().trim().equals(retypeTxt.getText().trim()))
         {
             pswdTxt.getStyleClass().add("error-field");
             retypeTxt.getStyleClass().add("error-field");
-            //errorLabel2.setText("the password fields do not match");
-            System.out.println("Passwords do not match!");
+            errorLabel.setText("the password fields do not match");
+//            System.out.println("Passwords do not match!");
             fieldsAreOk = false;
         }
 

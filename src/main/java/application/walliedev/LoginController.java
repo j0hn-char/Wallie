@@ -86,6 +86,7 @@ public class LoginController {
             while(queryResult.next()){
                 if(queryResult.getInt(1) == 1) {
                     System.out.println("You logged IN!!!");
+
                 } else {
                     System.out.println("Wrong Credentials!");
                 }
