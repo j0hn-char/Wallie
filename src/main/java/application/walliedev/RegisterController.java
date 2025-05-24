@@ -14,6 +14,10 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.io.File;
+import java.net.URL;
 
 import javax.mail.MessagingException;
 import javax.swing.plaf.nimbus.State;
@@ -106,6 +110,39 @@ public class RegisterController {
         if(checkFields()) {
             registerUser(event);
         }
+
+        if(!pswdTxt.getText().trim().equals(retypeTxt.getText().trim()))
+        {
+            pswdTxt.getStyleClass().add("error-field");
+            retypeTxt.getStyleClass().add("error-field");
+            //errorLabel2.setText("the password fields do not match");
+            System.out.println("Passwords do not match!");
+            fieldsAreOk = false;
+        }
+
+        return fieldsAreOk;
+    }
+
+    public void registerButtonPressed(ActionEvent event){
+        if(checkFields()) {
+            registerUser();
+        }
+    }
+
+    public void registerUser(){
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String username = usernameTxt.getText().trim();
+        String password = pswdTxt.getText();
+        String email = emailTxt.getText().trim();
+        int preferredCurrency = 1;
+        int profileImg = 1;
+
+        String insertFields = "";
+        String insertValues = "";
+        String insertToRegister = insertFields + insertValues;
     }
 
     public void registerUser(ActionEvent event) {
