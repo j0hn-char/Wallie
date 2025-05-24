@@ -59,7 +59,7 @@
             <Font name="Segoe UI Symbol" size="35.0" />
          </font>
       </Label>
-      <Label fx:id="errorLabel" layoutX="529.0" layoutY="594.0" textFill="#eb5858">
+      <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="394.0" layoutY="594.0" prefHeight="22.0" prefWidth="412.0" textAlignment="CENTER" textFill="#eb5858">
          <font>
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>

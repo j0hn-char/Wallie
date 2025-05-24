@@ -87,5 +87,15 @@
             <Color red="0.38333332538604736" blue="1.0" />
          </color4>
       </MFXProgressSpinner>
+      <Label layoutX="391.0" layoutY="131.0" prefHeight="51.0" prefWidth="194.0" text="Welcome to" textFill="#23036a">
+         <font>
+            <Font name="Segoe UI Symbol" size="35.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="395.0" layoutY="638.0" prefHeight="22.0" prefWidth="412.0" textAlignment="CENTER" textFill="#eb5858">
+         <font>
+            <Font name="Segoe UI Symbol" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
