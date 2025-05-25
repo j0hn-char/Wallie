@@ -23,10 +23,10 @@ import java.io.IOException;
 
 public class LoginController {
     @FXML
-    MFXTextField usernameTxt, pswdTxt;
+    private MFXTextField usernameTxt, pswdTxt;
 
     @FXML
-    Label errorLabel;
+    private Label errorLabel;
 
     private Stage stage;
     private Scene scene;
@@ -34,6 +34,21 @@ public class LoginController {
 
     public void switchToRegister(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("RegisterPage.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void switchToHomepage(ActionEvent event, String username) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
+        root = loader.load();
+
+        HomepageController controller = loader.getController();
+        controller.setUser(username);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
@@ -68,11 +83,11 @@ public class LoginController {
 
     public void loginButtonPressed(ActionEvent event) {
         if (checkFields()){
-            validateLogin();
+            validateLogin(event);
         }
     }
 
-    public void validateLogin(){
+    public void validateLogin(ActionEvent event){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -86,6 +101,8 @@ public class LoginController {
             while(queryResult.next()){
                 if(queryResult.getInt(1) == 1) {
                     System.out.println("You logged IN!!!");
+
+                    switchToHomepage(event, usernameTxt.getText());
                 } else {
                     System.out.println("Wrong Credentials!");
                 }
