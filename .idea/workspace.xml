@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987ae0d5-e8b1-4858-ba87-72e33f258a57" name="Changes" comment="fixed the whole mess (my bad)" />
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="added the Budget class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/DatabaseConnection.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,15 +17,27 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="email/Giannis" />
+        <entry key="$PROJECT_DIR$" value="budgetClass/Lina" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,13 +45,13 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;j0hn-char&quot;
+    &quot;assignee&quot;: &quot;paschalina-aggelousi&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/j0hn-char/Wallie.git&quot;,
-    &quot;accountId&quot;: &quot;16778457-fa30-4f36-9c63-f8c193ec570b&quot;
+    &quot;accountId&quot;: &quot;9578ffc1-1b2d-44f3-80d0-b36543df3e6e&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -45,13 +61,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2wrd67ChEjuc167eJt87SFsRPBh" />
+  <component name="ProjectId" id="2wdLrwvTZ0GWvM749sXkbvrePvc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -64,30 +77,22 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "newBudgetClass/Lina",
     "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/fonts",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
+    "last_opened_file_path": "C:/Users/empit/OneDrive/Υπολογιστής/Wallie",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.46206897",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\j0hn_char\Desktop\Wallie\src\main\resources\fonts" />
-      <recent name="C:\Users\j0hn_char\Desktop\Wallie\src\main\resources\application\walliedev" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="application.walliedev" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="WallieApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="application.walliedev.WallieApplication" />
       <module name="WallieDev" />
       <method v="2">
@@ -106,239 +111,32 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="987ae0d5-e8b1-4858-ba87-72e33f258a57" name="Changes" comment="" />
-      <created>1746803448800</created>
+      <changelist id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="" />
+      <created>1746366706898</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1746803448800</updated>
-      <workItem from="1746803449985" duration="5849000" />
-      <workItem from="1746830790808" duration="1477000" />
-      <workItem from="1747486579471" duration="8776000" />
-      <workItem from="1747496083985" duration="60000" />
-      <workItem from="1747496264283" duration="2797000" />
-      <workItem from="1747570050868" duration="13222000" />
-      <workItem from="1747590246500" duration="2858000" />
-      <workItem from="1747593135016" duration="149000" />
-      <workItem from="1747593291660" duration="502000" />
-      <workItem from="1747685150776" duration="33000" />
-      <workItem from="1747685785212" duration="33000" />
-      <workItem from="1747686480853" duration="561000" />
-      <workItem from="1747687052061" duration="298000" />
-      <workItem from="1747687383945" duration="1000" />
-      <workItem from="1747747421185" duration="922000" />
-      <workItem from="1747748529977" duration="32000" />
-      <workItem from="1747751253157" duration="118000" />
-      <workItem from="1747770111234" duration="27000" />
-      <workItem from="1747847607600" duration="468000" />
-      <workItem from="1747848359917" duration="9000" />
-      <workItem from="1747848383108" duration="314000" />
-      <workItem from="1747848709434" duration="1000" />
-      <workItem from="1747848979431" duration="1093000" />
-      <workItem from="1747850229039" duration="690000" />
-      <workItem from="1747851022933" duration="177000" />
-      <workItem from="1747851209569" duration="451000" />
-      <workItem from="1747853060762" duration="858000" />
-      <workItem from="1747853938638" duration="204000" />
-      <workItem from="1747854160348" duration="252000" />
-      <workItem from="1747854425570" duration="189000" />
-      <workItem from="1747854628844" duration="32000" />
-      <workItem from="1747854670206" duration="33000" />
-      <workItem from="1747854711174" duration="25000" />
-      <workItem from="1747854903230" duration="464000" />
-      <workItem from="1747855382370" duration="15000" />
-      <workItem from="1747855448336" duration="112000" />
-      <workItem from="1747855569205" duration="187000" />
-      <workItem from="1747855952538" duration="59000" />
-      <workItem from="1747856021987" duration="106000" />
-      <workItem from="1747856421926" duration="549000" />
-      <workItem from="1747857166559" duration="315000" />
-      <workItem from="1747857609506" duration="36000" />
-      <workItem from="1747858057186" duration="37000" />
-      <workItem from="1747858288987" duration="15000" />
-      <workItem from="1747858395575" duration="30000" />
-      <workItem from="1747860725201" duration="98000" />
-      <workItem from="1747860831875" duration="95000" />
-      <workItem from="1747861781694" duration="119000" />
-      <workItem from="1747861913489" duration="88000" />
-      <workItem from="1747862011273" duration="41000" />
-      <workItem from="1747862069970" duration="94000" />
-      <workItem from="1747862268296" duration="22000" />
-      <workItem from="1747862324582" duration="46000" />
-      <workItem from="1747862566043" duration="35000" />
-      <workItem from="1747862749033" duration="108000" />
-      <workItem from="1747862879576" duration="258000" />
-      <workItem from="1747863150251" duration="147000" />
-      <workItem from="1747927584780" duration="7795000" />
-      <workItem from="1747935789780" duration="6963000" />
-      <workItem from="1747949614601" duration="2000" />
-      <workItem from="1747949629215" duration="2707000" />
-      <workItem from="1748019020960" duration="2044000" />
-      <workItem from="1748081838866" duration="2991000" />
-      <workItem from="1748084893440" duration="343000" />
-      <workItem from="1748085247467" duration="208000" />
-      <workItem from="1748085480281" duration="800000" />
-      <workItem from="1748086302710" duration="175000" />
+      <updated>1746366706898</updated>
     </task>
-    <task id="LOCAL-00001" summary="added materialFX to the project">
+    <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
-      <created>1746810406758</created>
+      <created>1746809293458</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1746810406758</updated>
+      <updated>1746809293458</updated>
     </task>
-    <task id="LOCAL-00002" summary="made material fx  green">
+    <task id="LOCAL-00002" summary="added the Budget class">
       <option name="closed" value="true" />
-      <created>1747487779792</created>
+      <created>1748172109447</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1747487779792</updated>
+      <updated>1748172109447</updated>
     </task>
-    <task id="LOCAL-00003" summary="created fxml for register window">
-      <option name="closed" value="true" />
-      <created>1747492322302</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1747492322302</updated>
-    </task>
-    <task id="LOCAL-00004" summary="created fxml for login window">
-      <option name="closed" value="true" />
-      <created>1747493866983</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1747493866983</updated>
-    </task>
-    <task id="LOCAL-00005" summary="test">
-      <option name="closed" value="true" />
-      <created>1747494566927</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1747494566927</updated>
-    </task>
-    <task id="LOCAL-00006" summary="made it so that you can switch between login and register">
-      <option name="closed" value="true" />
-      <created>1747495924264</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1747495924264</updated>
-    </task>
-    <task id="LOCAL-00007" summary="styled login page">
-      <option name="closed" value="true" />
-      <created>1747574898058</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1747574898060</updated>
-    </task>
-    <task id="LOCAL-00008" summary="added logo as application icon">
-      <option name="closed" value="true" />
-      <created>1747577663100</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1747577663100</updated>
-    </task>
-    <task id="LOCAL-00009" summary="styled login window also and added basic check for empty fields">
-      <option name="closed" value="true" />
-      <created>1747582316763</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1747582316763</updated>
-    </task>
-    <task id="LOCAL-00010" summary="restyled login and register windows">
-      <option name="closed" value="true" />
-      <created>1747932228213</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1747932228213</updated>
-    </task>
-    <task id="LOCAL-00011" summary="restyled login and register windows">
-      <option name="closed" value="true" />
-      <created>1747932975286</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1747932975286</updated>
-    </task>
-    <task id="LOCAL-00012" summary="fixed error label color">
-      <option name="closed" value="true" />
-      <created>1747938203481</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1747938203481</updated>
-    </task>
-    <task id="LOCAL-00013" summary="wallie can now send an email confirmation after a user registers">
-      <option name="closed" value="true" />
-      <created>1747940924808</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1747940924808</updated>
-    </task>
-    <task id="LOCAL-00014" summary="made the email sending task run in the background so that it doesnt freeze the UI, also added progress spinner while the email is sending.">
-      <option name="closed" value="true" />
-      <created>1747952344870</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1747952344870</updated>
-    </task>
-    <task id="LOCAL-00015" summary="some tweaks">
-      <option name="closed" value="true" />
-      <created>1748083633165</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1748083633165</updated>
-    </task>
-    <task id="LOCAL-00016" summary="files that were unversioned">
-      <option name="closed" value="true" />
-      <created>1748083791110</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1748083791110</updated>
-    </task>
-    <task id="LOCAL-00017" summary="fixed register page">
-      <option name="closed" value="true" />
-      <created>1748086205666</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1748086205666</updated>
-    </task>
-    <task id="LOCAL-00018" summary="fixed the whole mess (my bad)">
-      <option name="closed" value="true" />
-      <created>1748088939897</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1748088939897</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -346,12 +144,17 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/ExpenseClassAndRegister/mhtsos" />
                       </list>
                     </value>
                   </entry>
@@ -364,27 +167,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added materialFX to the project" />
-    <MESSAGE value="made material fx  green" />
-    <MESSAGE value="created fxml for register window" />
-    <MESSAGE value="created fxml for login window" />
-    <MESSAGE value="test" />
-    <MESSAGE value="made it so that you can switch between login and register" />
-    <MESSAGE value="styled login page" />
-    <MESSAGE value="added logo as application icon" />
-    <MESSAGE value="styled login window also and added basic check for empty fields" />
-    <MESSAGE value="restyled login and register windows" />
-    <MESSAGE value="fixed error label color" />
-    <MESSAGE value="wallie can now send an email confirmation after a user registers" />
-    <MESSAGE value="made the email sending task run in the background so that it doesnt freeze the UI, also added progress spinner while the email is sending." />
-    <MESSAGE value="some tweaks" />
-    <MESSAGE value="files that were unversioned" />
-    <MESSAGE value="fixed register page" />
-    <MESSAGE value="fixed the whole mess (my bad)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the whole mess (my bad)" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="created the Budget class" />
+    <MESSAGE value="added the Budget class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the Budget class" />
   </component>
 </project>
