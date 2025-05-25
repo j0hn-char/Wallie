@@ -104,7 +104,7 @@ public class RegisterController {
     }
 
     public void registerUser(ActionEvent event) {
-        spinner.setVisible(true);
+        spinner.setVisible(true); //test
         blur.setVisible(true);
 
         DatabaseConnection connectNow = new DatabaseConnection();
