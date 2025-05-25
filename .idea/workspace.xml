@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="added the Budget class">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="fixed the whole mess (my bad)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Expense.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/DatabaseConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "newBudgetClass/Lina",
+    "git-widget-placeholder": "newExpenseClass/Lina",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/empit/OneDrive/Υπολογιστής/Wallie",
     "project.structure.last.edited": "Modules",
