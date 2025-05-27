@@ -17,19 +17,19 @@ public class Budget {
         this.expenseHistory = new ArrayList<>();
     }
 
-    public void addExpense(Expense expense){
-        this.expenseHistory.add(expense);
-    }
-
-    private void checkBalance(){
-
-    }
-
-    private void checkCategoryBalance(){
-
-    }
-
-    public ArrayList<Expense> getExpenseHistory(){
-
-    }
+//    public void addExpense(Expense expense){
+//        this.expenseHistory.add(expense);
+//    }
+//
+//    private void checkBalance(){
+//
+//    }
+//
+//    private void checkCategoryBalance(){
+//
+//    }
+//
+//    public ArrayList<Expense> getExpenseHistory(){
+//
+//    }
 }
