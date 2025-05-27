@@ -26,16 +26,16 @@ import java.io.IOException;
 
 public class RegisterController {
     @FXML
-    MFXTextField usernameTxt, pswdTxt, retypeTxt, emailTxt;
+    private MFXTextField usernameTxt, pswdTxt, retypeTxt, emailTxt;
 
     @FXML
-    Label errorLabel;
+    private Label errorLabel;
 
     @FXML
-    MFXProgressSpinner spinner;
+    private MFXProgressSpinner spinner;
 
     @FXML
-    Rectangle blur;
+    private Rectangle blur;
 
     private Stage stage;
     private Scene scene;
