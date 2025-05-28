@@ -5,7 +5,7 @@ public class User {
     private String password;
     private String email;
     private String currency;
-    private Budget budget;
+    //private Budget budget;
     private int profilePicture; //ID(number) of the picture selected by the user
 
     public User(String username, String password, String email) {
