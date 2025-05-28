@@ -1,6 +1,6 @@
 package application.walliedev;
 
-import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,16 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.io.File;
-import java.net.URL;
 
 import java.io.IOException;
 
@@ -27,6 +24,12 @@ public class LoginController {
 
     @FXML
     private Label errorLabel;
+
+    @FXML
+    private MFXProgressSpinner spinner;
+
+    @FXML
+    private Rectangle blur;
 
     private Stage stage;
     private Scene scene;
@@ -88,6 +91,10 @@ public class LoginController {
     }
 
     public void validateLogin(ActionEvent event){
+        errorLabel.setText("");
+        spinner.setVisible(true);
+        blur.setVisible(true);
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -100,13 +107,14 @@ public class LoginController {
 
             while(queryResult.next()){
                 if(queryResult.getInt(1) == 1) {
-                    System.out.println("You logged IN!!!");
-
+                    System.out.println("successful login");
                     switchToHomepage(event, usernameTxt.getText());
                 } else {
-                    System.out.println("Wrong Credentials!");
+                    errorLabel.setText("Incorrect password or username");
                 }
             }
+            spinner.setVisible(false);
+            blur.setVisible(false);
 
         }catch (Exception e) {
             e.printStackTrace();
