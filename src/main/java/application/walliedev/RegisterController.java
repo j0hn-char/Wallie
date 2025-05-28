@@ -138,7 +138,7 @@ public class RegisterController {
                 @Override
                 protected Void call() {
                     try {
-                        EmailSender.sendEmail(email, "Welcome to Wallie!", "Hello " + username + ", you have successfully registered to Wallie");
+                        EmailSender.sendEmail(email, "Welcome to Wallie!", username);
                     } catch (MessagingException e) {
                         e.printStackTrace();
                     }
