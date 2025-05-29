@@ -50,6 +50,7 @@ public class LoginController {
         root = loader.load();
 
         HomepageController controller = loader.getController();
+        controller.initializeCategoryLists();
         controller.setUser(username);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

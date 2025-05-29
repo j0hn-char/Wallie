@@ -76,7 +76,7 @@
             <Font name="Segoe UI Semibold" size="31.0" />
          </font>
       </Label>
-      <MFXTextField floatMode="BORDER" layoutX="695.0" layoutY="193.0" prefHeight="44.0" prefWidth="150.0" promptText="Expense name" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXTextField fx:id="expenseNameTxt" floatMode="BORDER" layoutX="695.0" layoutY="193.0" prefHeight="44.0" prefWidth="150.0" promptText="Expense name" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -84,7 +84,7 @@
             <Font name="Segoe UI Symbol" size="12.0" />
          </font>
       </MFXTextField>
-      <MFXTextField alignment="CENTER" floatMode="BORDER" layoutX="695.0" layoutY="250.0" prefHeight="44.0" prefWidth="131.0" promptText="Amount" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXTextField fx:id="amountTxt" alignment="CENTER" floatMode="BORDER" layoutX="695.0" layoutY="250.0" prefHeight="44.0" prefWidth="131.0" promptText="Amount" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -97,7 +97,7 @@
             <Font name="Segoe UI Semibold" size="32.0" />
          </font>
       </Label>
-      <MFXComboBox floatMode="BORDER" layoutX="882.0" layoutY="230.0" prefHeight="44.0" prefWidth="150.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXComboBox fx:id="categoryBox" floatMode="BORDER" layoutX="882.0" layoutY="230.0" prefHeight="44.0" prefWidth="150.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -110,12 +110,12 @@
             <Font name="Segoe UI Semibold" size="17.0" />
          </font>
       </Label>
-      <MFXButton buttonType="RAISED" layoutX="717.0" layoutY="311.0" onAction="#addPayment" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Add" textFill="#d1d0d0">
+      <MFXButton fx:id="addBtn" buttonType="RAISED" layoutX="717.0" layoutY="311.0" onAction="#addPayment" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Add" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
       </MFXButton>
-      <MFXButton buttonType="RAISED" layoutX="879.0" layoutY="311.0" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Clear" textFill="#d1d0d0">
+      <MFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="879.0" layoutY="311.0" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Clear" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -125,7 +125,7 @@
             <Font name="Segoe UI Semibold" size="25.0" />
          </font>
       </Label>
-      <VBox layoutX="74.0" layoutY="476.0" prefHeight="280.0" prefWidth="388.0" spacing="10.0">
+      <VBox fx:id="categoriesVBox" layoutX="74.0" layoutY="476.0" prefHeight="280.0" prefWidth="388.0" spacing="10.0">
          <children>
             <VBox prefHeight="44.0" prefWidth="332.0">
                <children>
@@ -143,7 +143,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <MFXProgressBar prefHeight="12.0" prefWidth="361.0" progress="0.44" />
+                  <MFXProgressBar prefHeight="12.0" prefWidth="361.0" progress="0.71" />
                </children>
             </VBox>
             <VBox prefHeight="44.0" prefWidth="332.0">
@@ -262,5 +262,10 @@
             <VBox fx:id="paymentListBox" prefHeight="200.0" prefWidth="100.0" spacing="5.0" />
          </content>
       </MFXScrollPane>
+      <Label fx:id="noBudgetLabel" layoutX="108.0" layoutY="566.0" prefHeight="80.0" prefWidth="278.0" text="Create a new budget using Wallie Ai to see stats" textAlignment="CENTER" textFill="#9e9e9e" visible="false" wrapText="true">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

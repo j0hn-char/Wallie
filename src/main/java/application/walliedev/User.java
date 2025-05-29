@@ -1,31 +1,23 @@
 package application.walliedev;
 
 public class User {
+    private int userID;
     private String username;
     private String password;
     private String email;
-    private String currency;
-    private int budget; //change type to budget when budget class created
+    private int currency;
     private int profilePicture; //ID(number) of the picture selected by the user
 
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.currency = "€";
-        this.profilePicture = 1;
-    }
-
-    public User(String username, String password, String email, String currency, int profilePicture, int budget) {
+    public User(int userID, String username, String password, String email, int currency, int profilePicture) {
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.email = email;
         this.currency = currency;
         this.profilePicture = profilePicture;
-        this.budget = budget;
     }
 
-    public void setCurrency(String currency) {
+    public void setCurrency(int currency) {
         this.currency = currency;
     }
 
@@ -33,11 +25,15 @@ public class User {
         this.profilePicture = profilePicture;
     }
 
-    public void setBudget(int budget) {
-        this.budget = budget;
+    private boolean checkPasswords(String password1, String password2){
+        return password1.equals(password2);
     }
 
-    boolean checkPasswords(String password1, String password2){
-        return password1.equals(password2);
+    public int getCurrency() {
+        return currency;
+    }
+
+    public int getID() {
+        return userID;
     }
 }
