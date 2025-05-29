@@ -178,8 +178,6 @@ public class HomepageController {
         paymentListBox.getChildren().addFirst(separator);
         paymentListBox.getChildren().addFirst(row);
 
-//        System.out.println(categoryIDList.get(category));
-
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 

@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="made progress on the homepage fxml">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="connected homepage with DB">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Expense.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +150,7 @@
       <workItem from="1748546647360" duration="52000" />
       <workItem from="1748546713818" duration="819000" />
       <workItem from="1748547549564" duration="2777000" />
-      <workItem from="1748550370246" duration="1034000" />
+      <workItem from="1748550370246" duration="2815000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -189,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748444089634</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="connected homepage with DB">
+      <option name="closed" value="true" />
+      <created>1748551697800</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1748551697800</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +229,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created the Budget class" />
     <MESSAGE value="added the Budget class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the Budget class" />
+    <MESSAGE value="connected homepage with DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="connected homepage with DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
