@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="made progress on the homepage fxml">
+    <list default="true" id="f323fcf9-6e63-48e9-9e86-0e9574271db0" name="Changes" comment="Created the register and login form and connected them with the database. A user can be created or you can login with username and password while certain checks are being run.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Expense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,27 +18,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="master" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="budgetClass/Lina" />
+        <entry key="$PROJECT_DIR$" value="mhtsos" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,13 +34,13 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;paschalina-aggelousi&quot;
+    &quot;assignee&quot;: &quot;dtsakiridis05&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/j0hn-char/Wallie.git&quot;,
-    &quot;accountId&quot;: &quot;16778457-fa30-4f36-9c63-f8c193ec570b&quot;
+    &quot;accountId&quot;: &quot;50434323-9ef9-4981-bfe3-3b99bbfcea62&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -66,170 +51,114 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2wdLrwvTZ0GWvM749sXkbvrePvc" />
+  <component name="ProjectId" id="2wrdIv0i3btiulKDjII7UXNWM2H" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WallieApplication.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Homepage/Giannis&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/empit/OneDrive/Υπολογιστής/Wallie&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.WallieApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Homepage/Giannis",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/jim/Desktop/Wallie",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="application.walliedev" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="application.walliedev.WallieApplication" />
-      <module name="WallieDev" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
-      </set>
-    </attachedChunks>
-  </component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="" />
-      <created>1746366706898</created>
+      <changelist id="f323fcf9-6e63-48e9-9e86-0e9574271db0" name="Changes" comment="" />
+      <created>1746803549474</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1746366706898</updated>
-      <workItem from="1748181136711" duration="1150000" />
-      <workItem from="1748184035248" duration="1480000" />
-      <workItem from="1748194184835" duration="1213000" />
-      <workItem from="1748200065036" duration="2297000" />
-      <workItem from="1748255891930" duration="1600000" />
-      <workItem from="1748438348876" duration="2471000" />
-      <workItem from="1748449934071" duration="604000" />
-      <workItem from="1748459132264" duration="469000" />
-      <workItem from="1748535568411" duration="40000" />
-      <workItem from="1748535727748" duration="57000" />
-      <workItem from="1748535905966" duration="127000" />
-      <workItem from="1748536477993" duration="322000" />
-      <workItem from="1748537013716" duration="49000" />
-      <workItem from="1748537071809" duration="29000" />
-      <workItem from="1748537112125" duration="30000" />
-      <workItem from="1748537239470" duration="325000" />
-      <workItem from="1748537582423" duration="79000" />
-      <workItem from="1748537695219" duration="460000" />
-      <workItem from="1748540483236" duration="6074000" />
-      <workItem from="1748546647360" duration="52000" />
-      <workItem from="1748546713818" duration="819000" />
-      <workItem from="1748547549564" duration="2777000" />
-      <workItem from="1748550370246" duration="1034000" />
+      <updated>1746803549474</updated>
     </task>
-    <task id="LOCAL-00001" summary="created the Budget class">
+    <task id="LOCAL-00001" summary="Created Register window and Expense class">
       <option name="closed" value="true" />
-      <created>1746809293458</created>
+      <created>1746809134084</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1746809293458</updated>
+      <updated>1746809134084</updated>
     </task>
-    <task id="LOCAL-00002" summary="added the Budget class">
+    <task id="LOCAL-00002" summary="Connected app with DB and created the query for the login">
       <option name="closed" value="true" />
-      <created>1748172109447</created>
+      <created>1747771849697</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1748172109447</updated>
+      <updated>1747771849697</updated>
     </task>
-    <task id="LOCAL-00003" summary="Merge remote-tracking branch 'origin/master' into Homepage/Giannis&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+    <task id="LOCAL-00003" summary="test">
       <option name="closed" value="true" />
-      <created>1748181005700</created>
+      <created>1747932620646</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1748181005700</updated>
+      <updated>1747932620646</updated>
     </task>
-    <task id="LOCAL-00004" summary="made progress on the homepage fxml">
+    <task id="LOCAL-00004" summary="test">
       <option name="closed" value="true" />
-      <created>1748444089634</created>
+      <created>1747933200205</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1748444089634</updated>
+      <updated>1747933200205</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="test">
+      <option name="closed" value="true" />
+      <created>1747933471763</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747933471763</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test">
+      <option name="closed" value="true" />
+      <created>1747934536921</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747934536921</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Created the register and login form and connected them with the database. A user can be created or you can login with username and password while certain checks are being run.">
+      <option name="closed" value="true" />
+      <created>1747938861537</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747938861537</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
-                <map>
-                  <entry key="Show.Git.Branches" value="false" />
-                </map>
-              </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/ExpenseClassAndRegister/mhtsos" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created the Budget class" />
-    <MESSAGE value="added the Budget class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the Budget class" />
+    <MESSAGE value="Created Register window and Expense class" />
+    <MESSAGE value="Connected app with DB and created the query for the login" />
+    <MESSAGE value="test" />
+    <MESSAGE value="Created the register and login form and connected them with the database. A user can be created or you can login with username and password while certain checks are being run." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created the register and login form and connected them with the database. A user can be created or you can login with username and password while certain checks are being run." />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/application/walliedev/WallieApplication.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
