@@ -180,8 +180,10 @@ public class HomepageController {
 
         paymentListBox.getChildren().addFirst(separator);
         paymentListBox.getChildren().addFirst(row);
+    }
 
-//        System.out.println(categoryIDList.get(category));
+    private void addPaymentRowAndSave(Date date, String name, String amount, String category) {
+        addPaymentRow(date, name, amount, category);
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -195,13 +197,13 @@ public class HomepageController {
 
             statement.executeUpdate(insertToPaymentList);
             System.out.println("Expense added!");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
         }
     }
 
     public void addPayment(ActionEvent event) throws IOException {
-        addPaymentRow(java.sql.Date.valueOf(LocalDate.now()), expenseNameTxt.getText(), amountTxt.getText(), categoryBox.getValue());
+        addPaymentRowAndSave(java.sql.Date.valueOf(LocalDate.now()), expenseNameTxt.getText(), amountTxt.getText(), categoryBox.getValue());
     }
 }
