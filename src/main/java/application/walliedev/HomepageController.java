@@ -128,10 +128,13 @@ public class HomepageController {
     
     private void setExpenseList() {
         for (Expense expense : budget.getExpenseHistory()) {
+
+            String replaceComma = String.format("%.2f", expense.getAmount());
+            replaceComma = replaceComma.replaceAll("," , ".");
             addPaymentRow(
                     expense.getDate(),
                     expense.getName(),
-                    String.format("%.2f", expense.getAmount()),
+                    replaceComma,
                     categoryNameList.get(expense.getCategoryId())
             );
         }
