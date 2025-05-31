@@ -136,10 +136,10 @@ public class LoginController implements Form{
                     moveLogo.setFromX(0);
                     moveLogo.setFromY(0);
                     moveLogo.setToX(0);
-                    moveLogo.setToY(-600);
+                    moveLogo.setToY(-550);
 
                     ParallelTransition animationP1 = new ParallelTransition(blurBackground, enlargeLogo, moveLogo);
-                    SequentialTransition animation = new SequentialTransition(pause, animationP1, new PauseTransition(Duration.seconds(2)) );
+                    SequentialTransition animation = new SequentialTransition(pause, animationP1, new PauseTransition(Duration.seconds(1)) );
                     animation.setOnFinished(e -> {
                         try {
                             switchToHomepage(event, usernameTxt.getText());
