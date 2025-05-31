@@ -4,6 +4,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -46,7 +47,10 @@
       <MFXButton buttonType="RAISED" depthLevel="LEVEL3" layoutX="474.0" layoutY="464.0" onAction="#loginButtonPressed" prefHeight="48.0" prefWidth="252.0" style="-fx-background-color: #6200ee; -fx-font-size: 18; -fx-text-fill: #cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI Symbol; -fx-border-radius: 15; -fx-background-radius: 15;" text="Login" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
-         </font></MFXButton>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></MFXButton>
       <Hyperlink layoutX="650.0" layoutY="564.0" onAction="#switchToRegister" text="Sign up" textFill="#23036a">
          <font>
             <Font name="Segoe UI Bold Italic" size="17.0" />

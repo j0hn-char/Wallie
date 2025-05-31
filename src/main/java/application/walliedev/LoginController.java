@@ -18,7 +18,7 @@ import java.sql.Statement;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController implements Form{
     @FXML
     private MFXTextField usernameTxt, pswdTxt;
 

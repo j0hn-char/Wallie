@@ -36,4 +36,8 @@ public class User {
     public int getID() {
         return userID;
     }
+
+    public String getUsername() {
+        return username;
+    }
 }

@@ -24,7 +24,7 @@ import java.net.URL;
 
 import java.io.IOException;
 
-public class RegisterController {
+public class RegisterController implements Form{
     @FXML
     private MFXTextField usernameTxt, pswdTxt, retypeTxt, emailTxt;
 
@@ -104,7 +104,7 @@ public class RegisterController {
     }
 
     public void registerUser(ActionEvent event) {
-        spinner.setVisible(true); //test
+        spinner.setVisible(true);
         blur.setVisible(true);
 
         DatabaseConnection connectNow = new DatabaseConnection();

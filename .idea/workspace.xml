@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge branches 'Homepage/Giannis' and 'Homepage/Giannis' of https://github.com/j0hn-char/Wallie into Homepage/Giannis&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="fixed bug with double saves in the DB">
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Form.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/NavBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/cube-solid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/stars-solid.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/LoginPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/RegisterPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/RegisterPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/custom-materialfx.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/custom-materialfx.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/bag-shopping-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/bag-shopping-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/bus-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/bus-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/heart-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/heart-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/house-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/house-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/utensils-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/utensils-solid.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -73,34 +89,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Application.WallieApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Homepage/Giannis",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/empit/OneDrive/Υπολογιστής/Wallie",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WallieApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Homepage/Giannis&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/empit/OneDrive/Υπολογιστής/Wallie&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="application.walliedev" />
@@ -153,6 +169,15 @@
       <workItem from="1748546713818" duration="819000" />
       <workItem from="1748547549564" duration="2777000" />
       <workItem from="1748550370246" duration="2815000" />
+      <workItem from="1748607658988" duration="3946000" />
+      <workItem from="1748627905235" duration="56000" />
+      <workItem from="1748630961490" duration="7438000" />
+      <workItem from="1748692969773" duration="25000" />
+      <workItem from="1748693553954" duration="4899000" />
+      <workItem from="1748701345562" duration="810000" />
+      <workItem from="1748702169003" duration="13000" />
+      <workItem from="1748702192077" duration="1119000" />
+      <workItem from="1748703328322" duration="5889000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -202,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748553728952</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixed bug with double saves in the DB">
+      <option name="closed" value="true" />
+      <created>1748554337944</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748554337944</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +273,8 @@
     <MESSAGE value="created the Budget class" />
     <MESSAGE value="added the Budget class" />
     <MESSAGE value="connected homepage with DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="connected homepage with DB" />
+    <MESSAGE value="fixed bug with double saves in the DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug with double saves in the DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

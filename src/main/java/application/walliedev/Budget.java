@@ -61,4 +61,12 @@ public class Budget {
     public ArrayList<Expense> getExpenseHistory(){
         return expenseHistory;
     }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public double getTotalAmountSpent() {
+        return totalAmountSpent;
+    }
 }
