@@ -2,6 +2,7 @@ package application.walliedev;
 
 import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,8 +10,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -30,6 +33,9 @@ public class LoginController implements Form{
 
     @FXML
     private Rectangle blur;
+
+    @FXML
+    private ImageView logoForAnim;
 
     private Stage stage;
     private Scene scene;
@@ -109,13 +115,45 @@ public class LoginController implements Form{
             while(queryResult.next()){
                 if(queryResult.getInt(1) == 1) {
                     System.out.println("successful login");
-                    switchToHomepage(event, usernameTxt.getText());
+
+                    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                    pause.setOnFinished(e -> spinner.setVisible(false));
+
+                    FadeTransition blurBackground = new FadeTransition(Duration.millis(1000), blur);
+                    blurBackground.setInterpolator(Interpolator.EASE_BOTH);
+                    blurBackground.setFromValue(0.5);
+                    blurBackground.setToValue(1);
+
+                    ScaleTransition enlargeLogo = new ScaleTransition(Duration.millis(1500), logoForAnim);
+                    enlargeLogo.setInterpolator(Interpolator.EASE_BOTH);
+                    enlargeLogo.setFromX(1);
+                    enlargeLogo.setFromY(1);
+                    enlargeLogo.setToX(2);
+                    enlargeLogo.setToY(2);
+
+                    TranslateTransition moveLogo = new TranslateTransition(Duration.millis(1500), logoForAnim);
+                    moveLogo.setInterpolator(Interpolator.EASE_BOTH);
+                    moveLogo.setFromX(0);
+                    moveLogo.setFromY(0);
+                    moveLogo.setToX(0);
+                    moveLogo.setToY(-600);
+
+                    ParallelTransition animationP1 = new ParallelTransition(blurBackground, enlargeLogo, moveLogo);
+                    SequentialTransition animation = new SequentialTransition(pause, animationP1, new PauseTransition(Duration.seconds(2)) );
+                    animation.setOnFinished(e -> {
+                        try {
+                            switchToHomepage(event, usernameTxt.getText());
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    });
+                    animation.play();
                 } else {
                     errorLabel.setText("Incorrect password or username");
                 }
             }
-            spinner.setVisible(false);
-            blur.setVisible(false);
+//            spinner.setVisible(false);
+//            blur.setVisible(false);
 
         }catch (Exception e) {
             e.printStackTrace();
