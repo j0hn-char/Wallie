@@ -223,12 +223,15 @@ public class HomepageController implements Form{
         row.setStyle("-fx-padding: 10px; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-background-color:" + categoryColorList.get(category) + ";");
 
         dateLabel.setMaxWidth(170);
-        nameLabel.setMaxWidth(170);
+        if(nameLabel.getText().length() <= 20) {
+            nameLabel.setMaxWidth(170);
+        }else{
+            nameLabel.setMaxWidth(Double.MAX_VALUE);
+        }
         amountLabel.setMaxWidth(Double.MAX_VALUE);
 
         Separator separator = new Separator();
 
-//        paymentListBox.getChildren().addFirst(separator);
         paymentListBox.getChildren().addFirst(row);
     }
 
