@@ -149,6 +149,8 @@ public class LoginController implements Form{
                     });
                     animation.play();
                 } else {
+                    spinner.setVisible(false);
+                    blur.setVisible(false);
                     errorLabel.setText("Incorrect password or username");
                 }
             }
