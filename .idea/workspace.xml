@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Improved log-in animations with fade-out effect, updated styles for consistency, and added higher resolution logo in animation.">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="new expense list look">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/custom-materialfx.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/custom-materialfx.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Homepage/Giannis" />
+        <entry key="$PROJECT_DIR$" value="homepageAnim/Giannis" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,7 +79,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "homepageAnim/Giannis",
+    "git-widget-placeholder": "Homepage/Giannis",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/empit/OneDrive/Υπολογιστής/Wallie",
     "node.js.detected.package.eslint": "true",
@@ -168,7 +165,7 @@
       <workItem from="1748864399601" duration="216000" />
       <workItem from="1748864908706" duration="724000" />
       <workItem from="1748865651518" duration="1038000" />
-      <workItem from="1748871409304" duration="1810000" />
+      <workItem from="1748871409304" duration="2147000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -282,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748864430028</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="new expense list look">
+      <option name="closed" value="true" />
+      <created>1748873701592</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1748873701592</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +321,8 @@
     <MESSAGE value="animation done on login" />
     <MESSAGE value="fixed bug in log-in, added higher resolution logo in animation, fixed problem with long names and amounts in expense confirmation" />
     <MESSAGE value="Improved log-in animations with fade-out effect, updated styles for consistency, and added higher resolution logo in animation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved log-in animations with fade-out effect, updated styles for consistency, and added higher resolution logo in animation." />
+    <MESSAGE value="new expense list look" />
+    <option name="LAST_COMMIT_MESSAGE" value="new expense list look" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
