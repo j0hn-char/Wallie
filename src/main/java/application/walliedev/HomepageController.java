@@ -4,15 +4,18 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXProgressBar;
 import io.github.palexdev.materialfx.controls.cell.MFXListCell;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -47,6 +50,9 @@ public class HomepageController implements Form{
     
     @FXML
     private ProgressBar healthProgressBar, homeProgressBar, leisureProgressBar, shoppingProgressBar, transportProgressBar, otherProgressBar;
+
+    @FXML
+    private ImageView logoForAnim;
 
     private User user;
     private Budget budget;
@@ -96,6 +102,7 @@ public class HomepageController implements Form{
     }
 
     public void setUser(String username){
+        playAnimation();
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -123,6 +130,38 @@ public class HomepageController implements Form{
             e.printStackTrace();
             e.getCause();
         }
+    }
+
+    public void playAnimation(){
+        confirmExpenseBlur.setVisible(true);
+        confirmExpenseBlur.setOpacity(1);
+        logoForAnim.setVisible(true);
+
+        ScaleTransition fixScale = new ScaleTransition(Duration.seconds(0), logoForAnim);
+        fixScale.setFromX(2);
+        fixScale.setFromY(2);
+
+        FadeTransition unblurBackground = new FadeTransition(Duration.millis(1500), confirmExpenseBlur);
+        unblurBackground.setInterpolator(Interpolator.EASE_BOTH);
+        unblurBackground.setFromValue(1);
+        unblurBackground.setToValue(0);
+
+        FadeTransition fadeOutLogo = new FadeTransition(Duration.millis(1000), logoForAnim);
+        fadeOutLogo.setInterpolator(Interpolator.EASE_BOTH);
+        fadeOutLogo.setFromValue(1);
+        fadeOutLogo.setToValue(0);
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+        ParallelTransition animationP1 = new ParallelTransition(unblurBackground, fadeOutLogo);
+        SequentialTransition animation = new SequentialTransition(fixScale, pause, animationP1);
+
+        animation.setOnFinished(e -> {
+            confirmExpenseBlur.setOpacity(0.6);
+            confirmExpenseBlur.setVisible(false);
+            logoForAnim.setVisible(false);
+        });
+        animation.play();
     }
     
     public void setBudget(User user) {
