@@ -13,25 +13,20 @@
     -fx-background-radius: 10px;
 }
 .health-bar {
-    -fx-accent: #ff6f8a;   /* saturated pink */
+    -fx-accent: #ff8399;
 }
-
 .home-bar {
-    -fx-accent: #5fcf47;   /* saturated green */
+    -fx-accent: #76cc5b;
 }
-
 .leisure-bar {
-    -fx-accent: #f89a2d;   /* saturated orange */
+    -fx-accent: #f8b05f;
 }
-
 .shopping-bar {
-    -fx-accent: #a148d8;   /* saturated purple */
+    -fx-accent: #b16ddc;
 }
-
 .transport-bar {
-    -fx-accent: #2f46c1;   /* saturated blue */
-}
-
+     -fx-accent: #465cc5;
+ }
 .other-bar {
-    -fx-accent: #6787ff;   /* saturated periwinkle */
+    -fx-accent: #89a0ff;
 }
