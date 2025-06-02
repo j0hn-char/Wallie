@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class HomepageController implements Form{
 
     @FXML
-    private VBox paymentListBox, categoriesVBox;
+    private VBox paymentListBox, categoriesVBox, healthVBox, homeVBox, leisureVBox, shoppingVBox, transportVBox, otherVBox;
 
     @FXML
     private Label noBudgetLabel, currencyLabel, balanceLabel, spentLabel, errorLabel, expenseInfoLabel, usernameLabel;
@@ -46,7 +46,7 @@ public class HomepageController implements Form{
     private Rectangle noBudgetBlur, confirmExpenseBlur;
 
     @FXML
-    private AnchorPane confirmExpensePane;
+    private AnchorPane confirmExpensePane, balancePane, newExpensePane;
     
     @FXML
     private ProgressBar healthProgressBar, homeProgressBar, leisureProgressBar, shoppingProgressBar, transportProgressBar, otherProgressBar;
@@ -75,12 +75,12 @@ public class HomepageController implements Form{
         categoryIDList.put("Transport", 5);
         categoryIDList.put("Other", 6);
 
-        categoryColorList.put("Health", "#ffd8e0");
-        categoryColorList.put("Home", "#d5ffc6");
-        categoryColorList.put("Leisure", "#ffe1c0");
-        categoryColorList.put("Shopping", "#efd7ff");
-        categoryColorList.put("Transport", "#d6deff");
-        categoryColorList.put("Other", "#dde4ff");
+        categoryColorList.put("Health", "linear-gradient(from 0% 0% to 100% 100%, white, #ffd6de);");    // softer pink
+        categoryColorList.put("Home", "linear-gradient(from 0% 0% to 100% 100%, white, #d6ffd0);");      // softer green
+        categoryColorList.put("Leisure", "linear-gradient(from 0% 0% to 100% 100%, white, #ffe2c1);");   // softer orange
+        categoryColorList.put("Shopping", "linear-gradient(from 0% 0% to 100% 100%, white, #efd6ff);");  // softer purple
+        categoryColorList.put("Transport", "linear-gradient(from 0% 0% to 100% 100%, white, #ccd6ff);"); // softer blue
+        categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #d1d5e6);");     // softer gray-blue
 
         initializeCategoryComboBox();
         initializeProgressBars();
@@ -132,7 +132,7 @@ public class HomepageController implements Form{
         }
     }
 
-    public void playAnimation(){
+    private void playAnimation(){
         confirmExpenseBlur.setVisible(true);
         confirmExpenseBlur.setOpacity(1);
         logoForAnim.setVisible(true);
@@ -141,13 +141,13 @@ public class HomepageController implements Form{
         fixScale.setFromX(2);
         fixScale.setFromY(2);
 
-        FadeTransition unblurBackground = new FadeTransition(Duration.millis(1500), confirmExpenseBlur);
-        unblurBackground.setInterpolator(Interpolator.EASE_BOTH);
+        FadeTransition unblurBackground = new FadeTransition(Duration.millis(1000), confirmExpenseBlur);
+        unblurBackground.setInterpolator(Interpolator.EASE_OUT);
         unblurBackground.setFromValue(1);
         unblurBackground.setToValue(0);
 
-        FadeTransition fadeOutLogo = new FadeTransition(Duration.millis(1000), logoForAnim);
-        fadeOutLogo.setInterpolator(Interpolator.EASE_BOTH);
+        FadeTransition fadeOutLogo = new FadeTransition(Duration.millis(500), logoForAnim);
+        fadeOutLogo.setInterpolator(Interpolator.EASE_OUT);
         fadeOutLogo.setFromValue(1);
         fadeOutLogo.setToValue(0);
 
@@ -160,8 +160,86 @@ public class HomepageController implements Form{
             confirmExpenseBlur.setOpacity(0.6);
             confirmExpenseBlur.setVisible(false);
             logoForAnim.setVisible(false);
+            play2ndAnim();
         });
         animation.play();
+    }
+
+    private void play2ndAnim(){
+        FadeTransition fadeInBalance = new FadeTransition(Duration.millis(500), balancePane);
+        fadeInBalance.setInterpolator(Interpolator.EASE_OUT);
+        fadeInBalance.setFromValue(0);
+        fadeInBalance.setToValue(1);
+
+        FadeTransition fadeInNewExpense = new FadeTransition(Duration.millis(500), newExpensePane);
+        fadeInBalance.setInterpolator(Interpolator.EASE_OUT);
+        fadeInBalance.setFromValue(0);
+        fadeInBalance.setToValue(1);
+
+        FadeTransition fadeInHealth = new FadeTransition(Duration.millis(200), healthVBox);
+        fadeInBalance.setInterpolator(Interpolator.EASE_OUT);
+        fadeInBalance.setFromValue(0);
+        fadeInBalance.setToValue(1);
+
+        FadeTransition fadeInHome = new FadeTransition(Duration.millis(200), homeVBox);
+        fadeInBalance.setInterpolator(Interpolator.EASE_OUT);
+        fadeInBalance.setFromValue(0);
+        fadeInBalance.setToValue(1);
+
+        FadeTransition fadeInLeisure = new FadeTransition(Duration.millis(200), leisureVBox);
+        fadeInBalance.setInterpolator(Interpolator.EASE_OUT);
+        fadeInBalance.setFromValue(0);
+        fadeInBalance.setToValue(1);
+
+        FadeTransition fadeInShopping = new FadeTransition(Duration.millis(200), shoppingVBox);
+        fadeInBalance.setInterpolator(Interpolator.EASE_OUT);
+        fadeInBalance.setFromValue(0);
+        fadeInBalance.setToValue(1);
+
+        FadeTransition fadeInTransport = new FadeTransition(Duration.millis(200), transportVBox);
+        fadeInBalance.setInterpolator(Interpolator.EASE_OUT);
+        fadeInBalance.setFromValue(0);
+        fadeInBalance.setToValue(1);
+
+        FadeTransition fadeInOther = new FadeTransition(Duration.millis(200), otherVBox);
+        fadeInBalance.setInterpolator(Interpolator.EASE_OUT);
+        fadeInBalance.setFromValue(0);
+        fadeInBalance.setToValue(1);
+
+        TranslateTransition moveBalance = new TranslateTransition(Duration.millis(500), balancePane);
+        moveBalance.setInterpolator(Interpolator.EASE_OUT);
+        moveBalance.setFromX(0);
+        moveBalance.setFromY(0);
+        moveBalance.setToX(0);
+        moveBalance.setToY(-100);
+
+        TranslateTransition moveNewExpense = new TranslateTransition(Duration.millis(500), newExpensePane);
+        moveBalance.setInterpolator(Interpolator.EASE_OUT);
+        moveBalance.setFromX(0);
+        moveBalance.setFromY(0);
+        moveBalance.setToX(100);
+        moveBalance.setToY(0);
+
+        TranslateTransition moveCategories = new TranslateTransition(Duration.millis(500), categoriesVBox);
+        moveBalance.setInterpolator(Interpolator.EASE_OUT);
+        moveBalance.setFromX(0);
+        moveBalance.setFromY(0);
+        moveBalance.setToX(0);
+        moveBalance.setToY(-100);
+
+        SequentialTransition categoriesAnim = new SequentialTransition(
+                fadeInHealth,
+                fadeInHome,
+                fadeInLeisure,
+                fadeInShopping,
+                fadeInTransport,
+                fadeInOther
+        );
+
+        ParallelTransition panesAnim = new ParallelTransition(fadeInBalance, moveBalance, fadeInNewExpense, moveNewExpense);
+        SequentialTransition anim = new SequentialTransition(panesAnim, new ParallelTransition(categoriesAnim, moveCategories));
+
+        anim.play();
     }
     
     public void setBudget(User user) {
