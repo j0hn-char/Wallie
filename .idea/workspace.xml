@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="animation done on login">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="fixed bug in log-in, added higher resolution logo in animation, fixed problem with long names and amounts in expense confirmation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
@@ -163,6 +163,8 @@
       <workItem from="1748702169003" duration="13000" />
       <workItem from="1748702192077" duration="1119000" />
       <workItem from="1748703328322" duration="6710000" />
+      <workItem from="1748782890773" duration="463000" />
+      <workItem from="1748864365907" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -260,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748726253053</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed bug in log-in, added higher resolution logo in animation, fixed problem with long names and amounts in expense confirmation">
+      <option name="closed" value="true" />
+      <created>1748774885586</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1748774885586</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,17 +285,6 @@
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
                   <entry key="Show.Git.Branches" value="false" />
-                </map>
-              </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/ExpenseClassAndRegister/mhtsos" />
-                      </list>
-                    </value>
-                  </entry>
                 </map>
               </option>
             </State>
@@ -303,7 +302,8 @@
     <MESSAGE value="change" />
     <MESSAGE value="fixed minor styling issue" />
     <MESSAGE value="animation done on login" />
-    <option name="LAST_COMMIT_MESSAGE" value="animation done on login" />
+    <MESSAGE value="fixed bug in log-in, added higher resolution logo in animation, fixed problem with long names and amounts in expense confirmation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug in log-in, added higher resolution logo in animation, fixed problem with long names and amounts in expense confirmation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

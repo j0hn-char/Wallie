@@ -117,7 +117,12 @@ public class LoginController implements Form{
                     System.out.println("successful login");
 
                     PauseTransition pause = new PauseTransition(Duration.seconds(1));
-                    pause.setOnFinished(e -> spinner.setVisible(false));
+//                    pause.setOnFinished(e -> spinner.setVisible(false));
+
+                    FadeTransition fadeSpinner = new FadeTransition(Duration.millis(1000), spinner);
+                    fadeSpinner.setInterpolator(Interpolator.EASE_BOTH);
+                    fadeSpinner.setFromValue(1);
+                    fadeSpinner.setToValue(0);
 
                     FadeTransition blurBackground = new FadeTransition(Duration.millis(1000), blur);
                     blurBackground.setInterpolator(Interpolator.EASE_BOTH);
@@ -138,7 +143,7 @@ public class LoginController implements Form{
                     moveLogo.setToX(0);
                     moveLogo.setToY(-550);
 
-                    ParallelTransition animationP1 = new ParallelTransition(blurBackground, enlargeLogo, moveLogo);
+                    ParallelTransition animationP1 = new ParallelTransition(fadeSpinner, blurBackground, enlargeLogo, moveLogo);
                     SequentialTransition animation = new SequentialTransition(pause, animationP1, new PauseTransition(Duration.seconds(1)) );
                     animation.setOnFinished(e -> {
                         try {
