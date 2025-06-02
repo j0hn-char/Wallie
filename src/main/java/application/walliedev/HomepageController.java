@@ -75,12 +75,12 @@ public class HomepageController implements Form{
         categoryIDList.put("Transport", 5);
         categoryIDList.put("Other", 6);
 
-        categoryColorList.put("Health", "#ffd8e0");
-        categoryColorList.put("Home", "#d5ffc6");
-        categoryColorList.put("Leisure", "#ffe1c0");
-        categoryColorList.put("Shopping", "#efd7ff");
-        categoryColorList.put("Transport", "#d6deff");
-        categoryColorList.put("Other", "#dde4ff");
+        categoryColorList.put("Health", "linear-gradient(from 0% 0% to 100% 100%, white, #ffd6de);");    // softer pink
+        categoryColorList.put("Home", "linear-gradient(from 0% 0% to 100% 100%, white, #d6ffd0);");      // softer green
+        categoryColorList.put("Leisure", "linear-gradient(from 0% 0% to 100% 100%, white, #ffe2c1);");   // softer orange
+        categoryColorList.put("Shopping", "linear-gradient(from 0% 0% to 100% 100%, white, #efd6ff);");  // softer purple
+        categoryColorList.put("Transport", "linear-gradient(from 0% 0% to 100% 100%, white, #ccd6ff);"); // softer blue
+        categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #d1d5e6);");     // softer gray-blue
 
         initializeCategoryComboBox();
         initializeProgressBars();
