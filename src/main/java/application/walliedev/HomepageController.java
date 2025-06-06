@@ -7,14 +7,20 @@ import io.github.palexdev.materialfx.controls.cell.MFXListCell;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -25,8 +31,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 
-public class HomepageController implements Form{
-
+public class HomepageController implements Form, NavBar{
     @FXML
     private VBox paymentListBox, categoriesVBox;
 
@@ -52,7 +57,7 @@ public class HomepageController implements Form{
     private ProgressBar healthProgressBar, homeProgressBar, leisureProgressBar, shoppingProgressBar, transportProgressBar, otherProgressBar;
 
     @FXML
-    private ImageView logoForAnim;
+    private ImageView logoForAnim, goToProfileBtn;
 
     private User user;
     private Budget budget;
@@ -357,4 +362,35 @@ public class HomepageController implements Form{
         }
 
     }
+    //NavBar Interface implementation for Testing
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    @Override
+    public void switchToHomepage(ActionEvent event, String username) {
+
+    }
+
+    @Override
+    public void switchToProfile(MouseEvent event, String username) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+        root = loader.load();
+
+        HomepageController controller = loader.getController();
+        controller.initializeCategoryLists();
+        controller.setUser(username);
+
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @Override
+    public void switchToBudgetCalc(ActionEvent event, String username) {
+
+    }
+
 }

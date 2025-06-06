@@ -368,7 +368,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <ImageView fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToProfileBtn" fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="27.0" onMouseClicked="#switchToProfile" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/user-solid.png" />
          </image>
