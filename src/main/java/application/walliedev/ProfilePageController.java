@@ -8,9 +8,8 @@ public class ProfilePageController implements Form{
     @FXML
     private MFXComboBox<String> currencyBox;
 
-    private void initializeCurrencyComboBox() {
-        currencyBox.getItems().add("€");
-        currencyBox.getItems().add("$");
+    public void initializeCurrencyComboBox() {
+        currencyBox.getItems().addAll("€","$");
         currencyBox.setMinWidth(150);
     }
     @Override

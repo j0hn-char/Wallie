@@ -366,19 +366,20 @@ public class HomepageController implements Form, NavBar{
     private Stage stage;
     private Scene scene;
     private Parent root;
+
     @Override
     public void switchToHomepage(ActionEvent event, String username) {
 
     }
 
     @Override
-    public void switchToProfile(MouseEvent event, String username) throws IOException {
+    public void switchToProfile(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
         root = loader.load();
 
-        HomepageController controller = loader.getController();
-        controller.initializeCategoryLists();
-        controller.setUser(username);
+        ProfilePageController controller = loader.getController();
+        controller.initializeCurrencyComboBox();
+        //controller.setUser(username);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -392,5 +393,4 @@ public class HomepageController implements Form, NavBar{
     public void switchToBudgetCalc(ActionEvent event, String username) {
 
     }
-
 }
