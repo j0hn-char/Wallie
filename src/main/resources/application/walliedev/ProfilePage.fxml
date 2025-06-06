@@ -1,14 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="application.walliedev.ProfilePage"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.ProfilePage">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="189.0" layoutX="-2.0" layoutY="-82.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1228.0">
+         <effect>
+            <InnerShadow height="90.86" radius="22.215" width="0.0">
+               <color>
+                  <Color opacity="0.5" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Rectangle>
+      <Rectangle accessibleRole="PASSWORD_FIELD" arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="426.0" layoutX="478.0" layoutY="262.0" pickOnBounds="true" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="388.0">
+         <effect>
+            <DropShadow height="60.0" radius="29.5" width="60.0">
+               <color>
+                  <Color opacity="0.5" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <ImageView disable="true" fitHeight="80.0" fitWidth="171.0" layoutX="550.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/wallieLogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="548.0" layoutY="278.0" text="Change Password" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="31.0" />
+         </font>
+      </Label>
+      <MFXComboBox fx:id="currencyBox" floatMode="BORDER" layoutX="913.0" layoutY="474.0" prefHeight="44.0" prefWidth="195.0" promptText="Select Currency" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+         <font>
+            <Font name="Segoe UI Symbol" size="12.0" />
+         </font>
+      </MFXComboBox>
+      <Label layoutX="561.0" layoutY="360.0" text="Current Password" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font>
+      </Label>
+      <MFXButton fx:id="saveChangesBtn" buttonType="RAISED" layoutX="606.0" layoutY="737.0" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Save Changes" textFill="#d1d0d0">
+         <font>
+            <Font name="Segoe UI Symbol" size="1.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MFXButton>
+      <Rectangle fx:id="noBudgetBlur" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="418.0" layoutX="-10.0" layoutY="405.0" opacity="0.6" stroke="#e4cece" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1237.0" />
+      <Label fx:id="noBudgetLabel" layoutX="462.0" layoutY="574.0" prefHeight="80.0" prefWidth="298.0" text="Create a new budget using Wallie Ai to see stats" textAlignment="CENTER" textFill="#6200ee" visible="false" wrapText="true">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="629.0" layoutY="395.0" prefHeight="6.0" prefWidth="489.0" text="Please fill out all the necessary expense information properly" textAlignment="CENTER" textFill="#eb5858" visible="false" wrapText="true">
+         <font>
+            <Font name="Segoe UI Symbol" size="14.0" />
+         </font>
+      </Label>
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL3" layoutX="55.0" layoutY="33.0" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Wallie Ai" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Symbol" size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/stars-solid.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MFXButton>
+      <ImageView fitHeight="40.0" fitWidth="34.0" layoutX="1127.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/user-solid.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="818.0" layoutY="34.0" prefHeight="46.0" prefWidth="298.0" text="username" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="20.0" />
+         </font>
+      </Label>
+      <MFXPasswordField fx:id="currentPasswordField" floatMode="BORDER" layoutX="555.0" layoutY="387.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+      </MFXPasswordField>
+      <MFXPasswordField fx:id="newPasswordField" floatMode="BORDER" layoutX="557.0" layoutY="493.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+      </MFXPasswordField>
+      <Label layoutX="557.0" layoutY="461.0" text="New Password" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="555.0" layoutY="561.0" text="Repeat Password" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font>
+      </Label>
+      <MFXPasswordField fx:id="repeatPasswordField" floatMode="BORDER" layoutX="557.0" layoutY="589.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+      </MFXPasswordField>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="411.0" layoutX="-154.0" layoutY="260.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="717.0">
+         <effect>
+            <InnerShadow height="90.86" radius="22.215" width="0.0">
+               <color>
+                  <Color opacity="0.5" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Rectangle>
+      <ImageView fitHeight="164.0" fitWidth="174.0" layoutX="133.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/user-solid.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="168.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
 </AnchorPane>
