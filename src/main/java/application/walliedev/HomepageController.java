@@ -379,7 +379,7 @@ public class HomepageController implements Form, NavBar{
 
         ProfilePageController controller = loader.getController();
         controller.initializeCurrencyComboBox();
-        //controller.setUser(username);
+        controller.setUser(user);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
