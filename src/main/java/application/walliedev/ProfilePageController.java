@@ -100,22 +100,22 @@ public class ProfilePageController implements Form{
         }
     }
 
-    public void changeCurrency(){
+   public void changeCurrency(){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        Statement statement = null;
         String selectedCurrency = currencyBox.getValue();
-        int newCurr;
+        int newCurr = 0;
         if(selectedCurrency.equals("€"))
             newCurr = 1;
-        else
+        else if(selectedCurrency.equals("$"))
             newCurr = 2;
 
-        if(newCurr!=user.getCurrency()){
+       Statement statement = null;
+        if(newCurr!=user.getCurrency() && newCurr>0){
             try {
                 statement = connectDB.createStatement();
-                statement.executeUpdate("UPDATE Users SET currency = '" +newCurr + "' WHERE username = '" + user.getUsername() + "';");
+                statement.executeUpdate("UPDATE Users SET preferredCurrency = '" +newCurr + "' WHERE username = '" + user.getUsername() + "';");
                 user.setCurrency(newCurr);
                 System.out.println("Changed Currency");
             } catch (SQLException e) {
