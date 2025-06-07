@@ -44,7 +44,7 @@
             <Font name="Segoe UI Semibold" size="31.0" />
          </font>
       </Label>
-      <MFXComboBox fx:id="currencyBox" floatMode="BORDER" layoutX="894.0" layoutY="466.0" prefHeight="44.0" prefWidth="249.0" promptText="Select Currency" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXComboBox fx:id="currencyBox" floatMode="BORDER" layoutX="894.0" layoutY="466.0" onAction="#changeCurrency" prefHeight="44.0" prefWidth="249.0" promptText="Select Currency" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -57,7 +57,7 @@
             <Font name="Segoe UI Semibold" size="17.0" />
          </font>
       </Label>
-      <MFXButton fx:id="saveChangesBtn" buttonType="RAISED" layoutX="550.0" layoutY="714.0" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Save Changes" textFill="#d1d0d0">
+      <MFXButton fx:id="saveChangesBtn" buttonType="RAISED" layoutX="550.0" layoutY="714.0" onAction="#saveChangesBtnPressed" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Save Changes" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -104,12 +104,12 @@
             <Font name="Segoe UI Semibold" size="20.0" />
          </font>
       </Label>
-      <MFXPasswordField fx:id="currentPasswordField" floatMode="BORDER" layoutX="497.0" layoutY="378.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXPasswordField fx:id="currPswdTxt" floatMode="BORDER" layoutX="497.0" layoutY="378.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
       </MFXPasswordField>
-      <MFXPasswordField fx:id="newPasswordField" floatMode="BORDER" layoutX="497.0" layoutY="470.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXPasswordField fx:id="newPswdTxt" floatMode="BORDER" layoutX="497.0" layoutY="470.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -124,7 +124,7 @@
             <Font name="Segoe UI Semibold" size="17.0" />
          </font>
       </Label>
-      <MFXPasswordField fx:id="repeatPasswordField" floatMode="BORDER" layoutX="499.0" layoutY="574.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXPasswordField fx:id="retypeTxt" floatMode="BORDER" layoutX="499.0" layoutY="574.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -161,7 +161,7 @@
             <Font name="Segoe UI Semibold" size="17.0" />
          </font>
       </Label>
-      <MFXButton fx:id="deleteAccBtn" buttonType="RAISED" layoutX="129.0" layoutY="635.0" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Delete Account" textFill="#d1d0d0">
+      <MFXButton fx:id="deleteAccBtn" buttonType="RAISED" layoutX="129.0" layoutY="635.0" onAction="#deleteAccount" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Delete Account" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -169,7 +169,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <MFXButton fx:id="signOutBtn" buttonType="RAISED" layoutX="129.0" layoutY="568.0" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Sign Out" textFill="#d1d0d0">
+      <MFXButton fx:id="signOutBtn" buttonType="RAISED" layoutX="129.0" layoutY="568.0" onAction="#logOut" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Log Out" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -177,5 +177,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
+      <Label fx:id="errorLabel" layoutX="486.0" layoutY="320.0" prefHeight="18.0" prefWidth="249.0" />
    </children>
 </AnchorPane>
