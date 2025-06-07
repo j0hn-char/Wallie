@@ -104,9 +104,6 @@ public class RegisterController implements Form{
     }
 
     public void registerUser(ActionEvent event) {
-        spinner.setVisible(true);
-        blur.setVisible(true);
-
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -123,9 +120,12 @@ public class RegisterController implements Form{
             ResultSet resultSet = statement.executeQuery(checkIfExistsQuery);
 
             if (resultSet.next() && resultSet.getInt(1) > 0) {
-                System.out.println("Username or email already exists!");
+                errorLabel.setText("Username or email already exists!");
                 return;
             }
+
+            spinner.setVisible(true);
+            blur.setVisible(true);
 
             String insertFields = "INSERT INTO Users(username, password, email, preferredCurrency, profileImg) VALUES ('";
             String insertValues = username + "','" + password + "','" + email + "','" + preferredCurrency + "','" + profileImg + "')";

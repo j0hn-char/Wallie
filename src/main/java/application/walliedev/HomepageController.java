@@ -269,8 +269,6 @@ public class HomepageController implements Form{
         }
         amountLabel.setMaxWidth(Double.MAX_VALUE);
 
-        Separator separator = new Separator();
-
         paymentListBox.getChildren().addFirst(row);
     }
 
