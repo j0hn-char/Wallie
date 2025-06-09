@@ -2,21 +2,25 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXComboBox?>
-<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.ProfilePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.HomepageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="189.0" layoutX="-2.0" layoutY="-82.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1228.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="189.0" layoutY="-92.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0">
          <effect>
             <InnerShadow height="90.86" radius="22.215" width="0.0">
                <color>
@@ -25,7 +29,7 @@
             </InnerShadow>
          </effect>
       </Rectangle>
-      <Rectangle accessibleRole="PASSWORD_FIELD" arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="426.0" layoutX="420.0" layoutY="253.0" pickOnBounds="true" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="388.0">
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#6200ee" height="246.0" layoutX="144.0" layoutY="134.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="388.0">
          <effect>
             <DropShadow height="60.0" radius="29.5" width="60.0">
                <color>
@@ -34,17 +38,67 @@
             </DropShadow>
          </effect>
       </Rectangle>
-      <ImageView disable="true" fitHeight="80.0" fitWidth="171.0" layoutX="550.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="246.0" layoutX="669.0" layoutY="132.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="388.0">
+         <effect>
+            <DropShadow height="60.0" radius="29.5" width="60.0">
+               <color>
+                  <Color opacity="0.5" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Label layoutX="177.0" layoutY="162.0" text="Balance" textFill="#d2b3ff">
+         <font>
+            <Font name="Segoe UI Semibold" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="balanceLabel" layoutX="177.0" layoutY="215.0" text="1.200,00€" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="65.0" />
+         </font>
+      </Label>
+      <Label layoutX="177.0" layoutY="307.0" text="Spent" textFill="#d2b3ff">
+         <font>
+            <Font name="Segoe UI Semibold" size="35.0" />
+         </font>
+      </Label>
+      <Label fx:id="spentLabel" alignment="CENTER_RIGHT" layoutX="290.0" layoutY="307.0" prefHeight="51.0" prefWidth="194.0" text="500€" textFill="#d2b3ff">
+         <font>
+            <Font name="Segoe UI Black" size="35.0" />
+         </font>
+      </Label>
+      <ImageView disable="true" fitHeight="80.0" fitWidth="171.0" layoutX="540.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/wallieLogo.png" />
          </image>
       </ImageView>
-      <Label layoutX="490.0" layoutY="269.0" text="Change Password" textFill="#3700b3">
+      <Label layoutX="770.0" layoutY="139.0" text="New Expense" textFill="#3700b3">
          <font>
             <Font name="Segoe UI Semibold" size="31.0" />
          </font>
       </Label>
-      <MFXComboBox fx:id="currencyBox" floatMode="BORDER" layoutX="894.0" layoutY="466.0" onAction="#changeCurrency" prefHeight="44.0" prefWidth="249.0" promptText="Select Currency" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXTextField fx:id="expenseNameTxt" floatMode="BORDER" layoutX="695.0" layoutY="193.0" prefHeight="44.0" prefWidth="150.0" promptText="Expense name" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+         <font>
+            <Font name="Segoe UI Symbol" size="12.0" />
+         </font>
+      </MFXTextField>
+      <MFXTextField fx:id="amountTxt" alignment="CENTER" floatMode="BORDER" layoutX="695.0" layoutY="250.0" prefHeight="44.0" prefWidth="131.0" promptText="Amount" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+         <font>
+            <Font name="Segoe UI Symbol" size="12.0" />
+         </font>
+      </MFXTextField>
+      <Label fx:id="currencyLabel" layoutX="826.0" layoutY="249.0" text="€" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="32.0" />
+         </font>
+      </Label>
+      <MFXComboBox fx:id="categoryBox" floatMode="BORDER" layoutX="882.0" layoutY="230.0" prefHeight="44.0" prefWidth="150.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -52,12 +106,12 @@
             <Font name="Segoe UI Symbol" size="12.0" />
          </font>
       </MFXComboBox>
-      <Label layoutX="503.0" layoutY="351.0" text="Current Password" textFill="#3700b3">
+      <Label layoutX="895.0" layoutY="201.0" text="Category" textFill="#3700b3">
          <font>
             <Font name="Segoe UI Semibold" size="17.0" />
          </font>
       </Label>
-      <MFXButton fx:id="saveChangesBtn" buttonType="RAISED" layoutX="550.0" layoutY="714.0" onAction="#saveChangesBtnPressed" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Save Changes" textFill="#d1d0d0">
+      <MFXButton fx:id="addBtn" buttonType="RAISED" layoutX="717.0" layoutY="311.0" onAction="#confirmPayment" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Add" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -65,18 +119,241 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <Rectangle fx:id="noBudgetBlur" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="418.0" layoutX="-10.0" layoutY="405.0" opacity="0.6" stroke="#e4cece" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1237.0" />
-      <Label fx:id="noBudgetLabel" layoutX="462.0" layoutY="574.0" prefHeight="80.0" prefWidth="298.0" text="Create a new budget using Wallie Ai to see stats" textAlignment="CENTER" textFill="#6200ee" visible="false" wrapText="true">
+      <MFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="879.0" layoutY="311.0" onAction="#clearPayments" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Clear" textFill="#d1d0d0">
+         <font>
+            <Font name="Segoe UI Symbol" size="1.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MFXButton>
+      <Label layoutX="74.0" layoutY="423.0" text="Budget in categories:" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="25.0" />
+         </font>
+      </Label>
+      <VBox fx:id="categoriesVBox" layoutX="75.0" layoutY="461.0" prefHeight="317.0" prefWidth="388.0" spacing="10.0">
+         <children>
+            <VBox prefHeight="44.0" prefWidth="332.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="355.0" spacing="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label text="Health" textFill="#e17488">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/heart-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="healthLabel" text="35/50€" textFill="#3700b3">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ProgressBar fx:id="healthProgressBar" prefHeight="18.0" prefWidth="364.0" progress="0.47" />
+               </children>
+            </VBox>
+            <VBox prefHeight="44.0" prefWidth="332.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="286.0" spacing="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label text="Home" textFill="#69b250">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/house-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="homeLabel" text="35/50€" textFill="#3700b3">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ProgressBar fx:id="homeProgressBar" prefHeight="18.0" prefWidth="364.0" progress="0.47" />
+               </children>
+            </VBox>
+            <VBox prefHeight="44.0" prefWidth="332.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="286.0" spacing="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label text="Leisure" textFill="#e5a25a">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/utensils-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="leisureLabel" text="35/50€" textFill="#3700b3">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ProgressBar fx:id="leisureProgressBar" prefHeight="18.0" prefWidth="364.0" progress="0.47" />
+               </children>
+            </VBox>
+            <VBox prefHeight="44.0" prefWidth="332.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="286.0" spacing="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label text="Shopping" textFill="#b16ddc">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/bag-shopping-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="shoppingLabel" text="35/50€" textFill="#3700b3">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ProgressBar fx:id="shoppingProgressBar" prefHeight="18.0" prefWidth="364.0" progress="0.47" />
+               </children>
+            </VBox>
+            <VBox prefHeight="44.0" prefWidth="332.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="286.0" spacing="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label text="Transport" textFill="#465cc5">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="17.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/bus-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="transportLabel" text="35/50€" textFill="#3700b3">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ProgressBar fx:id="transportProgressBar" prefHeight="18.0" prefWidth="364.0" progress="0.47" />
+               </children>
+            </VBox>
+            <VBox prefHeight="44.0" prefWidth="332.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="286.0" spacing="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label text="Other" textFill="#7c91e5">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="17.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/cube-solid.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="otherLabel" text="35/50€" textFill="#3700b3">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ProgressBar fx:id="otherProgressBar" prefHeight="18.0" prefWidth="364.0" progress="0.47" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="349.0" layoutX="490.0" layoutY="438.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="698.0">
+         <effect>
+            <InnerShadow height="50.0" radius="24.5" width="50.0">
+               <color>
+                  <Color opacity="0.5" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Rectangle>
+      <HBox layoutX="533.0" layoutY="403.0" prefHeight="40.0" prefWidth="611.0">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="Date" textFill="#3700b3" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+            </Label>
+            <Label maxWidth="1.7976931348623157E308" text="Name" textFill="#3700b3" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+            </Label>
+            <Label maxWidth="1.7976931348623157E308" text="Amount" textFill="#3700b3" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Category" textFill="#3700b3" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <MFXScrollPane fitToWidth="true" layoutX="529.0" layoutY="461.0" prefHeight="306.0" prefWidth="622.0">
+         <content>
+            <VBox fx:id="paymentListBox" prefHeight="200.0" prefWidth="100.0" spacing="5.0" />
+         </content>
+      </MFXScrollPane>
+      <Rectangle fx:id="noBudgetBlur" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="418.0" layoutX="-20.0" layoutY="395.0" opacity="0.6" stroke="#e4cece" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1237.0" />
+      <Label fx:id="noBudgetLabel" layoutX="452.0" layoutY="564.0" prefHeight="80.0" prefWidth="298.0" text="Create a new budget using Wallie Ai to see stats" textAlignment="CENTER" textFill="#6200ee" visible="false" wrapText="true">
          <font>
             <Font name="Segoe UI Semibold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="errorLabel" alignment="CENTER" layoutX="629.0" layoutY="395.0" prefHeight="6.0" prefWidth="489.0" text="Please fill out all the necessary expense information properly" textAlignment="CENTER" textFill="#eb5858" visible="false" wrapText="true">
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="619.0" layoutY="385.0" prefHeight="6.0" prefWidth="489.0" text="Please fill out all the necessary expense information properly" textAlignment="CENTER" textFill="#eb5858" visible="false" wrapText="true">
          <font>
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>
       </Label>
-      <MFXButton buttonType="RAISED" depthLevel="LEVEL3" layoutX="55.0" layoutY="33.0" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Wallie Ai" textFill="WHITE">
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL3" layoutX="45.0" layoutY="23.0" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Wallie Ai" textFill="WHITE">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -91,7 +368,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <ImageView fitHeight="40.0" fitWidth="34.0" layoutX="1127.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToProfileBtn" fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="27.0" onMouseClicked="#switchToProfile" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/user-solid.png" />
          </image>
@@ -99,84 +376,60 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="818.0" layoutY="34.0" prefHeight="46.0" prefWidth="298.0" text="username" textFill="#3700b3">
+      <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="808.0" layoutY="24.0" prefHeight="46.0" prefWidth="298.0" text="username" textFill="#3700b3">
          <font>
             <Font name="Segoe UI Semibold" size="20.0" />
          </font>
       </Label>
-      <MFXPasswordField fx:id="currPswdTxt" floatMode="BORDER" layoutX="497.0" layoutY="378.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
-         <textFill>
-            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
-         </textFill>
-      </MFXPasswordField>
-      <MFXPasswordField fx:id="newPswdTxt" floatMode="BORDER" layoutX="497.0" layoutY="470.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
-         <textFill>
-            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
-         </textFill>
-      </MFXPasswordField>
-      <Label layoutX="507.0" layoutY="444.0" text="New Password" textFill="#3700b3">
-         <font>
-            <Font name="Segoe UI Semibold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="505.0" layoutY="541.0" text="Repeat Password" textFill="#3700b3">
-         <font>
-            <Font name="Segoe UI Semibold" size="17.0" />
-         </font>
-      </Label>
-      <MFXPasswordField fx:id="retypeTxt" floatMode="BORDER" layoutX="499.0" layoutY="574.0" prefHeight="50.0" prefWidth="233.0" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
-         <textFill>
-            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
-         </textFill>
-      </MFXPasswordField>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="387.0" layoutX="-175.0" layoutY="272.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="717.0">
-         <effect>
-            <InnerShadow height="90.86" radius="22.215" width="0.0">
-               <color>
-                  <Color opacity="0.5" />
-               </color>
-            </InnerShadow>
-         </effect>
-      </Rectangle>
-      <ImageView fitHeight="164.0" fitWidth="174.0" layoutX="115.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle fx:id="confirmExpenseBlur" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="800.0" layoutX="1.0" opacity="0.6" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <AnchorPane fx:id="confirmExpensePane" layoutX="499.0" layoutY="295.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="203.0" layoutX="-114.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="482.0">
+               <effect>
+                  <DropShadow height="60.0" radius="29.5" width="60.0">
+                     <color>
+                        <Color opacity="0.5" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Rectangle>
+            <Label layoutX="71.0" layoutY="14.0" text="Confirm" textFill="#3700b3">
+               <font>
+                  <Font name="Segoe UI Semibold" size="31.0" />
+               </font>
+            </Label>
+            <Label layoutX="-12.0" layoutY="72.0" text="You are about to add a new payment" textAlignment="CENTER" textFill="#3700b3" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Symbol" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="expenseInfoLabel" alignment="TOP_CENTER" layoutX="-113.0" layoutY="98.0" prefHeight="58.0" prefWidth="482.0" text="Name: Spotify, Amount 4.99€, Category: Other" textAlignment="CENTER" textFill="#6200ee" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Semibold" size="17.0" />
+               </font>
+            </Label>
+            <MFXButton buttonType="RAISED" layoutX="-39.0" layoutY="145.0" onAction="#addPayment" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Add" textFill="#d1d0d0">
+               <font>
+                  <Font name="Segoe UI Symbol" size="1.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MFXButton>
+            <MFXButton buttonType="RAISED" layoutX="163.0" layoutY="145.0" onAction="#cancelPayment" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Cancel" textFill="#d1d0d0">
+               <font>
+                  <Font name="Segoe UI Symbol" size="1.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MFXButton>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="logoForAnim" fitHeight="160.0" fitWidth="753.0" layoutX="478.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../images/user-solid.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="246.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/pencil-edit-button.png" />
+            <Image url="@../../images/wallieLogo1.png" />
          </image>
       </ImageView>
-      <Label fx:id="displayUsernameLabel" layoutX="140.0" layoutY="376.0" text="\@username">
-         <font>
-            <Font name="Segoe UI Semibold" size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="emailLabel" layoutX="115.0" layoutY="418.0" text="example@email.com">
-         <font>
-            <Font name="Segoe UI Semibold" size="17.0" />
-         </font>
-      </Label>
-      <MFXButton fx:id="deleteAccBtn" buttonType="RAISED" layoutX="129.0" layoutY="635.0" onAction="#deleteAccount" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Delete Account" textFill="#d1d0d0">
-         <font>
-            <Font name="Segoe UI Symbol" size="1.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </MFXButton>
-      <MFXButton fx:id="signOutBtn" buttonType="RAISED" layoutX="129.0" layoutY="568.0" onAction="#logOut" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Log Out" textFill="#d1d0d0">
-         <font>
-            <Font name="Segoe UI Symbol" size="1.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </MFXButton>
-      <Label fx:id="errorLabel" layoutX="486.0" layoutY="320.0" prefHeight="18.0" prefWidth="249.0" />
    </children>
 </AnchorPane>
