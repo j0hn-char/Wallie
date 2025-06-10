@@ -11,7 +11,7 @@ public class Budget {
     private double totalAmountSpent;
     private ArrayList<Expense> expenseHistory = new ArrayList<>();
 
-    public Budget(int budgetID, double totalAmountSpent, double totalAmount) {
+    public Budget(int budgetID, double totalAmount, double totalAmountSpent) {
         this.budgetID = budgetID;
         this.totalAmountSpent = totalAmountSpent;
         this.totalAmount = totalAmount;
