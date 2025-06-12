@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="bug fix">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="nav bar animation start">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/NavBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/NavBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" afterDir="false" />
@@ -181,6 +183,8 @@
       <workItem from="1749641468196" duration="285000" />
       <workItem from="1749675048403" duration="4242000" />
       <workItem from="1749686594136" duration="2665000" />
+      <workItem from="1749737679371" duration="2410000" />
+      <workItem from="1749756544696" duration="5998000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />

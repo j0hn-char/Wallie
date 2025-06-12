@@ -58,6 +58,7 @@ public class LoginController implements Form{
         HomepageController controller = loader.getController();
         controller.initializeCategoryLists();
         controller.setUser(username);
+        controller.playAnimation();
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

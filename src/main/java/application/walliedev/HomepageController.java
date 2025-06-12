@@ -45,7 +45,7 @@ public class HomepageController implements Form, NavBar{
     private Label noBudgetLabel, currencyLabel, balanceLabel, spentLabel, errorLabel, expenseInfoLabel, usernameLabel;
 
     @FXML
-    private MFXButton addBtn, clearBtn;
+    private MFXButton addBtn, clearBtn, wallieAiBtn;
 
     @FXML
     private TextField expenseNameTxt, amountTxt;
@@ -58,12 +58,16 @@ public class HomepageController implements Form, NavBar{
 
     @FXML
     private AnchorPane confirmExpensePane;
-    
+
     @FXML
     private ProgressBar healthProgressBar, homeProgressBar, leisureProgressBar, shoppingProgressBar, transportProgressBar, otherProgressBar;
 
     @FXML
-    private ImageView logoForAnim, goToProfileBtn;
+    private ImageView logoForAnim, goToProfileBtn, homePageLogo;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     private User user;
     private Budget budget;
@@ -114,12 +118,11 @@ public class HomepageController implements Form, NavBar{
     }
 
     public void setUser(String username){
-        playAnimation();
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
         String getUserInfo = "SELECT * FROM users WHERE username = '" + username + "'";
-        
+
         try{
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(getUserInfo);
@@ -175,17 +178,17 @@ public class HomepageController implements Form, NavBar{
         });
         animation.play();
     }
-    
+
     public void setBudget(User user) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        
+
         String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
-        
+
         try {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(getBudgetInfo);
-            
+
             if (queryResult.next()) {
                 budget = new Budget(
                         queryResult.getInt("budgetId"),
@@ -208,7 +211,7 @@ public class HomepageController implements Form, NavBar{
                 balanceLabel.setText("-");
                 spentLabel.setText("-");
             }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
@@ -224,7 +227,7 @@ public class HomepageController implements Form, NavBar{
             return null;
         }));
     }
-    
+
     private void setExpenseList() {
         for (Expense expense : budget.getExpenseHistory()) {
 
@@ -369,10 +372,6 @@ public class HomepageController implements Form, NavBar{
         }
 
     }
-    //NavBar Interface implementation for Testing
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @Override
     public void switchToHomepage(ActionEvent event, String username) {
@@ -380,21 +379,18 @@ public class HomepageController implements Form, NavBar{
     }
 
     @Override
-    public void switchToProfile(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
-        root = loader.load();
-
+    public void switchToProfile(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {
         ProfilePageController controller = loader.getController();
         controller.initializeCurrencyComboBox();
         controller.setUser(user);
+        controller.homepageNavAnimationIn();
 
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
 
-        stage.setScene(scene);
-        stage.show();
+        Scene currentScene = ((Node)event.getSource()).getScene();
+        currentScene.setRoot(root);
     }
+
 
     @Override
     public void switchToBudgetCalc(ActionEvent event, String username) {
@@ -402,12 +398,18 @@ public class HomepageController implements Form, NavBar{
     }
 
     public void profileNavAnimationOut(MouseEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+        Parent newRoot = loader.load();
+
         whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
         focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
 
         Timeline focusAnim = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH)),
-                new KeyFrame(Duration.seconds(0.3), new KeyValue(focusDistance, 0.7, Interpolator.EASE_BOTH))
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, 1.0, Interpolator.EASE_BOTH))
         );
 
         FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
@@ -424,11 +426,47 @@ public class HomepageController implements Form, NavBar{
 
         ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
         anim.setOnFinished(e -> {
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
             try {
-                switchToProfile(event);
+                switchToProfile(event, newRoot, loader);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+        });
+        anim.play();
+    }
+
+    public void profileNavAnimationIn(){
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+        focusGradient.setTranslateX(focusGradient.getTranslateX() + 266);
+
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, -1.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH))
+        );
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_OUT);
+        whiteOutAnim.setFromValue(1);
+        whiteOutAnim.setToValue(0);
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_OUT);
+        moveGradient.setByX(-266);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            whiteOut.setVisible(false);
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
         });
         anim.play();
     }
