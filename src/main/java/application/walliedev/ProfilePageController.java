@@ -2,6 +2,9 @@ package application.walliedev;
 
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.animation.*;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +12,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.RadialGradient;
+import javafx.scene.paint.Stop;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -28,14 +38,16 @@ public class ProfilePageController implements Form{
     private Label usernameLabel;
     @FXML
     private MFXTextField currPswdTxt, newPswdTxt, retypeTxt;
-
     @FXML
     private Label errorLabel;
+    @FXML
+    private Rectangle focusGradient, whiteOut;
 
     private User user;
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
 
     public void initializeCurrencyComboBox() {
         currencyBox.getItems().addAll("€","$");
@@ -43,6 +55,7 @@ public class ProfilePageController implements Form{
     }
 
     public void setUser(User user) {
+        homepageNavAnimationIn();
         this.user=user;
 
         displayUsernameLabel.setText(user.getUsername());
@@ -174,6 +187,45 @@ public class ProfilePageController implements Form{
         stage.setScene(scene);
         stage.show();
     }
+
+    public void homepageNavAnimationIn(){
+        whiteOut.setVisible(true);
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 0.7, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.3), new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH))
+        );
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_OUT);
+        moveGradient.setFromX(0);
+        moveGradient.setToX(266);
+        moveGradient.setToY(0);
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_IN);
+        whiteOutAnim.setFromValue(1);
+        whiteOutAnim.setToValue(0);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setAutoReverse(true);
+        anim.play();
+    }
+
+    private void updateGradient(double focusDistance) {
+        focusGradient.setFill(new RadialGradient(
+                0,
+                focusDistance,
+                0.5, 0.5,
+                0.48,
+                true,
+                CycleMethod.NO_CYCLE,
+                new Stop(0, Color.web("#b787ff")),
+                new Stop(1, Color.TRANSPARENT)
+        ));
+    }
+
     //NavBar Interface implementation for Testing
     /*@Override
     public void switchToHomepage(ActionEvent event, String username) {

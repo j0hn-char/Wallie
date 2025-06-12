@@ -5,6 +5,8 @@ import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXProgressBar;
 import io.github.palexdev.materialfx.controls.cell.MFXListCell;
 import javafx.animation.*;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.RadialGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -48,7 +54,7 @@ public class HomepageController implements Form, NavBar{
     private MFXComboBox<String> categoryBox;
 
     @FXML
-    private Rectangle noBudgetBlur, confirmExpenseBlur;
+    private Rectangle noBudgetBlur, confirmExpenseBlur, focusGradient, whiteOut;
 
     @FXML
     private AnchorPane confirmExpensePane;
@@ -61,6 +67,7 @@ public class HomepageController implements Form, NavBar{
 
     private User user;
     private Budget budget;
+    private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
     private final HashMap<String, Integer> categoryIDList = new HashMap<>();
     private final HashMap<Integer, String> categoryNameList = new HashMap<>();
     private final HashMap<String, String> categoryColorList = new HashMap<>();
@@ -392,5 +399,50 @@ public class HomepageController implements Form, NavBar{
     @Override
     public void switchToBudgetCalc(ActionEvent event, String username) {
 
+    }
+
+    public void profileNavAnimationOut(MouseEvent event) throws IOException{
+        whiteOut.setVisible(true);
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.3), new KeyValue(focusDistance, 0.7, Interpolator.EASE_BOTH))
+        );
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_IN);
+        whiteOutAnim.setFromValue(0);
+        whiteOutAnim.setToValue(1);
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_IN);
+        moveGradient.setFromX(0);
+        moveGradient.setFromY(0);
+        moveGradient.setToX(266);
+        moveGradient.setToY(0);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            try {
+                switchToProfile(event);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        anim.play();
+    }
+
+    private void updateGradient(double focusDistance) {
+        focusGradient.setFill(new RadialGradient(
+                0,
+                focusDistance,
+                0.5, 0.5,
+                0.48,
+                true,
+                CycleMethod.NO_CYCLE,
+                new Stop(0, Color.web("#b787ff")),
+                new Stop(1, Color.TRANSPARENT)
+        ));
     }
 }
