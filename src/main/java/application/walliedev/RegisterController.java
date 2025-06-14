@@ -24,18 +24,18 @@ import java.net.URL;
 
 import java.io.IOException;
 
-public class RegisterController {
+public class RegisterController implements Form{
     @FXML
-    MFXTextField usernameTxt, pswdTxt, retypeTxt, emailTxt;
+    private MFXTextField usernameTxt, pswdTxt, retypeTxt, emailTxt;
 
     @FXML
-    Label errorLabel;
+    private Label errorLabel;
 
     @FXML
-    MFXProgressSpinner spinner;
+    private MFXProgressSpinner spinner;
 
     @FXML
-    Rectangle blur;
+    private Rectangle blur;
 
     private Stage stage;
     private Scene scene;
@@ -104,9 +104,6 @@ public class RegisterController {
     }
 
     public void registerUser(ActionEvent event) {
-        spinner.setVisible(true);
-        blur.setVisible(true);
-
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -123,9 +120,12 @@ public class RegisterController {
             ResultSet resultSet = statement.executeQuery(checkIfExistsQuery);
 
             if (resultSet.next() && resultSet.getInt(1) > 0) {
-                System.out.println("Username or email already exists!");
+                errorLabel.setText("Username or email already exists!");
                 return;
             }
+
+            spinner.setVisible(true);
+            blur.setVisible(true);
 
             String insertFields = "INSERT INTO Users(username, password, email, preferredCurrency, profileImg) VALUES ('";
             String insertValues = username + "','" + password + "','" + email + "','" + preferredCurrency + "','" + profileImg + "')";
@@ -138,7 +138,7 @@ public class RegisterController {
                 @Override
                 protected Void call() {
                     try {
-                        EmailSender.sendEmail(email, "Welcome to Wallie!", "Hello " + username + ", you have successfully registered to Wallie");
+                        EmailSender.sendEmail(email, "Welcome to Wallie!", username);
                     } catch (MessagingException e) {
                         e.printStackTrace();
                     }

@@ -2,7 +2,9 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -45,7 +47,10 @@
       <MFXButton buttonType="RAISED" depthLevel="LEVEL3" layoutX="474.0" layoutY="464.0" onAction="#loginButtonPressed" prefHeight="48.0" prefWidth="252.0" style="-fx-background-color: #6200ee; -fx-font-size: 18; -fx-text-fill: #cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI Symbol; -fx-border-radius: 15; -fx-background-radius: 15;" text="Login" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
-         </font></MFXButton>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></MFXButton>
       <Hyperlink layoutX="650.0" layoutY="564.0" onAction="#switchToRegister" text="Sign up" textFill="#23036a">
          <font>
             <Font name="Segoe UI Bold Italic" size="17.0" />
@@ -64,5 +69,25 @@
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>
       </Label>
+      <Rectangle fx:id="blur" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="800.0" layoutX="10.0" layoutY="10.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <ImageView fx:id="logoForAnim" fitHeight="160.0" fitWidth="252.0" layoutX="478.0" layoutY="845.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/wallieLogo1.png" />
+         </image>
+      </ImageView>
+      <MFXProgressSpinner fx:id="spinner" layoutX="554.0" layoutY="354.0" prefHeight="113.0" prefWidth="113.0" visible="false">
+         <color1>
+            <Color red="0.5555555820465088" green="0.25925925374031067" blue="1.0" />
+         </color1>
+         <color2>
+            <Color red="0.34385964274406433" green="0.011695906519889832" blue="0.8421052694320679" />
+         </color2>
+         <color3>
+            <Color red="0.44070014357566833" green="0.24025341868400574" blue="0.7631579041481018" />
+         </color3>
+         <color4>
+            <Color red="0.38333332538604736" blue="1.0" />
+         </color4>
+      </MFXProgressSpinner>
    </children>
 </AnchorPane>

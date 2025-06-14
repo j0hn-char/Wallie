@@ -1,3 +1,32 @@
 .error-field {
     -fx-background-color: #f28888 !important;
 }
+.mfx-combo-box .virtual-flow .label {
+    -fx-text-fill: #6200ee;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 12px;
+}
+.mfx-combo-box .mfx-combo-box-cell {
+    -fx-text-fill: #3700b3;
+    -fx-font-weight: bold;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+.health-bar {
+    -fx-accent: #ff8399;
+}
+.home-bar {
+    -fx-accent: #76cc5b;
+}
+.leisure-bar {
+    -fx-accent: #f8b05f;
+}
+.shopping-bar {
+    -fx-accent: #b16ddc;
+}
+.transport-bar {
+     -fx-accent: #465cc5;
+ }
+.other-bar {
+    -fx-accent: #89a0ff;
+}

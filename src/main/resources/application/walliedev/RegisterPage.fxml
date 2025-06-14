@@ -4,6 +4,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -66,7 +67,10 @@
       <MFXButton buttonType="RAISED" layoutX="475.0" layoutY="510.0" onAction="#registerButtonPressed" prefHeight="48.0" prefWidth="252.0" style="-fx-background-color: #6200ee; -fx-font-size: 18; -fx-text-fill: #cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI Symbol; -fx-border-radius: 15; -fx-background-radius: 15;" text="Register">
          <font>
             <Font size="15.0" />
-         </font></MFXButton>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></MFXButton>
       <ImageView fitHeight="160.0" fitWidth="252.0" layoutX="571.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/wallieLogo.png" />

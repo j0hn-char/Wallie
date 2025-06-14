@@ -1,32 +1,41 @@
 package application.walliedev;
 
-import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.io.File;
-import java.net.URL;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController implements Form{
     @FXML
-    MFXTextField usernameTxt, pswdTxt;
+    private MFXTextField usernameTxt, pswdTxt;
 
     @FXML
-    Label errorLabel;
+    private Label errorLabel;
+
+    @FXML
+    private MFXProgressSpinner spinner;
+
+    @FXML
+    private Rectangle blur;
+
+    @FXML
+    private ImageView logoForAnim;
 
     private Stage stage;
     private Scene scene;
@@ -34,6 +43,22 @@ public class LoginController {
 
     public void switchToRegister(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("RegisterPage.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void switchToHomepage(ActionEvent event, String username) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
+        root = loader.load();
+
+        HomepageController controller = loader.getController();
+        controller.initializeCategoryLists();
+        controller.setUser(username);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
@@ -68,11 +93,15 @@ public class LoginController {
 
     public void loginButtonPressed(ActionEvent event) {
         if (checkFields()){
-            validateLogin();
+            validateLogin(event);
         }
     }
 
-    public void validateLogin(){
+    public void validateLogin(ActionEvent event){
+        errorLabel.setText("");
+        spinner.setVisible(true);
+        blur.setVisible(true);
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -85,11 +114,53 @@ public class LoginController {
 
             while(queryResult.next()){
                 if(queryResult.getInt(1) == 1) {
-                    System.out.println("You logged IN!!!");
+                    System.out.println("successful login");
+
+                    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+//                    pause.setOnFinished(e -> spinner.setVisible(false));
+
+                    FadeTransition fadeSpinner = new FadeTransition(Duration.millis(1000), spinner);
+                    fadeSpinner.setInterpolator(Interpolator.EASE_BOTH);
+                    fadeSpinner.setFromValue(1);
+                    fadeSpinner.setToValue(0);
+
+                    FadeTransition blurBackground = new FadeTransition(Duration.millis(1000), blur);
+                    blurBackground.setInterpolator(Interpolator.EASE_BOTH);
+                    blurBackground.setFromValue(0.5);
+                    blurBackground.setToValue(1);
+
+                    ScaleTransition enlargeLogo = new ScaleTransition(Duration.millis(1500), logoForAnim);
+                    enlargeLogo.setInterpolator(Interpolator.EASE_BOTH);
+                    enlargeLogo.setFromX(1);
+                    enlargeLogo.setFromY(1);
+                    enlargeLogo.setToX(2);
+                    enlargeLogo.setToY(2);
+
+                    TranslateTransition moveLogo = new TranslateTransition(Duration.millis(1500), logoForAnim);
+                    moveLogo.setInterpolator(Interpolator.EASE_BOTH);
+                    moveLogo.setFromX(0);
+                    moveLogo.setFromY(0);
+                    moveLogo.setToX(0);
+                    moveLogo.setToY(-550);
+
+                    ParallelTransition animationP1 = new ParallelTransition(fadeSpinner, blurBackground, enlargeLogo, moveLogo);
+                    SequentialTransition animation = new SequentialTransition(pause, animationP1, new PauseTransition(Duration.seconds(1)) );
+                    animation.setOnFinished(e -> {
+                        try {
+                            switchToHomepage(event, usernameTxt.getText());
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    });
+                    animation.play();
                 } else {
-                    System.out.println("Wrong Credentials!");
+                    spinner.setVisible(false);
+                    blur.setVisible(false);
+                    errorLabel.setText("Incorrect password or username");
                 }
             }
+//            spinner.setVisible(false);
+//            blur.setVisible(false);
 
         }catch (Exception e) {
             e.printStackTrace();
