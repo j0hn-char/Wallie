@@ -23,20 +23,19 @@ import java.util.ResourceBundle;
 public class IntroVideoController implements Initializable {
 
     @FXML
-    private Rectangle fade, blackOut;
+    private Rectangle fade;
 
     @FXML
     private MediaView mediaView;
 
     private MediaPlayer mediaPlayer;
 
-    private Stage stage;
     private Scene scene;
     private Parent root;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        URL path = getClass().getResource("/assets/wallie3dAnimBetter0001-0250.mp4");
+        URL path = getClass().getResource("/assets/fixedVideo.mp4");
         if (path == null) {
             System.err.println("Video file not found!");
             return;

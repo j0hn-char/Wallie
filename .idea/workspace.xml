@@ -4,30 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="new expense list look">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/VideoPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/wallie3dAnimBetter0001-0250.mp4" afterDir="false" />
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="added intro animation, changed &quot;images&quot; directory to &quot;assets&quot; directory">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/fixedVideo.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/LoginPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/RegisterPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/RegisterPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/WallieW.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/WallieW.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/bag-shopping-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/bag-shopping-solid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/bus-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/bus-solid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/cube-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/cube-solid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/heart-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/heart-solid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/house-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/house-solid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/stars-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/stars-solid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/user-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/user-solid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/utensils-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/utensils-solid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/wallieLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/wallieLogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/wallieLogo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/wallieLogo1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/wallie3dAnimBetter0001-0250.mp4" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +93,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -141,8 +122,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
       </set>
     </attachedChunks>
   </component>
@@ -196,6 +177,11 @@
       <workItem from="1749215398082" duration="2000" />
       <workItem from="1749228562106" duration="2770000" />
       <workItem from="1749307604803" duration="43000" />
+      <workItem from="1749910439913" duration="164000" />
+      <workItem from="1749919217126" duration="170000" />
+      <workItem from="1749924205214" duration="1749000" />
+      <workItem from="1749926266711" duration="98000" />
+      <workItem from="1749926440244" duration="51000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -333,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748874195876</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added intro animation, changed &quot;images&quot; directory to &quot;assets&quot; directory">
+      <option name="closed" value="true" />
+      <created>1749910287543</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1749910287543</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +362,8 @@
     <MESSAGE value="fixed bug in log-in, added higher resolution logo in animation, fixed problem with long names and amounts in expense confirmation" />
     <MESSAGE value="Improved log-in animations with fade-out effect, updated styles for consistency, and added higher resolution logo in animation." />
     <MESSAGE value="new expense list look" />
-    <option name="LAST_COMMIT_MESSAGE" value="new expense list look" />
+    <MESSAGE value="added intro animation, changed &quot;images&quot; directory to &quot;assets&quot; directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="added intro animation, changed &quot;images&quot; directory to &quot;assets&quot; directory" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
