@@ -50,40 +50,7 @@ public class IntroVideoController implements Initializable {
         PauseTransition pause = new PauseTransition(Duration.seconds(6));
         pause.setOnFinished(e -> fadeForeground.play());
 
-        URL path = getClass().getResource("/assets/fixedVideo.mp4");
-        if (path == null) {
-            System.err.println("Video file not found!");
-            fadeForeground.play();
-            return;
-        }
-
-        Media media = new Media(path.toExternalForm());
-        mediaPlayer = new MediaPlayer(media);
-        mediaView.setMediaPlayer(mediaPlayer);
-
-        mediaView.sceneProperty().addListener((obs, oldScene, newScene) -> {
-            if (newScene != null) {
-                mediaView.fitWidthProperty().bind(newScene.widthProperty());
-                mediaView.fitHeightProperty().bind(newScene.heightProperty());
-                mediaView.setPreserveRatio(true);
-            }
-        });
-
-        mediaPlayer.setOnError(() -> {
-            System.err.println("MediaPlayer error: " + mediaPlayer.getError());
-            mediaPlayer.stop();
-            mediaPlayer.dispose();
-            fadeForeground.play();
-        });
-
-        mediaPlayer.setOnReady(() -> {
-            mediaPlayer.play();
-        });
-
-        mediaPlayer.setOnReady(() -> {
-            mediaPlayer.play();
-            pause.play();
-        });
+        pause.play();
     }
 
 
