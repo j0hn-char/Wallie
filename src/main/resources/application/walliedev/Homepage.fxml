@@ -69,7 +69,7 @@
       </Label>
       <ImageView disable="true" fitHeight="80.0" fitWidth="171.0" layoutX="540.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/wallieLogo.png" />
+            <Image url="@../../assets/wallieLogo.png" />
          </image>
       </ImageView>
       <Label layoutX="770.0" layoutY="139.0" text="New Expense" textFill="#3700b3">
@@ -147,7 +147,7 @@
                               </Label>
                               <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/heart-solid.png" />
+                                    <Image url="@../../assets/heart-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -175,7 +175,7 @@
                               </Label>
                               <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/house-solid.png" />
+                                    <Image url="@../../assets/house-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -203,7 +203,7 @@
                               </Label>
                               <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/utensils-solid.png" />
+                                    <Image url="@../../assets/utensils-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -231,7 +231,7 @@
                               </Label>
                               <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/bag-shopping-solid.png" />
+                                    <Image url="@../../assets/bag-shopping-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -259,7 +259,7 @@
                               </Label>
                               <ImageView fitHeight="17.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/bus-solid.png" />
+                                    <Image url="@../../assets/bus-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -287,7 +287,7 @@
                               </Label>
                               <ImageView fitHeight="17.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/cube-solid.png" />
+                                    <Image url="@../../assets/cube-solid.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -360,7 +360,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/stars-solid.png" />
+                  <Image url="@../../assets/stars-solid.png" />
                </image>
             </ImageView>
          </graphic>
@@ -370,7 +370,7 @@
       </MFXButton>
       <ImageView fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/user-solid.png" />
+            <Image url="@../../assets/user-solid.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -428,7 +428,7 @@
       </AnchorPane>
       <ImageView fx:id="logoForAnim" fitHeight="160.0" fitWidth="753.0" layoutX="478.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../images/wallieLogo1.png" />
+            <Image url="@../../assets/wallieLogo1.png" />
          </image>
       </ImageView>
    </children>

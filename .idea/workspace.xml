@@ -5,10 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="new expense list look">
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/VideoPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/wallie3dAnimBetter0001-0250.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/LoginPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/RegisterPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/RegisterPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/WallieW.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/WallieW.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/bag-shopping-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/bag-shopping-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/bus-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/bus-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/cube-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/cube-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/heart-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/heart-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/house-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/house-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/stars-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/stars-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/user-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/user-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/utensils-solid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/utensils-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/wallieLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/wallieLogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/wallieLogo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/wallieLogo1.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,35 +93,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WallieApplication.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Homepage/Giannis&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/empit/OneDrive/Υπολογιστής/Wallie&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Application.WallieApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/application/walliedev",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\j0hn_char\Desktop\Wallie\src\main\resources\application\walliedev" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="application.walliedev" />
     </key>

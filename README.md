@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/main/resources/images/wallieLogo.png" alt="Wallie Logo" width="400">
+  <img src="src/main/resources/assets/wallieLogo.png" alt="Wallie Logo" width="400">
 </p>
 
 # Wallie
