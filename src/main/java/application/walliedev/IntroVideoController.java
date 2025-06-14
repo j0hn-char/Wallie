@@ -35,9 +35,25 @@ public class IntroVideoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        FadeTransition fadeForeground = new FadeTransition(Duration.seconds(2), fade);
+        fadeForeground.setFromValue(0);
+        fadeForeground.setToValue(1);
+        fadeForeground.setOnFinished(e -> {
+            try {
+                Stage stage = (Stage) mediaView.getScene().getWindow();
+                switchToLogin(stage);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(6));
+        pause.setOnFinished(e -> fadeForeground.play());
+
         URL path = getClass().getResource("/assets/fixedVideo.mp4");
         if (path == null) {
             System.err.println("Video file not found!");
+            fadeForeground.play();
             return;
         }
 
@@ -55,26 +71,15 @@ public class IntroVideoController implements Initializable {
 
         mediaPlayer.setOnError(() -> {
             System.err.println("MediaPlayer error: " + mediaPlayer.getError());
-        });
-
-        FadeTransition fadeForeground = new FadeTransition(Duration.seconds(2), fade);
-        fadeForeground.setFromValue(0);
-        fadeForeground.setToValue(1);
-        fadeForeground.setOnFinished(e -> {
-            try {
-                Stage stage = (Stage) mediaView.getScene().getWindow();
-                switchToLogin(stage);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            mediaPlayer.stop();
+            mediaPlayer.dispose();
+            fadeForeground.play();
         });
 
         mediaPlayer.setOnReady(() -> {
             mediaPlayer.play();
         });
 
-        PauseTransition pause = new PauseTransition(Duration.seconds(6));
-        pause.setOnFinished(e -> fadeForeground.play());
         mediaPlayer.setOnReady(() -> {
             mediaPlayer.play();
             pause.play();
