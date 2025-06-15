@@ -37,15 +37,24 @@ public class LoginController implements Form{
     @FXML
     private ImageView logoForAnim;
 
+    @FXML
+    private HBox topBar;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     public void switchToRegister(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("RegisterPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterPage.fxml"));
+        root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        RegisterController controller = loader.getController();
+        controller.dragWindow(stage);
 
         stage.setScene(scene);
         stage.show();
@@ -55,14 +64,15 @@ public class LoginController implements Form{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
         root = loader.load();
 
-        HomepageController controller = loader.getController();
-        controller.initializeCategoryLists();
-        controller.setUser(username);
-        controller.playAnimation();
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        HomepageController controller = loader.getController();
+        controller.initializeCategoryLists();
+        controller.setUser(username);
+        controller.dragWindow(stage);
 
         stage.setScene(scene);
         stage.show();
@@ -168,5 +178,30 @@ public class LoginController implements Form{
             e.getCause();
         }
 
+    }
+
+    @Override
+    public void closeApp() {
+        stage = (Stage) usernameTxt.getScene().getWindow();
+        stage.close();
+    }
+
+    @Override
+    public void minimizeApp() {
+        stage = (Stage) usernameTxt.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @Override
+    public void dragWindow(Stage stage) {
+        topBar.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        topBar.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
     }
 }
