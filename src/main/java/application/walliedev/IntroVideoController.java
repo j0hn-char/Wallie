@@ -28,8 +28,6 @@ public class IntroVideoController implements Initializable {
     @FXML
     private MediaView mediaView;
 
-    private MediaPlayer mediaPlayer;
-
     private Scene scene;
     private Parent root;
 
@@ -55,9 +53,14 @@ public class IntroVideoController implements Initializable {
 
 
     public void switchToLogin(Stage stage) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
+        root = loader.load();
+
         scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        LoginController controller = loader.getController();
+        controller.dragWindow(stage);
 
         stage.setScene(scene);
         stage.show();

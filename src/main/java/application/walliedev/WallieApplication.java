@@ -27,7 +27,7 @@ public class WallieApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
 
-//        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
         stage.getIcons().add(new Image(getClass().getResource("/assets/WallieW.png").toExternalForm()));
         stage.setTitle("Wallie");
