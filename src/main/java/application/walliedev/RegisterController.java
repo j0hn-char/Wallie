@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -24,7 +25,7 @@ import java.net.URL;
 
 import java.io.IOException;
 
-public class RegisterController implements Form{
+public class RegisterController implements Form, AppControls{
     @FXML
     private MFXTextField usernameTxt, pswdTxt, retypeTxt, emailTxt;
 
@@ -37,15 +38,24 @@ public class RegisterController implements Form{
     @FXML
     private Rectangle blur;
 
+    @FXML
+    private HBox topBar;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     public void switchToLogin(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
+        root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        LoginController controller = loader.getController();
+        controller.dragWindow(stage);
 
         stage.setScene(scene);
         stage.show();
@@ -169,5 +179,30 @@ public class RegisterController implements Form{
             e.getCause();
         }
 
+    }
+
+    @Override
+    public void closeApp() {
+        stage = (Stage) usernameTxt.getScene().getWindow();
+        stage.close();
+    }
+
+    @Override
+    public void minimizeApp() {
+        stage = (Stage) usernameTxt.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @Override
+    public void dragWindow(Stage stage) {
+        topBar.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        topBar.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
     }
 }

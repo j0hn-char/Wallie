@@ -15,6 +15,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -25,7 +26,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 
-public class HomepageController implements Form{
+public class HomepageController implements Form, AppControls{
 
     @FXML
     private VBox paymentListBox, categoriesVBox;
@@ -54,8 +55,14 @@ public class HomepageController implements Form{
     @FXML
     private ImageView logoForAnim;
 
+    @FXML
+    private HBox topBar;
+
     private User user;
     private Budget budget;
+    private Stage stage;
+    private double xOffset = 0;
+    private double yOffset = 0;
     private final HashMap<String, Integer> categoryIDList = new HashMap<>();
     private final HashMap<Integer, String> categoryNameList = new HashMap<>();
     private final HashMap<String, String> categoryColorList = new HashMap<>();
@@ -354,5 +361,30 @@ public class HomepageController implements Form{
             return false;
         }
 
+    }
+
+    @Override
+    public void closeApp() {
+        stage = (Stage) expenseNameTxt.getScene().getWindow();
+        stage.close();
+    }
+
+    @Override
+    public void minimizeApp() {
+        stage = (Stage) expenseNameTxt.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @Override
+    public void dragWindow(Stage stage) {
+        topBar.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        topBar.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
     }
 }
