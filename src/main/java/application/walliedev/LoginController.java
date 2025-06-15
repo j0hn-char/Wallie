@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -21,7 +22,7 @@ import java.sql.Statement;
 
 import java.io.IOException;
 
-public class LoginController implements Form{
+public class LoginController implements Form, AppControls{
     @FXML
     private MFXTextField usernameTxt, pswdTxt;
 
@@ -72,6 +73,7 @@ public class LoginController implements Form{
         HomepageController controller = loader.getController();
         controller.initializeCategoryLists();
         controller.setUser(username);
+        controller.playAnimation();
         controller.dragWindow(stage);
 
         stage.setScene(scene);

@@ -37,7 +37,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 
-public class HomepageController implements Form, NavBar{
+public class HomepageController implements Form, NavBar, AppControls{
     @FXML
     private VBox paymentListBox, categoriesVBox;
 
@@ -65,12 +65,17 @@ public class HomepageController implements Form, NavBar{
     @FXML
     private ImageView logoForAnim, goToProfileBtn, homePageLogo;
 
+    @FXML
+    private HBox topBar;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     private User user;
     private Budget budget;
+    private double xOffset = 0;
+    private double yOffset = 0;
     private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
     private final HashMap<String, Integer> categoryIDList = new HashMap<>();
     private final HashMap<Integer, String> categoryNameList = new HashMap<>();
@@ -374,11 +379,6 @@ public class HomepageController implements Form, NavBar{
     }
 
     @Override
-    public void switchToHomepage(ActionEvent event, String username) {
-
-    }
-
-    @Override
     public void switchToProfile(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {
         ProfilePageController controller = loader.getController();
         controller.initializeCurrencyComboBox();
@@ -482,5 +482,35 @@ public class HomepageController implements Form, NavBar{
                 new Stop(0, Color.web("#b787ff")),
                 new Stop(1, Color.TRANSPARENT)
         ));
+    }
+
+    @Override
+    public void switchToHomepage(MouseEvent event, String username, Parent root, FXMLLoader loader) throws IOException{
+
+    }
+
+    @Override
+    public void closeApp() {
+        stage = (Stage) expenseNameTxt.getScene().getWindow();
+        stage.close();
+    }
+
+    @Override
+    public void minimizeApp() {
+        stage = (Stage) expenseNameTxt.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @Override
+    public void dragWindow(Stage stage) {
+        topBar.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        topBar.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
     }
 }

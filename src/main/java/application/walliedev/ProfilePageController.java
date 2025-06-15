@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.RadialGradient;
@@ -29,7 +30,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ProfilePageController implements Form{
+public class ProfilePageController implements Form, NavBar, AppControls{
     @FXML
     private MFXComboBox<String> currencyBox;
     @FXML
@@ -48,11 +49,15 @@ public class ProfilePageController implements Form{
     private ImageView homePageLogo, goToProfileBtn;
     @FXML
     private MFXButton wallieAiBtn;
+    @FXML
+    private HBox topBar;
 
     private User user;
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private double xOffset = 0;
+    private double yOffset = 0;
     private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
 
     public void initializeCurrencyComboBox() {
@@ -276,6 +281,7 @@ public class ProfilePageController implements Form{
         ));
     }
 
+    @Override
     public void switchToHomepage(MouseEvent event, String username, Parent root, FXMLLoader loader) throws IOException {
         HomepageController controller = loader.getController();
         controller.initializeCategoryLists();
@@ -288,11 +294,35 @@ public class ProfilePageController implements Form{
         currentScene.setRoot(root);
     }
 
-    public void switchToProfile(ActionEvent event, String username) {
-
-    }
+    @Override
+    public void switchToProfile(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {}
 
     public void switchToBudgetCalc(ActionEvent event, String username) {
 
+    }
+
+    @Override
+    public void closeApp() {
+        stage = (Stage) currPswdTxt.getScene().getWindow();
+        stage.close();
+    }
+
+    @Override
+    public void minimizeApp() {
+        stage = (Stage) currPswdTxt.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @Override
+    public void dragWindow(Stage stage) {
+        topBar.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        topBar.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
     }
 }
