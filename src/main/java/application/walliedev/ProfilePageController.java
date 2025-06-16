@@ -283,9 +283,12 @@ public class ProfilePageController implements Form, NavBar, AppControls{
 
     @Override
     public void switchToHomepage(MouseEvent event, String username, Parent root, FXMLLoader loader) throws IOException {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
         HomepageController controller = loader.getController();
         controller.initializeCategoryLists();
         controller.setUser(username);
+        controller.dragWindow(stage);
         controller.profileNavAnimationIn();
 
         root.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());

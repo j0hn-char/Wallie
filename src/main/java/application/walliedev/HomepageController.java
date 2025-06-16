@@ -380,9 +380,12 @@ public class HomepageController implements Form, NavBar, AppControls{
 
     @Override
     public void switchToProfile(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
         ProfilePageController controller = loader.getController();
         controller.initializeCurrencyComboBox();
         controller.setUser(user);
+        controller.dragWindow(stage);
         controller.homepageNavAnimationIn();
 
         root.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
