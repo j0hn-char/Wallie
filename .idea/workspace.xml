@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="fixed intro problem entirely">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/AppControls.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/image-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/window-minimize-solid.png" afterDir="false" />
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge remote-tracking branch 'origin/master' into ProfilepageChanges/Giannis&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/application/walliedev/HomepageController.java&#10;#&#9;src/main/java/application/walliedev/LoginController.java&#10;#&#9;src/main/resources/application/walliedev/Homepage.fxml&#10;#&#9;src/main/resources/assets/pencil-edit-button.png">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/NavBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/NavBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/Homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/LoginPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/RegisterPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/RegisterPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/VideoPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/VideoPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/introAnim.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/introAnim.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -49,7 +43,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="homepageAnim/Giannis" />
+        <entry key="$PROJECT_DIR$" value="glassRedesign/Giannis" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,9 +86,9 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;customControls/Giannis&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ProfilepageChanges/Giannis&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/assets&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/application/walliedev&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -114,8 +108,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\j0hn_char\Desktop\Wallie\src\main\resources\assets" />
       <recent name="C:\Users\j0hn_char\Desktop\Wallie\src\main\resources\application\walliedev" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\empit\OneDrive\Υπολογιστής\Wallie\src\main\resources\images" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="application.walliedev" />
@@ -133,8 +129,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
       </set>
     </attachedChunks>
   </component>
@@ -183,21 +179,12 @@
       <workItem from="1748864908706" duration="724000" />
       <workItem from="1748865651518" duration="1038000" />
       <workItem from="1748871409304" duration="2147000" />
-      <workItem from="1748887191628" duration="216000" />
-      <workItem from="1748961590102" duration="210000" />
-      <workItem from="1749215398082" duration="2000" />
-      <workItem from="1749228562106" duration="2770000" />
-      <workItem from="1749307604803" duration="43000" />
-      <workItem from="1749910439913" duration="164000" />
-      <workItem from="1749919217126" duration="170000" />
-      <workItem from="1749924205214" duration="1749000" />
-      <workItem from="1749926266711" duration="98000" />
-      <workItem from="1749926440244" duration="51000" />
-      <workItem from="1749934725045" duration="844000" />
-      <workItem from="1749936064862" duration="4174000" />
-      <workItem from="1749941082020" duration="103000" />
-      <workItem from="1749993844381" duration="1820000" />
-      <workItem from="1750002696420" duration="3635000" />
+      <workItem from="1749634480523" duration="678000" />
+      <workItem from="1749641468196" duration="285000" />
+      <workItem from="1749675048403" duration="4242000" />
+      <workItem from="1749686594136" duration="2665000" />
+      <workItem from="1749737679371" duration="2410000" />
+      <workItem from="1749756544696" duration="5998000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -327,47 +314,63 @@
       <option name="project" value="LOCAL" />
       <updated>1748874056242</updated>
     </task>
-    <task id="LOCAL-00017" summary="new expense list look">
+    <task id="LOCAL-00017" summary="changes 27/5">
       <option name="closed" value="true" />
-      <created>1748874195876</created>
+      <created>1749232957981</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1748874195876</updated>
+      <updated>1749232957981</updated>
     </task>
-    <task id="LOCAL-00018" summary="added intro animation, changed &quot;images&quot; directory to &quot;assets&quot; directory">
+    <task id="LOCAL-00018" summary="changes 27/5">
       <option name="closed" value="true" />
-      <created>1749910287543</created>
+      <created>1749236343044</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1749910287543</updated>
+      <updated>1749236343044</updated>
     </task>
-    <task id="LOCAL-00019" summary="different video">
+    <task id="LOCAL-00019" summary="changes 27/5">
       <option name="closed" value="true" />
-      <created>1749934946547</created>
+      <created>1749241582345</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1749934946547</updated>
+      <updated>1749241582345</updated>
     </task>
-    <task id="LOCAL-00020" summary="video problem handled (band-aid fix)">
+    <task id="LOCAL-00020" summary="changes 7/6">
       <option name="closed" value="true" />
-      <created>1749935566682</created>
+      <created>1749244991630</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1749935566682</updated>
+      <updated>1749244991630</updated>
     </task>
-    <task id="LOCAL-00021" summary="fixed intro problem entirely">
+    <task id="LOCAL-00021" summary="changes 7/6">
       <option name="closed" value="true" />
-      <created>1749937371362</created>
+      <created>1749296449482</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1749937371362</updated>
+      <updated>1749296449482</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1749496672806</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1749496672806</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/master' into ProfilepageChanges/Giannis&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/application/walliedev/HomepageController.java&#10;#&#9;src/main/java/application/walliedev/LoginController.java&#10;#&#9;src/main/resources/application/walliedev/Homepage.fxml&#10;#&#9;src/main/resources/assets/pencil-edit-button.png">
+      <option name="closed" value="true" />
+      <created>1750023702049</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1750023702049</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,11 +405,10 @@
     <MESSAGE value="fixed bug in log-in, added higher resolution logo in animation, fixed problem with long names and amounts in expense confirmation" />
     <MESSAGE value="Improved log-in animations with fade-out effect, updated styles for consistency, and added higher resolution logo in animation." />
     <MESSAGE value="new expense list look" />
-    <MESSAGE value="added intro animation, changed &quot;images&quot; directory to &quot;assets&quot; directory" />
-    <MESSAGE value="different video" />
-    <MESSAGE value="video problem handled (band-aid fix)" />
-    <MESSAGE value="fixed intro problem entirely" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed intro problem entirely" />
+    <MESSAGE value="changes 27/5" />
+    <MESSAGE value="changes 7/6" />
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
