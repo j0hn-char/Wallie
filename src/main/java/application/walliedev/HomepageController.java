@@ -396,8 +396,18 @@ public class HomepageController implements Form, NavBar, AppControls{
 
 
     @Override
-    public void switchToBudgetCalc(ActionEvent event, String username) {
+    public void switchToBudgetCalc(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
+        WallieAiController controller = loader.getController();
+        controller.setUser(user);
+        controller.dragWindow(stage);
+        controller.homepageNavAnimationIn(event);
+
+        root.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        Scene currentScene = ((Node)event.getSource()).getScene();
+        currentScene.setRoot(root);
     }
 
     public void profileNavAnimationOut(MouseEvent event) throws IOException{
@@ -422,10 +432,7 @@ public class HomepageController implements Form, NavBar, AppControls{
 
         TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
         moveGradient.setInterpolator(Interpolator.EASE_IN);
-        moveGradient.setFromX(0);
-        moveGradient.setFromY(0);
-        moveGradient.setToX(266);
-        moveGradient.setToY(0);
+        moveGradient.setByX(266);
 
         ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
         anim.setOnFinished(e -> {
@@ -470,6 +477,77 @@ public class HomepageController implements Form, NavBar, AppControls{
             goToProfileBtn.setDisable(false);
             wallieAiBtn.setDisable(false);
             homePageLogo.setDisable(false);
+        });
+        anim.play();
+    }
+
+    public void wallieAiNavAnimationIn(MouseEvent event) throws IOException{
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+        focusGradient.setTranslateX(focusGradient.getTranslateX() - 266);
+
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 1.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH))
+        );
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_IN);
+        whiteOutAnim.setFromValue(1);
+        whiteOutAnim.setToValue(0);
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_IN);
+        moveGradient.setByX(266);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
+        });
+        anim.play();
+    }
+
+    public void wallieAiNavAnimationOut(MouseEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WallieAiPage.fxml"));
+        Parent newRoot = loader.load();
+
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, -1.0, Interpolator.EASE_BOTH))
+        );
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_IN);
+        whiteOutAnim.setFromValue(0);
+        whiteOutAnim.setToValue(1);
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_IN);
+        moveGradient.setByX(-266);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
+            try {
+                switchToBudgetCalc(event, newRoot, loader);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
         anim.play();
     }
