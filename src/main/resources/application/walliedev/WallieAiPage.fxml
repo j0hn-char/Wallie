@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -104,5 +105,27 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </HBox>
+      <MFXTextField fx:id="addIncomeField" layoutX="128.0" layoutY="230.0" prefHeight="50.0" prefWidth="218.0" promptText="Add Income">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </MFXTextField>
+      <MFXTextField fx:id="fixedExpensesField" layoutX="128.0" layoutY="316.0" prefHeight="50.0" prefWidth="218.0" promptText="Fixed Expenses">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </MFXTextField>
+      <Label fx:id="categoriesLabel" layoutX="617.0" layoutY="185.0" prefHeight="18.0" prefWidth="140.0" text="Categories" />
+      <Label fx:id="dailyNecessitiesLabel" layoutX="600.0" layoutY="252.0" prefHeight="18.0" prefWidth="122.0" text="Daily Necessities" />
+      <Label fx:id="clothingLabel" layoutX="600.0" layoutY="294.0" prefHeight="18.0" prefWidth="122.0" text="Clothing" />
+      <Label fx:id="entertainmentLabel" layoutX="600.0" layoutY="338.0" text="Entertainment" />
+      <Label fx:id="extraExpensesLabel" layoutX="600.0" layoutY="378.0" text="Extra Expenses" />
+      <Label fx:id="resultsLabel" layoutX="1019.0" layoutY="176.0" text="Results" />
+      <Label fx:id="result1Label" layoutX="1005.0" layoutY="222.0" />
+      <Label fx:id="result2Label" layoutX="1004.0" layoutY="272.0" />
+      <Label fx:id="result3Label" layoutX="1005.0" layoutY="347.0" />
+      <Label fx:id="result4Label" layoutX="1004.0" layoutY="437.0" />
+      <MFXButton fx:id="clearBtn" layoutX="419.0" layoutY="546.0" text="Clear" />
+      <MFXButton fx:id="calculateBtn" layoutX="562.0" layoutY="546.0" text="Calculate" />
    </children>
 </AnchorPane>
