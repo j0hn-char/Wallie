@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.ProfilePageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="212.0" layoutY="-42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0" />
+      <Rectangle fx:id="focusGradient" height="160.0" layoutX="668.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="398.0">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.4770114942528736">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7166666388511658" green="0.5277777910232544" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.765999972820282" green="0.6100000143051147" blue="1.0" opacity="0.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle fill="WHITE" height="706.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0">
+         <effect>
+            <DropShadow height="53.24" radius="18.060000000000002">
+               <color>
+                  <Color opacity="0.5" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <ImageView fx:id="homePageLogo" disable="true" fitHeight="80.0" fitWidth="171.0" layoutX="540.0" layoutY="56.0" onMouseClicked="#homepageNavAnimationOut" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/wallieLogo.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <MFXButton fx:id="wallieAiBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="45.0" layoutY="73.0" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Wallie Ai" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Symbol" size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/stars-solid.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MFXButton>
+      <ImageView fx:id="goToProfileBtn" fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/user-solid.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="808.0" layoutY="74.0" prefHeight="46.0" prefWidth="298.0" text="username" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="20.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="whiteOut" fill="WHITE" height="706.0" layoutY="144.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <HBox fx:id="topBar" alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="1200.0" spacing="20.0" style="-fx-padding: 0 15px;">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#minimizeApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/window-minimize-solid.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/image-removebg-preview.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </HBox>
+   </children>
+</AnchorPane>

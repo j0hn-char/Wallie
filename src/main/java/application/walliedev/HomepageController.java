@@ -5,6 +5,8 @@ import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXProgressBar;
 import io.github.palexdev.materialfx.controls.cell.MFXListCell;
 import javafx.animation.*;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.RadialGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -31,7 +37,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 
-public class HomepageController implements Form, NavBar{
+public class HomepageController implements Form, NavBar, AppControls{
     @FXML
     private VBox paymentListBox, categoriesVBox;
 
@@ -39,7 +45,7 @@ public class HomepageController implements Form, NavBar{
     private Label noBudgetLabel, currencyLabel, balanceLabel, spentLabel, errorLabel, expenseInfoLabel, usernameLabel;
 
     @FXML
-    private MFXButton addBtn, clearBtn;
+    private MFXButton addBtn, clearBtn, wallieAiBtn;
 
     @FXML
     private TextField expenseNameTxt, amountTxt;
@@ -48,19 +54,29 @@ public class HomepageController implements Form, NavBar{
     private MFXComboBox<String> categoryBox;
 
     @FXML
-    private Rectangle noBudgetBlur, confirmExpenseBlur;
+    private Rectangle noBudgetBlur, confirmExpenseBlur, focusGradient, whiteOut;
 
     @FXML
     private AnchorPane confirmExpensePane;
-    
+
     @FXML
     private ProgressBar healthProgressBar, homeProgressBar, leisureProgressBar, shoppingProgressBar, transportProgressBar, otherProgressBar;
 
     @FXML
-    private ImageView logoForAnim, goToProfileBtn;
+    private ImageView logoForAnim, goToProfileBtn, homePageLogo;
+
+    @FXML
+    private HBox topBar;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     private User user;
     private Budget budget;
+    private double xOffset = 0;
+    private double yOffset = 0;
+    private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
     private final HashMap<String, Integer> categoryIDList = new HashMap<>();
     private final HashMap<Integer, String> categoryNameList = new HashMap<>();
     private final HashMap<String, String> categoryColorList = new HashMap<>();
@@ -107,12 +123,11 @@ public class HomepageController implements Form, NavBar{
     }
 
     public void setUser(String username){
-        playAnimation();
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
         String getUserInfo = "SELECT * FROM users WHERE username = '" + username + "'";
-        
+
         try{
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(getUserInfo);
@@ -168,17 +183,17 @@ public class HomepageController implements Form, NavBar{
         });
         animation.play();
     }
-    
+
     public void setBudget(User user) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        
+
         String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
-        
+
         try {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(getBudgetInfo);
-            
+
             if (queryResult.next()) {
                 budget = new Budget(
                         queryResult.getInt("budgetId"),
@@ -201,7 +216,7 @@ public class HomepageController implements Form, NavBar{
                 balanceLabel.setText("-");
                 spentLabel.setText("-");
             }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
@@ -217,7 +232,7 @@ public class HomepageController implements Form, NavBar{
             return null;
         }));
     }
-    
+
     private void setExpenseList() {
         for (Expense expense : budget.getExpenseHistory()) {
 
@@ -362,35 +377,143 @@ public class HomepageController implements Form, NavBar{
         }
 
     }
-    //NavBar Interface implementation for Testing
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @Override
-    public void switchToHomepage(ActionEvent event, String username) {
-
-    }
-
-    @Override
-    public void switchToProfile(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
-        root = loader.load();
+    public void switchToProfile(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         ProfilePageController controller = loader.getController();
         controller.initializeCurrencyComboBox();
         controller.setUser(user);
+        controller.dragWindow(stage);
+        controller.homepageNavAnimationIn();
 
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
 
-        stage.setScene(scene);
-        stage.show();
+        Scene currentScene = ((Node)event.getSource()).getScene();
+        currentScene.setRoot(root);
     }
+
 
     @Override
     public void switchToBudgetCalc(ActionEvent event, String username) {
 
+    }
+
+    public void profileNavAnimationOut(MouseEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+        Parent newRoot = loader.load();
+
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, 1.0, Interpolator.EASE_BOTH))
+        );
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_IN);
+        whiteOutAnim.setFromValue(0);
+        whiteOutAnim.setToValue(1);
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_IN);
+        moveGradient.setFromX(0);
+        moveGradient.setFromY(0);
+        moveGradient.setToX(266);
+        moveGradient.setToY(0);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
+            try {
+                switchToProfile(event, newRoot, loader);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        anim.play();
+    }
+
+    public void profileNavAnimationIn(){
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+        focusGradient.setTranslateX(focusGradient.getTranslateX() + 266);
+
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, -1.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH))
+        );
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_OUT);
+        whiteOutAnim.setFromValue(1);
+        whiteOutAnim.setToValue(0);
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_OUT);
+        moveGradient.setByX(-266);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            whiteOut.setVisible(false);
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
+        });
+        anim.play();
+    }
+
+    private void updateGradient(double focusDistance) {
+        focusGradient.setFill(new RadialGradient(
+                0,
+                focusDistance,
+                0.5, 0.5,
+                0.48,
+                true,
+                CycleMethod.NO_CYCLE,
+                new Stop(0, Color.web("#b787ff")),
+                new Stop(1, Color.TRANSPARENT)
+        ));
+    }
+
+    @Override
+    public void switchToHomepage(MouseEvent event, String username, Parent root, FXMLLoader loader) throws IOException{
+
+    }
+
+    @Override
+    public void closeApp() {
+        stage = (Stage) expenseNameTxt.getScene().getWindow();
+        stage.close();
+    }
+
+    @Override
+    public void minimizeApp() {
+        stage = (Stage) expenseNameTxt.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @Override
+    public void dragWindow(Stage stage) {
+        topBar.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        topBar.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
     }
 }
