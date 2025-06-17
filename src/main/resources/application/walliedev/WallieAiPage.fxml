@@ -105,27 +105,55 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </HBox>
-      <MFXTextField fx:id="addIncomeField" layoutX="128.0" layoutY="230.0" prefHeight="50.0" prefWidth="218.0" promptText="Add Income">
+      <Label fx:id="dailyNecessitiesLabel" layoutX="479.0" layoutY="271.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Daily Necessities" />
+      <MFXButton fx:id="calculateBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="408.0" layoutY="657.0" prefHeight="47.0" prefWidth="381.0" style="-fx-background-color: #6200ee; -fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: normal; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Calculate" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Segoe UI Symbol" size="1.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MFXButton>
+      <MFXButton fx:id="clearBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="185.0" layoutY="657.0" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #cdc1e1; -fx-font-size: 20; -fx-text-fill: #6200ee; -fx-font-weight: normal; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Symbol" size="1.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MFXButton>
+      <MFXTextField fx:id="addIncomeField" floatMode="BORDER" layoutX="128.0" layoutY="289.0" prefHeight="45.0" prefWidth="218.0" promptText="Add Income" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #6200ee; -fx-text-fill: #6200ee;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+         <font>
+            <Font name="Segoe UI Symbol" size="12.0" />
          </font>
       </MFXTextField>
-      <MFXTextField fx:id="fixedExpensesField" layoutX="128.0" layoutY="316.0" prefHeight="50.0" prefWidth="218.0" promptText="Fixed Expenses">
+      <MFXTextField fx:id="fixedExpensesField" floatMode="BORDER" layoutX="128.0" layoutY="356.0" prefHeight="46.0" prefWidth="218.0" promptText="Fixed Expenses" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #6200ee; -fx-text-fill: #6200ee;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
          <font>
-            <Font size="18.0" />
+            <Font name="Segoe UI Symbol" size="12.0" />
          </font>
       </MFXTextField>
-      <Label fx:id="categoriesLabel" layoutX="617.0" layoutY="185.0" prefHeight="18.0" prefWidth="140.0" text="Categories" />
-      <Label fx:id="dailyNecessitiesLabel" layoutX="600.0" layoutY="252.0" prefHeight="18.0" prefWidth="122.0" text="Daily Necessities" />
-      <Label fx:id="clothingLabel" layoutX="600.0" layoutY="294.0" prefHeight="18.0" prefWidth="122.0" text="Clothing" />
-      <Label fx:id="entertainmentLabel" layoutX="600.0" layoutY="338.0" text="Entertainment" />
-      <Label fx:id="extraExpensesLabel" layoutX="600.0" layoutY="378.0" text="Extra Expenses" />
-      <Label fx:id="resultsLabel" layoutX="1019.0" layoutY="176.0" text="Results" />
-      <Label fx:id="result1Label" layoutX="1005.0" layoutY="222.0" />
-      <Label fx:id="result2Label" layoutX="1004.0" layoutY="272.0" />
-      <Label fx:id="result3Label" layoutX="1005.0" layoutY="347.0" />
-      <Label fx:id="result4Label" layoutX="1004.0" layoutY="437.0" />
-      <MFXButton fx:id="clearBtn" layoutX="419.0" layoutY="546.0" text="Clear" />
-      <MFXButton fx:id="calculateBtn" layoutX="562.0" layoutY="546.0" text="Calculate" />
+      <Label fx:id="categoriesLabel" layoutX="504.0" layoutY="185.0" text="Categories" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="resultsLabel" layoutX="957.0" layoutY="185.0" text="Results" textFill="#3700b3">
+         <font>
+            <Font name="Segoe UI Semibold" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="clothingLabel" layoutX="479.0" layoutY="356.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Clothing" />
+      <Label fx:id="extraExpensesLabel" layoutX="479.0" layoutY="521.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Extra Expenses" />
+      <Label fx:id="entertainmentLabel" layoutX="479.0" layoutY="440.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Entertainment" />
+      <Label fx:id="result1Label" layoutX="896.0" layoutY="276.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Result1" />
+      <Label fx:id="result2Label" layoutX="896.0" layoutY="361.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Result2" />
+      <Label fx:id="result4Label" layoutX="896.0" layoutY="526.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Result4" />
+      <Label fx:id="result3Label" layoutX="896.0" layoutY="445.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Result3" />
    </children>
 </AnchorPane>
