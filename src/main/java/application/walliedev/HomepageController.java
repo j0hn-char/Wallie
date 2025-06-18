@@ -220,14 +220,13 @@ public class HomepageController implements Form, NavBar, AppControls{
                 HashMap<Integer, Double> categoryAmountMap = new HashMap<>();
 
                 while (queryResult.next()) {
-                    categoryAmountMap.put((queryResult.getInt("categoryId")), queryResult.getDouble("amount"));
+                    categoryAmountMap.put((queryResult.getInt("categoryId")), queryResult.getDouble("limit"));
                 }
                 budget.setCategoryBudget(categoryAmountMap);
 
                 balanceLabel.setText(budget.getTotalAmount()-budget.getTotalAmountSpent() + getCurrencySymbol());
                 spentLabel.setText(budget.getTotalAmountSpent() + getCurrencySymbol());
                 budget.setExpenseHistory();
-                initializePieChart();
 
                 addBtn.setDisable(false);
                 clearBtn.setDisable(false);
@@ -235,6 +234,7 @@ public class HomepageController implements Form, NavBar, AppControls{
                 noBudgetBlur.setVisible(false);
                 setExpenseList();
                 initializeNewExpenseBox();
+                initializePieChart();
                 System.out.println("budget set");
             }
 
@@ -255,10 +255,21 @@ public class HomepageController implements Form, NavBar, AppControls{
     }
 
     private void initializePieChart() {
-        for (int i = 1; i < 7; i++) {
-            pieChart.getData().add(new PieChart.Data(categoryNameList.get(i), budget.getCategoryBudget().get(i) / budget.getTotalAmount() * 100));
+        for (int i = 1; i <= 6; i++) {
+            String categoryName = categoryNameList.get(i);
+            Double categoryAmount = budget.getCategoryBudget().get(i);
+
+            if (categoryAmount != null && budget.getTotalAmount() > 0) {
+                pieChart.getData().add(new PieChart.Data(
+                        categoryName,
+                        categoryAmount / budget.getTotalAmount() * 100
+                ));
+            } else {
+                System.err.println("There is an issue here");
+            }
         }
     }
+
 
     private void setExpenseList() {
         for (Expense expense : budget.getExpenseHistory()) {
@@ -533,6 +544,7 @@ public class HomepageController implements Form, NavBar, AppControls{
 
         ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
         anim.setOnFinished(e -> {
+            whiteOut.setVisible(false);
             goToProfileBtn.setDisable(false);
             wallieAiBtn.setDisable(false);
             homePageLogo.setDisable(false);
