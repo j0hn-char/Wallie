@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -68,6 +69,9 @@ public class HomepageController implements Form, NavBar, AppControls{
     @FXML
     private HBox topBar;
 
+    @FXML
+    private PieChart pieChart;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -104,7 +108,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #d1d5e6);");     // softer gray-blue
 
         initializeCategoryComboBox();
-        initializeProgressBars();
+//        initializeProgressBars();
     }
 
     private void initializeCategoryComboBox() {
@@ -187,6 +191,13 @@ public class HomepageController implements Form, NavBar, AppControls{
     public void setBudget(User user) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
+        addBtn.setDisable(true);
+        clearBtn.setDisable(true);
+        noBudgetLabel.setVisible(true);
+        noBudgetBlur.setVisible(true);
+//        categoriesVBox.setVisible(false);
+        balanceLabel.setText("-");
+        spentLabel.setText("-");
 
         String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
 
@@ -200,21 +211,31 @@ public class HomepageController implements Form, NavBar, AppControls{
                         queryResult.getDouble("totalAmount"),
                         queryResult.getDouble("totalAmountSpent")
                 );
+
+                String getCategoryInfo = "SELECT * FROM BudgetCategoryAmounts WHERE budgetId = '" + budget.getID() + "'";
+
+                statement = connectDB.createStatement();
+                queryResult = statement.executeQuery(getCategoryInfo);
+
+                HashMap<Integer, Double> categoryAmountMap = new HashMap<>();
+
+                while (queryResult.next()) {
+                    categoryAmountMap.put((queryResult.getInt("categoryId")), queryResult.getDouble("amount"));
+                }
+                budget.setCategoryBudget(categoryAmountMap);
+
                 balanceLabel.setText(budget.getTotalAmount()-budget.getTotalAmountSpent() + getCurrencySymbol());
                 spentLabel.setText(budget.getTotalAmountSpent() + getCurrencySymbol());
                 budget.setExpenseHistory();
+                initializePieChart();
+
+                addBtn.setDisable(false);
+                clearBtn.setDisable(false);
+                noBudgetLabel.setVisible(false);
+                noBudgetBlur.setVisible(false);
                 setExpenseList();
                 initializeNewExpenseBox();
                 System.out.println("budget set");
-            }else {
-                //no budget rules
-                addBtn.setDisable(true);
-                clearBtn.setDisable(true);
-                noBudgetLabel.setVisible(true);
-                noBudgetBlur.setVisible(true);
-                categoriesVBox.setVisible(false);
-                balanceLabel.setText("-");
-                spentLabel.setText("-");
             }
 
         } catch (Exception e) {
@@ -231,6 +252,12 @@ public class HomepageController implements Form, NavBar, AppControls{
             }
             return null;
         }));
+    }
+
+    private void initializePieChart() {
+        for (int i = 1; i < 7; i++) {
+            pieChart.getData().add(new PieChart.Data(categoryNameList.get(i), budget.getCategoryBudget().get(i) / budget.getTotalAmount() * 100));
+        }
     }
 
     private void setExpenseList() {

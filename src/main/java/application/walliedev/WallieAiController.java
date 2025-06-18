@@ -25,11 +25,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.xml.transform.Result;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.Map;
 
 public class WallieAiController implements NavBar, AppControls, Form{
@@ -299,36 +301,33 @@ public class WallieAiController implements NavBar, AppControls, Form{
             totalBudget = budgetAmount - fixedExpenses;
 
             try {
+                DatabaseConnection connectNow = new DatabaseConnection();
+                Connection connectDB = connectNow.getConnection();
 
                 String budgetQuery = "I have a budget of " + totalBudget + ". I want you to make me a distribution of my money in the following categories based on their importance and anything else you consider important. The categories are as follows. Health, Home, Leisure, Shopping, Tranport, Other.";
 
-                if(budget!=null)
+                String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
+                Statement statement = connectDB.createStatement();
+                ResultSet queryResult = statement.executeQuery(getBudgetInfo);
+
+                if(queryResult.next())
                 {
                     String prevBudgetQuery = "The specific user in the previous budget had spent 30%, 10%, 15%, 25%, 5%, 15% of his expenses in each category respectively.";
                     budgetQuery = budgetQuery + prevBudgetQuery;
 
-                    DatabaseConnection connectNow = new DatabaseConnection();
-                    Connection connectDB = connectNow.getConnection();
-
                     String deleteBudget = "DELETE FROM Budgets where userID ='" + user.getID() + "'";
 
                     try {
-                        Statement statement = connectDB.createStatement();
-                        ResultSet queryResult = statement.executeQuery(deleteBudget);
+                        statement = connectDB.createStatement();
+                        statement.executeUpdate(deleteBudget);
                         System.out.println("Deleted budget");
 
                     }catch (Exception e){
                         e.printStackTrace();
                         e.getCause();
                     }
-
-
-
                 }
-
-
-
-                String formattingQuery = "I want you to return it to me in json. Give it to me without writing anything extra and without using text formatting or markdown. Return me only the categories with their amounts that are included in an object named categories.";
+                String formattingQuery = "I want you to return it to me in json. Give it to me without writing anything extra and without using text formatting or markdown.";
 
                 String aiResponse = OpenAi.getResponse(budgetQuery + formattingQuery);
 
@@ -336,9 +335,38 @@ public class WallieAiController implements NavBar, AppControls, Form{
                 Type type = new TypeToken<Map<String, Object>>(){}.getType();
                 Map<String, Object> json = gson.fromJson(aiResponse, type);
 
+                statement = connectDB.createStatement();
+
+                String insertBudget = "INSERT INTO Budgets(userId, totalAmount, totalAmountSpent) VALUES('" + user.getID() + "','" + totalBudget + "','" + 0 + "')";
+
+                statement.executeUpdate(insertBudget);
+                System.out.println("New Budget created!!");
+
+                queryResult = statement.executeQuery(getBudgetInfo);
+                queryResult.next();
+                budget = new Budget(
+                        queryResult.getInt("budgetId"),
+                        queryResult.getDouble("totalAmount"),
+                        queryResult.getDouble("totalAmountSpent")
+                );
+
+                for(Map.Entry<String, Object> entry : json.entrySet()){
+                    String categoryName = entry.getKey();
+                    double limit = (double) entry.getValue();
+
+                    statement = connectDB.createStatement();
+
+                    //String insertCategoryLimit = "INSERT INTO BudgetCategoryAmounts(budgetId, categoryId, amount, limit) VALUES('" + budget.getID() + "'," + "(SELECT categoryID FROM budgetcategories WHERE name = '" + categoryName +"'),'" + 0.0 +"','" + limit +"'");
+                    String insertCategoryLimit = "INSERT INTO BudgetCategoryAmounts (budgetId, categoryId, amount, `limit`) " +
+                            "VALUES (" + budget.getID() + ", " +
+                            "(SELECT categoryId FROM BudgetCategories WHERE name = '" + categoryName + "'), " +
+                            "0.0, " + limit + ")";
 
 
+                    statement.executeUpdate(insertCategoryLimit);
 
+                    System.out.println(categoryName + " " + limit);
+                }
 
 
 
@@ -346,11 +374,10 @@ public class WallieAiController implements NavBar, AppControls, Form{
                 throw new RuntimeException(e);
             }
         }
-
     }
 
     @Override
     public boolean checkFields() {
-        return false;
+        return true;
     }
 }

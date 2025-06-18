@@ -106,7 +106,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </HBox>
-      <Button fx:id="calculateBtn" layoutX="744.0" layoutY="472.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="calculateBtn" layoutX="744.0" layoutY="472.0" mnemonicParsing="false" onAction="#calculateBudget" text="Button" />
       <MFXTextField fx:id="budgetAmountTxt" layoutX="210.0" layoutY="236.0" />
       <MFXTextField fx:id="fixedExpensesTxt" layoutX="211.0" layoutY="423.0" />
    </children>
