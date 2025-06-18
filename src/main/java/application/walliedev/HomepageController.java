@@ -100,12 +100,12 @@ public class HomepageController implements Form, NavBar, AppControls{
         categoryIDList.put("Transport", 5);
         categoryIDList.put("Other", 6);
 
-        categoryColorList.put("Health", "linear-gradient(from 0% 0% to 100% 100%, white, #ffd6de);");    // softer pink
-        categoryColorList.put("Home", "linear-gradient(from 0% 0% to 100% 100%, white, #d6ffd0);");      // softer green
-        categoryColorList.put("Leisure", "linear-gradient(from 0% 0% to 100% 100%, white, #ffe2c1);");   // softer orange
-        categoryColorList.put("Shopping", "linear-gradient(from 0% 0% to 100% 100%, white, #efd6ff);");  // softer purple
-        categoryColorList.put("Transport", "linear-gradient(from 0% 0% to 100% 100%, white, #ccd6ff);"); // softer blue
-        categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #d1d5e6);");     // softer gray-blue
+        categoryColorList.put("Health", "linear-gradient(from 0% 0% to 100% 100%, white, #f9d7c4);");      // very soft peach
+        categoryColorList.put("Home", "linear-gradient(from 0% 0% to 100% 100%, white, #fff3d9);");        // pale creamy yellow
+        categoryColorList.put("Leisure", "linear-gradient(from 0% 0% to 100% 100%, white, #d1e6d1);");     // very soft mint green
+        categoryColorList.put("Shopping", "linear-gradient(from 0% 0% to 100% 100%, white, #bbd4df);");    // desaturated powder blue
+        categoryColorList.put("Transport", "linear-gradient(from 0% 0% to 100% 100%, white, #b4b8e1);");   // soft muted periwinkle
+        categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #dbc3e7);");       // soft pastel lilac
 
         initializeCategoryComboBox();
 //        initializeProgressBars();
@@ -255,20 +255,22 @@ public class HomepageController implements Form, NavBar, AppControls{
     }
 
     private void initializePieChart() {
+        pieChart.getData().clear();  // Clear existing data
+
         for (int i = 1; i <= 6; i++) {
             String categoryName = categoryNameList.get(i);
             Double categoryAmount = budget.getCategoryBudget().get(i);
 
             if (categoryAmount != null && budget.getTotalAmount() > 0) {
-                pieChart.getData().add(new PieChart.Data(
-                        categoryName,
-                        categoryAmount / budget.getTotalAmount() * 100
-                ));
+                double percentage = categoryAmount / budget.getTotalAmount() * 100;
+                String label = String.format("%s (%.1f%%)", categoryName, percentage);
+                pieChart.getData().add(new PieChart.Data(label, percentage));
             } else {
-                System.err.println("There is an issue here");
+                System.err.println("There is an issue here: category " + categoryName + " has no amount or totalAmount is 0");
             }
         }
     }
+
 
 
     private void setExpenseList() {
