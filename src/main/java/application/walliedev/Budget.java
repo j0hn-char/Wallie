@@ -42,7 +42,7 @@ public class Budget {
                         rs.getString("name"),
                         rs.getDouble("amount"),
                         rs.getDate("paymentDate"),
-                        rs.getInt("categoryId")
+                        rs.getInt("categoryId") //test
                 ));
             }
 
