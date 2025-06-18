@@ -2,6 +2,7 @@ package application.walliedev;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.lang.reflect.Type;
 import java.net.URI;
@@ -13,10 +14,12 @@ import java.util.Map;
 
 public class OpenAi  {
 
-    private static final String APIKEY = "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";
-    private static final String ENDPOINT = "https://api.openai.com/v1/chat/completions";
-
     public static String getResponse(String query) throws Exception  {
+
+        Dotenv dotenv = Dotenv.load();
+        String ENDPOINT = dotenv.get("ENDPOINT");
+        String APIKEY = dotenv.get("APIKEY");
+
         String requestBody = String.format("""
             {
               "model": "gpt-4.1",

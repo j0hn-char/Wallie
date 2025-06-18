@@ -6,6 +6,7 @@ module application.walliedev {
     requires javafx.media;
     requires java.net.http;
     requires com.google.gson;
+    requires io.github.cdimascio.dotenv.java;
 
 
     opens application.walliedev to javafx.fxml;
