@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="fixed drag window bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="finished pie chart" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -394,7 +388,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750248861249</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="finished pie chart">
+      <option name="closed" value="true" />
+      <created>1750260479079</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1750260479079</updated>
+    </task>
+    <task id="LOCAL-00028" summary="finished pie chart">
+      <option name="closed" value="true" />
+      <created>1750260584579</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1750260584579</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +445,8 @@
     <MESSAGE value="fixed drag window bug" />
     <MESSAGE value="first Ai commit" />
     <MESSAGE value="first pie chart commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first pie chart commit" />
+    <MESSAGE value="finished pie chart" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished pie chart" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
