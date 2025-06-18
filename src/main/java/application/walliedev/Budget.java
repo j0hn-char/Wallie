@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Budget {
     private int budgetID;
     private double totalAmount;
     private double totalAmountSpent;
     private ArrayList<Expense> expenseHistory = new ArrayList<>();
+    private HashMap<String, Double> categoryBudget = new HashMap<>();
 
     public Budget(int budgetID, double totalAmount, double totalAmountSpent) {
         this.budgetID = budgetID;
@@ -46,17 +48,17 @@ public class Budget {
         this.expenseHistory.add(expense);
     }
 
-    private void checkBalance(){
-
-    }
+    private void checkBalance(){}
 
     public int getID(){
         return budgetID;
     }
 
-    private void checkCategoryBalance(){
-
+    public void setCategoryBudget(HashMap<String, Double> categoryBudget){
+        this.categoryBudget = categoryBudget;
     }
+
+    private void checkCategoryBalance(){}
 
     public ArrayList<Expense> getExpenseHistory(){
         return expenseHistory;

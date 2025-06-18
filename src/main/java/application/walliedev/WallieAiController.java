@@ -1,5 +1,7 @@
 package application.walliedev;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.*;
 import javafx.beans.property.DoubleProperty;
@@ -9,7 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -22,8 +26,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Map;
 
-public class WallieAiController implements NavBar, AppControls{
+public class WallieAiController implements NavBar, AppControls, Form{
 
     @FXML
     private HBox topBar;
@@ -40,7 +49,18 @@ public class WallieAiController implements NavBar, AppControls{
     @FXML
     private Label usernameLabel;
 
+    @FXML
+    private Button calculateBtn;
+
+    @FXML
+    private TextField budgetAmountTxt, fixedExpensesTxt;
+
+    private double budgetAmount;
+    private double fixedExpenses;
+    private double totalBudget;
+
     private User user;
+    private Budget budget;
     private Stage stage;
     private Parent root;
     private double xOffset = 0;
@@ -50,6 +70,10 @@ public class WallieAiController implements NavBar, AppControls{
     public void setUser(User user) {
         this.user=user;
         usernameLabel.setText(user.getUsername());
+    }
+
+    public void setBudget(Budget budget) {
+        this.budget=budget;
     }
 
     @Override
@@ -265,5 +289,68 @@ public class WallieAiController implements NavBar, AppControls{
             stage.setX(event.getScreenX() - xOffset);
             stage.setY(event.getScreenY() - yOffset);
         });
+    }
+
+    public void calculateBudget() throws Exception {
+
+        if(checkFields()) {
+            budgetAmount = Double.parseDouble(budgetAmountTxt.getText());
+            fixedExpenses = Double.parseDouble(fixedExpensesTxt.getText());
+            totalBudget = budgetAmount - fixedExpenses;
+
+            try {
+
+                String budgetQuery = "I have a budget of " + totalBudget + ". I want you to make me a distribution of my money in the following categories based on their importance and anything else you consider important. The categories are as follows. Health, Home, Leisure, Shopping, Tranport, Other.";
+
+                if(budget!=null)
+                {
+                    String prevBudgetQuery = "The specific user in the previous budget had spent 30%, 10%, 15%, 25%, 5%, 15% of his expenses in each category respectively.";
+                    budgetQuery = budgetQuery + prevBudgetQuery;
+
+                    DatabaseConnection connectNow = new DatabaseConnection();
+                    Connection connectDB = connectNow.getConnection();
+
+                    String deleteBudget = "DELETE FROM Budgets where userID ='" + user.getID() + "'";
+
+                    try {
+                        Statement statement = connectDB.createStatement();
+                        ResultSet queryResult = statement.executeQuery(deleteBudget);
+                        System.out.println("Deleted budget");
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        e.getCause();
+                    }
+
+
+
+                }
+
+
+
+                String formattingQuery = "I want you to return it to me in json. Give it to me without writing anything extra and without using text formatting or markdown. Return me only the categories with their amounts that are included in an object named categories.";
+
+                String aiResponse = OpenAi.getResponse(budgetQuery + formattingQuery);
+
+                Gson gson = new Gson();
+                Type type = new TypeToken<Map<String, Object>>(){}.getType();
+                Map<String, Object> json = gson.fromJson(aiResponse, type);
+
+
+
+
+
+
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
+    @Override
+    public boolean checkFields() {
+        return false;
     }
 }
