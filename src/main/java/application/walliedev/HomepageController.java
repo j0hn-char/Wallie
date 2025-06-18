@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -68,6 +69,9 @@ public class HomepageController implements Form, NavBar, AppControls{
     @FXML
     private HBox topBar;
 
+    @FXML
+    private PieChart pieChart;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -104,7 +108,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #d1d5e6);");     // softer gray-blue
 
         initializeCategoryComboBox();
-        initializeProgressBars();
+//        initializeProgressBars();
     }
 
     private void initializeCategoryComboBox() {
@@ -187,6 +191,13 @@ public class HomepageController implements Form, NavBar, AppControls{
     public void setBudget(User user) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
+        addBtn.setDisable(true);
+        clearBtn.setDisable(true);
+        noBudgetLabel.setVisible(true);
+        noBudgetBlur.setVisible(true);
+//        categoriesVBox.setVisible(false);
+        balanceLabel.setText("-");
+        spentLabel.setText("-");
 
         String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
 
@@ -200,21 +211,31 @@ public class HomepageController implements Form, NavBar, AppControls{
                         queryResult.getDouble("totalAmount"),
                         queryResult.getDouble("totalAmountSpent")
                 );
+
+                String getCategoryInfo = "SELECT * FROM BudgetCategoryAmounts WHERE budgetId = '" + budget.getID() + "'";
+
+                statement = connectDB.createStatement();
+                queryResult = statement.executeQuery(getCategoryInfo);
+
+                HashMap<Integer, Double> categoryAmountMap = new HashMap<>();
+
+                while (queryResult.next()) {
+                    categoryAmountMap.put((queryResult.getInt("categoryId")), queryResult.getDouble("amount"));
+                }
+                budget.setCategoryBudget(categoryAmountMap);
+
                 balanceLabel.setText(budget.getTotalAmount()-budget.getTotalAmountSpent() + getCurrencySymbol());
                 spentLabel.setText(budget.getTotalAmountSpent() + getCurrencySymbol());
                 budget.setExpenseHistory();
+                initializePieChart();
+
+                addBtn.setDisable(false);
+                clearBtn.setDisable(false);
+                noBudgetLabel.setVisible(false);
+                noBudgetBlur.setVisible(false);
                 setExpenseList();
                 initializeNewExpenseBox();
                 System.out.println("budget set");
-            }else {
-                //no budget rules
-                addBtn.setDisable(true);
-                clearBtn.setDisable(true);
-                noBudgetLabel.setVisible(true);
-                noBudgetBlur.setVisible(true);
-                categoriesVBox.setVisible(false);
-                balanceLabel.setText("-");
-                spentLabel.setText("-");
             }
 
         } catch (Exception e) {
@@ -231,6 +252,12 @@ public class HomepageController implements Form, NavBar, AppControls{
             }
             return null;
         }));
+    }
+
+    private void initializePieChart() {
+        for (int i = 1; i < 7; i++) {
+            pieChart.getData().add(new PieChart.Data(categoryNameList.get(i), budget.getCategoryBudget().get(i) / budget.getTotalAmount() * 100));
+        }
     }
 
     private void setExpenseList() {
@@ -396,8 +423,18 @@ public class HomepageController implements Form, NavBar, AppControls{
 
 
     @Override
-    public void switchToBudgetCalc(ActionEvent event, String username) {
+    public void switchToBudgetCalc(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
+        WallieAiController controller = loader.getController();
+        controller.setUser(user);
+        controller.dragWindow(stage);
+        controller.homepageNavAnimationIn(event);
+
+        root.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        Scene currentScene = ((Node)event.getSource()).getScene();
+        currentScene.setRoot(root);
     }
 
     public void profileNavAnimationOut(MouseEvent event) throws IOException{
@@ -422,10 +459,7 @@ public class HomepageController implements Form, NavBar, AppControls{
 
         TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
         moveGradient.setInterpolator(Interpolator.EASE_IN);
-        moveGradient.setFromX(0);
-        moveGradient.setFromY(0);
-        moveGradient.setToX(266);
-        moveGradient.setToY(0);
+        moveGradient.setByX(266);
 
         ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
         anim.setOnFinished(e -> {
@@ -470,6 +504,77 @@ public class HomepageController implements Form, NavBar, AppControls{
             goToProfileBtn.setDisable(false);
             wallieAiBtn.setDisable(false);
             homePageLogo.setDisable(false);
+        });
+        anim.play();
+    }
+
+    public void wallieAiNavAnimationIn(MouseEvent event) throws IOException{
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+        focusGradient.setTranslateX(focusGradient.getTranslateX() - 266);
+
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 1.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH))
+        );
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_IN);
+        whiteOutAnim.setFromValue(1);
+        whiteOutAnim.setToValue(0);
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_IN);
+        moveGradient.setByX(266);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
+        });
+        anim.play();
+    }
+
+    public void wallieAiNavAnimationOut(MouseEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WallieAiPage.fxml"));
+        Parent newRoot = loader.load();
+
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, -1.0, Interpolator.EASE_BOTH))
+        );
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_IN);
+        whiteOutAnim.setFromValue(0);
+        whiteOutAnim.setToValue(1);
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(0.7), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_IN);
+        moveGradient.setByX(-266);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
+            try {
+                switchToBudgetCalc(event, newRoot, loader);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
         anim.play();
     }
