@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.ProfilePageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="212.0" layoutY="-42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="212.0" layoutX="7.0" layoutY="-43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0" />
       <Rectangle fx:id="focusGradient" height="160.0" layoutX="668.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="398.0">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.4770114942528736">
@@ -36,7 +36,7 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Rectangle fill="WHITE" height="706.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0">
+      <Rectangle fill="WHITE" height="706.0" layoutX="151.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0">
          <effect>
             <DropShadow height="53.24" radius="18.060000000000002">
                <color>
@@ -105,8 +105,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </HBox>
-      <Label fx:id="dailyNecessitiesLabel" layoutX="479.0" layoutY="271.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Daily Necessities" />
-      <MFXButton fx:id="calculateBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="408.0" layoutY="657.0" prefHeight="47.0" prefWidth="381.0" style="-fx-background-color: #6200ee; -fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: normal; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Calculate" textFill="WHITE">
+      <MFXButton fx:id="calculateBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="416.0" layoutY="755.0" prefHeight="47.0" prefWidth="381.0" style="-fx-background-color: #6200ee; -fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: normal; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Calculate" textFill="WHITE">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -114,7 +113,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <MFXButton fx:id="clearBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="185.0" layoutY="657.0" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #cdc1e1; -fx-font-size: 20; -fx-text-fill: #6200ee; -fx-font-weight: normal; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
+      <MFXTextField fx:id="addIncomeField" floatMode="BORDER" layoutX="377.0" layoutY="689.0" prefHeight="45.0" prefWidth="218.0" promptText="Add Income" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #6200ee; -fx-text-fill: #6200ee;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+         <font>
+            <Font name="Segoe UI Symbol" size="12.0" />
+         </font>
+      </MFXTextField>
+      <MFXTextField fx:id="fixedExpensesField" floatMode="BORDER" layoutX="629.0" layoutY="677.0" prefHeight="46.0" prefWidth="218.0" promptText="Fixed Expenses" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #6200ee; -fx-text-fill: #6200ee;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
+         <font>
+            <Font name="Segoe UI Symbol" size="12.0" />
+         </font>
+      </MFXTextField>
+      <MFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="220.0" layoutY="754.0" onAction="#clearPayments" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Clear" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -122,38 +137,100 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <MFXTextField fx:id="addIncomeField" floatMode="BORDER" layoutX="128.0" layoutY="289.0" prefHeight="45.0" prefWidth="218.0" promptText="Add Income" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #6200ee; -fx-text-fill: #6200ee;">
-         <textFill>
-            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
-         </textFill>
+      <ImageView fitHeight="17.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/heart-solid.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/house-solid.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/utensils-solid.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/bag-shopping-solid.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="34.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/bus-solid.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="78.0" layoutY="274.0" text="Home" textFill="#69b250">
          <font>
-            <Font name="Segoe UI Symbol" size="12.0" />
-         </font>
-      </MFXTextField>
-      <MFXTextField fx:id="fixedExpensesField" floatMode="BORDER" layoutX="128.0" layoutY="356.0" prefHeight="46.0" prefWidth="218.0" promptText="Fixed Expenses" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #6200ee; -fx-text-fill: #6200ee;">
-         <textFill>
-            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
-         </textFill>
-         <font>
-            <Font name="Segoe UI Symbol" size="12.0" />
-         </font>
-      </MFXTextField>
-      <Label fx:id="categoriesLabel" layoutX="504.0" layoutY="185.0" text="Categories" textFill="#3700b3">
-         <font>
-            <Font name="Segoe UI Semibold" size="40.0" />
+            <Font name="Segoe UI Semibold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="resultsLabel" layoutX="957.0" layoutY="185.0" text="Results" textFill="#3700b3">
+      <Label layoutX="65.0" layoutY="312.0" text="Leisure" textFill="#e5a25a">
          <font>
-            <Font name="Segoe UI Semibold" size="40.0" />
+            <Font name="Segoe UI Semibold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="clothingLabel" layoutX="479.0" layoutY="356.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Clothing" />
-      <Label fx:id="extraExpensesLabel" layoutX="479.0" layoutY="521.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Extra Expenses" />
-      <Label fx:id="entertainmentLabel" layoutX="479.0" layoutY="440.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Entertainment" />
-      <Label fx:id="result1Label" layoutX="896.0" layoutY="276.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Result1" />
-      <Label fx:id="result2Label" layoutX="896.0" layoutY="361.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Result2" />
-      <Label fx:id="result4Label" layoutX="896.0" layoutY="526.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Result4" />
-      <Label fx:id="result3Label" layoutX="896.0" layoutY="445.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: #cdc1e1; -fx-text-fill: #6200ee; -fx-font-size: 20; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #6200ee; -fx-alignment: center;" text="Result3" />
+      <Label layoutX="67.0" layoutY="330.0" text="Shopping" textFill="#b16ddc">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="76.0" layoutY="429.0" text="Transport" textFill="#465cc5">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="188.0" layoutY="214.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #69b250; -fx-alignment: center; -fx-background-radius: 15; -fx-font-weight: bold;" text="500$" textFill="WHITE">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="382.0" text="Other" textFill="#7c91e5">
+         <font>
+            <Font name="Segoe UI Semibold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="873.0" layoutY="461.0" prefHeight="152.0" prefWidth="180.0" style="-fx-background-color: #69b250; -fx-alignment: center;" text="τεχτ" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="530.0" layoutY="454.0" prefHeight="152.0" prefWidth="180.0" style="-fx-background-color: #69b250; -fx-alignment: center;" text="τεχτ" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="197.0" layoutY="456.0" prefHeight="152.0" prefWidth="180.0" style="-fx-background-color: #69b250; -fx-alignment: center;" text="τεχτ" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="519.0" layoutY="217.0" prefHeight="152.0" prefWidth="180.0" style="-fx-background-color: #69b250; -fx-alignment: center;" text="τεχτ" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="856.0" layoutY="209.0" prefHeight="152.0" prefWidth="180.0" style="-fx-background-color: #69b250; -fx-alignment: center;" text="τεχτ" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="227.0" layoutY="224.0" prefHeight="26.0" prefWidth="75.0" text="Health" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Semibold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="378.0" layoutY="374.0" prefHeight="26.0" prefWidth="45.0" text="10%" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="373.0" fitWidth="17.0" layoutX="204.0" layoutY="-125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/cube-solid.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
