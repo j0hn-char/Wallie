@@ -30,12 +30,22 @@ public class IntroVideoController implements Initializable {
 
     private Scene scene;
     private Parent root;
+    private MediaPlayer mediaPlayer;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FadeTransition fadeForeground = new FadeTransition(Duration.seconds(2), fade);
         fadeForeground.setFromValue(0);
         fadeForeground.setToValue(1);
+
+        URL resource = getClass().getResource("/assets/WelcomeChime.mp3"); // adjust path
+        if (resource != null) {
+            Media sound = new Media(resource.toString());
+            mediaPlayer = new MediaPlayer(sound);
+        } else {
+            System.out.println("Audio file not found");
+        }
+
         fadeForeground.setOnFinished(e -> {
             try {
                 Stage stage = (Stage) mediaView.getScene().getWindow();
@@ -48,6 +58,11 @@ public class IntroVideoController implements Initializable {
         PauseTransition pause = new PauseTransition(Duration.seconds(6));
         pause.setOnFinished(e -> fadeForeground.play());
 
+        PauseTransition pause2 = new PauseTransition(Duration.seconds(1));
+        pause2.setOnFinished(e -> mediaPlayer.play());
+
+        mediaView.setMediaPlayer(mediaPlayer);
+        pause2.play();
         pause.play();
     }
 
