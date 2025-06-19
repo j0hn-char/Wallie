@@ -361,6 +361,23 @@ public class HomepageController implements Form, NavBar, AppControls{
             statement.executeUpdate(updateCategorySpent);
             System.out.println("Category amount spent updated");
 
+            String amountSpentQuery = "SELECT totalAmountSpent FROM Budgets where budgetid = " + budget.getID();
+
+            ResultSet rs = statement.executeQuery(amountSpentQuery);
+
+            Double convertedAmount = 0.0;
+
+            if(rs.next()){
+                convertedAmount = rs.getDouble("totalAmountSpent");
+
+                spentLabel.setText(convertedAmount + getCurrencySymbol());
+                balanceLabel.setText(budget.getTotalAmount()-convertedAmount + getCurrencySymbol());
+                initializePieChart();
+
+            }
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();

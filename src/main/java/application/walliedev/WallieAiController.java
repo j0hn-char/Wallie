@@ -3,6 +3,7 @@ package application.walliedev;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.animation.*;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -49,13 +50,13 @@ public class WallieAiController implements NavBar, AppControls, Form{
     private Rectangle focusGradient, whiteOut;
 
     @FXML
-    private Label usernameLabel;
+    private Label usernameLabel, errorLabel;
 
     @FXML
-    private Button calculateBtn;
+    private MFXButton calculateBtn;
 
     @FXML
-    private TextField budgetAmountTxt, fixedExpensesTxt;
+    private MFXTextField budgetAmountTxt, fixedExpensesTxt;
 
     private double budgetAmount;
     private double fixedExpenses;
@@ -306,11 +307,11 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
                 String budgetQuery = "I have a budget of " + totalBudget + ". I want you to make me a distribution of my money in the following categories based on their importance and anything else you consider important. The categories are as follows. Health, Home, Leisure, Shopping, Tranport, Other.";
 
-                String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
-                Statement statement = connectDB.createStatement();
-                ResultSet queryResult = statement.executeQuery(getBudgetInfo);
 
-                if(queryResult.next())
+                Statement statement = connectDB.createStatement();
+
+
+                if(checkBudgetExistance())
                 {
                     String prevBudgetQuery = "The specific user in the previous budget had spent 30%, 10%, 15%, 25%, 5%, 15% of his expenses in each category respectively.";
                     budgetQuery = budgetQuery + prevBudgetQuery;
@@ -342,6 +343,8 @@ public class WallieAiController implements NavBar, AppControls, Form{
                 statement.executeUpdate(insertBudget);
                 System.out.println("New Budget created!!");
 
+                String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
+                ResultSet queryResult = statement.executeQuery(getBudgetInfo);
                 queryResult = statement.executeQuery(getBudgetInfo);
                 queryResult.next();
                 budget = new Budget(
@@ -376,8 +379,54 @@ public class WallieAiController implements NavBar, AppControls, Form{
         }
     }
 
+    public boolean checkBudgetExistance(){
+
+        boolean flag = false;
+
+        try {
+            DatabaseConnection connectNow = new DatabaseConnection();
+            Connection connectDB = connectNow.getConnection();
+
+            String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(getBudgetInfo);
+
+            if(queryResult.next()){
+                flag = true;
+            }
+            else {
+                flag = false;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        return flag;
+    }
+
     @Override
     public boolean checkFields() {
-        return true;
+
+        boolean flag = true;
+        budgetAmountTxt.getStyleClass().remove("error-field");
+        fixedExpensesTxt.getStyleClass().remove("error-field");
+        errorLabel.setVisible(false);
+
+        if(budgetAmountTxt.getText().trim().isEmpty() || !budgetAmountTxt.getText().trim().matches("\\d*\\.?\\d+")) {
+            budgetAmountTxt.getStyleClass().add("error-field");
+            errorLabel.setVisible(true);
+            flag = false;
+        }
+
+        if(fixedExpensesTxt.getText().trim().isEmpty() || !fixedExpensesTxt.getText().trim().matches("\\d*\\.?\\d+")) {
+            fixedExpensesTxt.getStyleClass().add("error-field");
+            errorLabel.setVisible(true);
+            flag = false;
+        }
+
+        return flag;
     }
+
 }
