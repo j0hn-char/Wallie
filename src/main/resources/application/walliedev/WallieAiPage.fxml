@@ -20,10 +20,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.ProfilePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.walliedev.WallieAiController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="212.0" layoutX="7.0" layoutY="-43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0" />
-      <Rectangle fx:id="focusGradient" height="160.0" layoutX="668.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="398.0">
+      <Rectangle fx:id="focusGradient" height="160.0" layoutX="136.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="398.0">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.4770114942528736">
                <stops>
@@ -73,7 +73,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <ImageView fx:id="goToProfileBtn" fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToProfileBtn" fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="77.0" onMouseClicked="#profileNavAnimationOut" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/user-solid.png" />
          </image>
