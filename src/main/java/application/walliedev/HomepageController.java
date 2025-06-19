@@ -126,7 +126,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         otherProgressBar.getStyleClass().add("other-bar");
     }
 
-    public void setUser(String username){
+    public void setUser(String username){ 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
