@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/application/walliedev/DatabaseConnection.java&#10;#&#9;src/main/resources/application/walliedev/WallieAiPage.fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/bag-shopping-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/bus-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/cube-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/heart-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/house-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/utensils-solid (1).png" afterDir="false" />
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="updated ai page fxml">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/WelcomeChime.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/bag-shopping-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/bus-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/cube-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/heart-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/house-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/utensils-solid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,35 +74,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Application.WallieApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/application/walliedev",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WallieApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev/1.0&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/application/walliedev&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\j0hn_char\Desktop\Wallie\src\main\resources\application\walliedev" />
@@ -209,6 +199,7 @@
       <workItem from="1750279895994" duration="9000" />
       <workItem from="1750280171789" duration="209000" />
       <workItem from="1750324456960" duration="1152000" />
+      <workItem from="1750353028664" duration="674000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -466,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750338550712</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="updated ai page fxml">
+      <option name="closed" value="true" />
+      <created>1750344085206</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1750344085206</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +513,8 @@
     <MESSAGE value="fixed api key problem" />
     <MESSAGE value="fixed minor bugs" />
     <MESSAGE value="changed some colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed some colors" />
+    <MESSAGE value="updated ai page fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated ai page fxml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
