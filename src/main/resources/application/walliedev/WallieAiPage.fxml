@@ -8,8 +8,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
@@ -105,168 +110,366 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </HBox>
-      <MFXButton fx:id="calculateBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="418.0" layoutY="749.0" prefHeight="47.0" prefWidth="381.0" style="-fx-background-color: #6200ee; -fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: normal; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Calculate" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Symbol" size="1.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </MFXButton>
-      <MFXTextField fx:id="addIncomeField" floatMode="BORDER" layoutX="376.0" layoutY="674.0" prefHeight="45.0" prefWidth="218.0" promptText="Add Income" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #6200ee; -fx-text-fill: #6200ee;">
-         <textFill>
-            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
-         </textFill>
-         <font>
-            <Font name="Segoe UI Symbol" size="12.0" />
-         </font>
-      </MFXTextField>
-      <MFXTextField fx:id="fixedExpensesField" floatMode="BORDER" layoutX="631.0" layoutY="674.0" prefHeight="46.0" prefWidth="218.0" promptText="Fixed Expenses" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: #6200ee; -fx-text-fill: #6200ee;">
-         <textFill>
-            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
-         </textFill>
-         <font>
-            <Font name="Segoe UI Symbol" size="12.0" />
-         </font>
-      </MFXTextField>
-      <MFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="222.0" layoutY="748.0" onAction="#clearPayments" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Clear" textFill="#d1d0d0">
-         <font>
-            <Font name="Segoe UI Symbol" size="1.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </MFXButton>
-      <Label layoutX="106.0" layoutY="212.0" prefHeight="150.0" prefWidth="270.0" style="-fx-background-color: #e17488; -fx-alignment: center; -fx-background-radius: 15; -fx-font-weight: bold;" text="500$" textFill="WHITE">
-         <font>
-            <Font size="47.0" />
-         </font>
+      <GridPane alignment="CENTER" layoutX="152.0" layoutY="221.0" prefHeight="364.0" prefWidth="891.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane prefHeight="171.0" prefWidth="298.0">
+               <children>
+                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="150.0" layoutX="14.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.8823529481887817" green="0.3803921639919281" blue="0.20000000298023224" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9605262875556946" green="0.5469663739204407" blue="0.4091130495071411" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <effect>
+                        <DropShadow height="60.0" radius="29.5" width="60.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Rectangle>
+                  <Label layoutX="30.0" layoutY="51.0" prefHeight="69.0" prefWidth="239.0" style="-fx-alignment: center; -fx-font-weight: bold; -fx-font-family: Segoe UI Black;" text="500$" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="21.0" prefHeight="26.0" prefWidth="75.0" text="Health" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="208.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="28.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/heart-solid%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="171.0" prefWidth="298.0" GridPane.columnIndex="1">
+               <children>
+                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="150.0" layoutX="14.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.8947368264198303" green="0.5857902765274048" blue="0.1532651036977768" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.7331790328025818" blue="0.38425925374031067" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <effect>
+                        <DropShadow height="60.0" radius="29.5" width="60.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Rectangle>
+                  <Label layoutX="30.0" layoutY="51.0" prefHeight="69.0" prefWidth="239.0" style="-fx-alignment: center; -fx-font-weight: bold; -fx-font-family: Segoe UI Black;" text="500$" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="21.0" prefHeight="26.0" prefWidth="75.0" text="Home" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="208.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="28.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/house-solid%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="171.0" prefWidth="298.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="150.0" layoutX="14.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3076266944408417" green="0.6578947305679321" blue="0.3076266944408417" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.596734881401062" green="0.8157894611358643" blue="0.596734881401062" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <effect>
+                        <DropShadow height="60.0" radius="29.5" width="60.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Rectangle>
+                  <Label layoutX="30.0" layoutY="51.0" prefHeight="69.0" prefWidth="239.0" style="-fx-alignment: center; -fx-font-weight: bold; -fx-font-family: Segoe UI Black;" text="500$" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="21.0" prefHeight="26.0" prefWidth="75.0" text="Leisure" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="208.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="28.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/utensils-solid%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="171.0" prefWidth="298.0" GridPane.rowIndex="1">
+               <children>
+                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="150.0" layoutX="14.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.2549019753932953" green="0.6196078658103943" blue="0.729411780834198" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.47636452317237854" green="0.8040894865989685" blue="0.8947368264198303" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <effect>
+                        <DropShadow height="60.0" radius="29.5" width="60.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Rectangle>
+                  <Label layoutX="30.0" layoutY="51.0" prefHeight="69.0" prefWidth="239.0" style="-fx-alignment: center; -fx-font-weight: bold; -fx-font-family: Segoe UI Black;" text="500$" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="21.0" prefHeight="30.0" prefWidth="111.0" text="Shopping" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="208.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="28.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/bag-shopping-solid%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="171.0" prefWidth="298.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="150.0" layoutX="14.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.23137255012989044" green="0.30980393290519714" blue="0.7058823704719543" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.43494153022766113" green="0.5115740895271301" blue="0.8947368264198303" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <effect>
+                        <DropShadow height="60.0" radius="29.5" width="60.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Rectangle>
+                  <Label layoutX="30.0" layoutY="51.0" prefHeight="69.0" prefWidth="239.0" style="-fx-alignment: center; -fx-font-weight: bold; -fx-font-family: Segoe UI Black;" text="500$" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="21.0" prefHeight="30.0" prefWidth="101.0" text="Transport" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="208.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="28.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/bus-solid%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="177.0" prefWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="150.0" layoutX="14.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.5490196347236633" green="0.24313725531101227" blue="0.7176470756530762" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.7905864119529724" green="0.45370370149612427" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <effect>
+                        <DropShadow height="60.0" radius="29.5" width="60.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Rectangle>
+                  <Label layoutX="30.0" layoutY="51.0" prefHeight="69.0" prefWidth="239.0" style="-fx-alignment: center; -fx-font-weight: bold; -fx-font-family: Segoe UI Black;" text="500$" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="21.0" prefHeight="26.0" prefWidth="75.0" text="Other" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="208.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="28.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/cube-solid%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="274.0" layoutX="348.0" layoutY="627.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0">
          <effect>
             <DropShadow height="60.0" radius="29.5" width="60.0">
                <color>
-                  <Color red="0.8823529481887817" green="0.45490196347236633" blue="0.5333333611488342" />
-               </color></DropShadow>
-         </effect>
-      </Label>
-      <Label layoutX="145.0" layoutY="222.0" prefHeight="26.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="Health" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="316.0" layoutY="328.0" prefHeight="26.0" prefWidth="45.0" text="10%" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="373.0" fitWidth="17.0" layoutX="204.0" layoutY="-125.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/cube-solid.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="480.0" layoutY="212.0" prefHeight="150.0" prefWidth="270.0" style="-fx-background-color: #69b250; -fx-alignment: center; -fx-background-radius: 15; -fx-font-weight: bold;" text="500$" textFill="WHITE">
-         <font>
-            <Font size="47.0" />
-         </font>
-         <effect>
-            <DropShadow height="60.0" radius="29.5" width="60.0">
-               <color>
-                  <Color red="0.4117647111415863" green="0.6980392336845398" blue="0.3137255012989044" />
-               </color></DropShadow>
-         </effect>
-      </Label>
-      <Label layoutX="519.0" layoutY="222.0" prefHeight="26.0" prefWidth="75.0" text="Home" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="686.0" layoutY="326.0" prefHeight="26.0" prefWidth="45.0" text="10%" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="847.0" layoutY="212.0" prefHeight="150.0" prefWidth="270.0" style="-fx-background-color: #465cc5; -fx-alignment: center; -fx-background-radius: 15; -fx-font-weight: bold;" text="500$" textFill="WHITE">
-         <font>
-            <Font size="47.0" />
-         </font>
-         <effect>
-            <DropShadow height="60.0" radius="29.5" width="60.0">
-               <color>
-                  <Color red="0.27450981736183167" green="0.3607843220233917" blue="0.772549033164978" />
-               </color></DropShadow>
-         </effect>
-      </Label>
-      <Label layoutX="886.0" layoutY="222.0" prefHeight="30.0" prefWidth="122.0" text="Transport" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="1051.0" layoutY="324.0" prefHeight="26.0" prefWidth="45.0" text="10%" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="109.0" layoutY="444.0" prefHeight="150.0" prefWidth="270.0" style="-fx-background-color: #e5a25a; -fx-alignment: center; -fx-background-radius: 15; -fx-font-weight: bold;" text="500$" textFill="WHITE">
-         <font>
-            <Font size="47.0" />
-         </font>
-         <effect>
-            <DropShadow height="60.0" radius="29.5" width="60.0">
-               <color>
-                  <Color red="0.8980392217636108" green="0.6352941393852234" blue="0.3529411852359772" />
-               </color></DropShadow>
-         </effect>
-      </Label>
-      <Label layoutX="148.0" layoutY="454.0" prefHeight="26.0" prefWidth="75.0" text="Leisure" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="312.0" layoutY="559.0" prefHeight="26.0" prefWidth="45.0" text="10%" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="483.0" layoutY="444.0" prefHeight="150.0" prefWidth="270.0" style="-fx-background-color: #b16ddc; -fx-alignment: center; -fx-background-radius: 15; -fx-font-weight: bold;" text="500$" textFill="WHITE">
-         <font>
-            <Font size="47.0" />
-         </font>
-         <effect>
-            <DropShadow height="60.0" radius="29.5" width="60.0">
-               <color>
-                  <Color red="0.6941176652908325" green="0.4274509847164154" blue="0.8627451062202454" />
+                  <Color opacity="0.5" />
                </color>
             </DropShadow>
          </effect>
-      </Label>
-      <Label layoutX="522.0" layoutY="454.0" prefHeight="30.0" prefWidth="106.0" text="Shopping" textFill="WHITE">
+      </Rectangle>
+      <MFXButton fx:id="addBtn" buttonType="RAISED" layoutX="418.0" layoutY="748.0" onAction="#confirmPayment" prefHeight="47.0" prefWidth="381.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Calculate new budget" textFill="#d1d0d0">
          <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
+            <Font name="Segoe UI Symbol" size="1.0" />
          </font>
-      </Label>
-      <Label layoutX="690.0" layoutY="557.0" prefHeight="26.0" prefWidth="46.0" text="10%" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MFXButton>
+      <MFXTextField fx:id="expenseNameTxt" floatMode="BORDER" layoutX="379.0" layoutY="690.0" prefHeight="45.0" prefWidth="218.0" promptText="Budget Amount" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
          <font>
-            <Font size="16.0" />
+            <Font name="Segoe UI Symbol" size="12.0" />
          </font>
-      </Label>
-      <Label layoutX="850.0" layoutY="444.0" prefHeight="150.0" prefWidth="270.0" style="-fx-background-color: #7c91e5; -fx-alignment: center; -fx-background-radius: 15; -fx-font-weight: bold;" text="500$" textFill="WHITE">
+      </MFXTextField>
+      <MFXTextField fx:id="expenseNameTxt1" floatMode="BORDER" layoutX="617.0" layoutY="690.0" prefHeight="45.0" prefWidth="218.0" promptText="Fixed Expenses (Optional)" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <textFill>
+            <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
+         </textFill>
          <font>
-            <Font size="47.0" />
+            <Font name="Segoe UI Symbol" size="12.0" />
          </font>
+      </MFXTextField>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="160.0" layoutX="213.0" layoutY="763.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="166.0">
          <effect>
             <DropShadow height="60.0" radius="29.5" width="60.0">
                <color>
-                  <Color red="0.48627451062202454" green="0.5686274766921997" blue="0.8980392217636108" />
-               </color></DropShadow>
+                  <Color opacity="0.5" />
+               </color>
+            </DropShadow>
          </effect>
-      </Label>
-      <Label layoutX="889.0" layoutY="454.0" prefHeight="26.0" prefWidth="75.0" text="Other" textFill="WHITE">
+      </Rectangle>
+      <MFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="231.0" layoutY="780.0" onAction="#clearPayments" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Clear" textFill="#d1d0d0">
          <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
+            <Font name="Segoe UI Symbol" size="1.0" />
          </font>
-      </Label>
-      <Label layoutX="1062.0" layoutY="558.0" prefHeight="26.0" prefWidth="45.0" text="10%" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MFXButton>
+      <Label layoutX="521.0" layoutY="638.0" text="New Budget" textFill="#3700b3">
          <font>
-            <Font size="16.0" />
+            <Font name="Segoe UI Semibold" size="31.0" />
          </font>
       </Label>
    </children>
