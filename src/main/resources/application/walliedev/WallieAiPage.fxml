@@ -417,7 +417,7 @@
             </Pane>
          </children>
       </GridPane>
-      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="274.0" layoutX="348.0" layoutY="627.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0">
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="274.0" layoutX="318.0" layoutY="627.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="599.0">
          <effect>
             <DropShadow height="60.0" radius="29.5" width="60.0">
                <color>
@@ -426,7 +426,7 @@
             </DropShadow>
          </effect>
       </Rectangle>
-      <MFXButton fx:id="addBtn" buttonType="RAISED" layoutX="418.0" layoutY="748.0" prefHeight="47.0" prefWidth="381.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Calculate new budget" textFill="#d1d0d0">
+      <MFXButton fx:id="addBtn" buttonType="RAISED" layoutX="496.0" layoutY="748.0" onAction="#calculateBudget" prefHeight="47.0" prefWidth="381.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Calculate new budget" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -434,7 +434,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <MFXTextField floatMode="BORDER" layoutX="379.0" layoutY="690.0" prefHeight="45.0" prefWidth="218.0" promptText="Budget Amount" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXTextField fx:id="budgetAmountTxt" floatMode="BORDER" layoutX="357.0" layoutY="690.0" prefHeight="45.0" prefWidth="239.0" promptText="Budget Amount" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -442,7 +442,7 @@
             <Font name="Segoe UI Symbol" size="12.0" />
          </font>
       </MFXTextField>
-      <MFXTextField floatMode="BORDER" layoutX="617.0" layoutY="690.0" prefHeight="45.0" prefWidth="218.0" promptText="Fixed Expenses (Optional)" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <MFXTextField fx:id="fixedExpensesTxt" floatMode="BORDER" layoutX="638.0" layoutY="690.0" prefHeight="45.0" prefWidth="239.0" promptText="Fixed Expenses (Optional)" style="-fx-font-size: 15; -fx-background-color: #cdc1e1; -fx-border-radius: 15; -fx-background-radius: 15;">
          <textFill>
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
@@ -450,16 +450,7 @@
             <Font name="Segoe UI Symbol" size="12.0" />
          </font>
       </MFXTextField>
-      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="160.0" layoutX="213.0" layoutY="763.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="166.0">
-         <effect>
-            <DropShadow height="60.0" radius="29.5" width="60.0">
-               <color>
-                  <Color opacity="0.5" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Rectangle>
-      <MFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="231.0" layoutY="780.0" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Clear" textFill="#d1d0d0">
+      <MFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="357.0" layoutY="750.0" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: white; -fx-font-size: 15; -fx-text-fill: #6200ee; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Clear" textFill="#d1d0d0">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>
@@ -470,6 +461,11 @@
       <Label layoutX="521.0" layoutY="638.0" text="New Budget" textFill="#3700b3">
          <font>
             <Font name="Segoe UI Semibold" size="31.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="364.0" layoutY="814.0" prefHeight="20.0" prefWidth="512.0" text="Please fill out all the necessary budget information properly" textAlignment="CENTER" textFill="#eb5858" visible="false" wrapText="true">
+         <font>
+            <Font name="Segoe UI Symbol" size="14.0" />
          </font>
       </Label>
    </children>
