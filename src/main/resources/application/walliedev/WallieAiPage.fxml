@@ -73,7 +73,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <ImageView fx:id="goToProfileBtn" fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="77.0" onMouseClicked="#profileNavAnimationOut" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToProfileBtn" fitHeight="44.0" fitWidth="51.0" layoutX="1112.0" layoutY="74.0" onMouseClicked="#profileNavAnimationOut" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/user-solid.png" />
          </image>
@@ -86,30 +86,6 @@
             <Font name="Segoe UI Semibold" size="20.0" />
          </font>
       </Label>
-      <Rectangle fx:id="whiteOut" fill="WHITE" height="706.0" layoutY="144.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
-      <HBox fx:id="topBar" alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="1200.0" spacing="20.0" style="-fx-padding: 0 15px;">
-         <children>
-            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#minimizeApp" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/window-minimize-solid.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/image-removebg-preview.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </children>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </HBox>
       <GridPane alignment="CENTER" layoutX="152.0" layoutY="221.0" prefHeight="364.0" prefWidth="891.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -468,5 +444,29 @@
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>
       </Label>
+      <Rectangle fx:id="whiteOut" fill="WHITE" height="706.0" layoutY="144.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <HBox fx:id="topBar" alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="1200.0" spacing="20.0" style="-fx-padding: 0 15px;">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#minimizeApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/window-minimize-solid.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/image-removebg-preview.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </HBox>
    </children>
 </AnchorPane>

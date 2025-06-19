@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -37,13 +38,13 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     @FXML
     private MFXComboBox<String> currencyBox;
     @FXML
-    private Label emailLabel, usernameLabel, displayUsernameLabel, errorLabel, deleteErrorLabel;
+    private Label emailLabel, usernameLabel, displayUsernameLabel, errorLabel, deleteErrorLabel, usernameLabelNav;
     @FXML
     private MFXTextField currPswdTxt, newPswdTxt, retypeTxt, deletePasswordTxt;
     @FXML
     private Rectangle focusGradient, whiteOut, blur;
     @FXML
-    private ImageView homePageLogo, goToProfileBtn;
+    private ImageView homePageLogo, goToProfileBtn, profilePicture;
     @FXML
     private MFXButton wallieAiBtn;
     @FXML
@@ -62,6 +63,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     private double xOffset = 0;
     private double yOffset = 0;
     private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
+    private Image profileImage;
 
     public void initializeCurrencyComboBox() {
         currencyBox.getItems().addAll("€","$");
@@ -73,7 +75,27 @@ public class ProfilePageController implements Form, NavBar, AppControls{
 
         displayUsernameLabel.setText(user.getUsername());
         usernameLabel.setText(user.getUsername());
+        usernameLabelNav.setText(user.getUsername());
         emailLabel.setText(user.getEmail());
+
+        if(user.getCurrency() == 1) {
+            currencyBox.setValue("€");
+        } else if(user.getCurrency() == 2) {
+            currencyBox.setValue("$");
+        }
+
+        if(user.getProfilePicture() == 1) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage1.png"));
+        } else if(user.getProfilePicture() == 2) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage2.png"));
+        } else if(user.getProfilePicture() == 3) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage3.png"));
+        } else if(user.getProfilePicture() == 4) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage4.png"));
+        }
+
+        profilePicture.setImage(profileImage);
+        goToProfileBtn.setImage(profileImage);
     }
     public boolean checkFields() {
         String currPswd = currPswdTxt.getText();
@@ -272,6 +294,36 @@ public class ProfilePageController implements Form, NavBar, AppControls{
         } else if(radioBtn4.isSelected()) {
             circle4.setVisible(true);
         }
+    }
+
+    public void saveProfileImage(MouseEvent event) {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        Statement statement = null;
+        int selectedProfilePicture = 0;
+
+        if(circle1.isVisible()) {
+            selectedProfilePicture = 1;
+        } else if(circle2.isVisible()) {
+            selectedProfilePicture = 2;
+        } else if(circle3.isVisible()) {
+            selectedProfilePicture = 3;
+        } else if(circle4.isVisible()) {
+            selectedProfilePicture = 4;
+        }
+
+        if(selectedProfilePicture != user.getProfilePicture()) {
+            try {
+                statement = connectDB.createStatement();
+                statement.executeUpdate("UPDATE Users SET profileImg = '" + selectedProfilePicture + "' WHERE username = '" + user.getUsername() + "';");
+                user.setProfilePicture(selectedProfilePicture);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        setUser(user);
+        closeProfileImagePane(event);
     }
 
     public void homepageNavAnimationIn(){

@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -84,6 +85,7 @@ public class HomepageController implements Form, NavBar, AppControls{
     private final HashMap<String, Integer> categoryIDList = new HashMap<>();
     private final HashMap<Integer, String> categoryNameList = new HashMap<>();
     private final HashMap<String, String> categoryColorList = new HashMap<>();
+    private Image profileImage;
 
     public void initializeCategoryLists() {
         categoryNameList.put(1, "Health");
@@ -148,6 +150,18 @@ public class HomepageController implements Form, NavBar, AppControls{
                 System.out.println(queryResult.getString("username") + " " + queryResult.getString("password") + " " + queryResult.getString("email"));
                 currencyLabel.setText(getCurrencySymbol());
                 usernameLabel.setText(user.getUsername());
+
+                if(user.getProfilePicture() == 1) {
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage1.png"));
+                } else if(user.getProfilePicture() == 2) {
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage2.png"));
+                } else if(user.getProfilePicture() == 3) {
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage3.png"));
+                } else if(user.getProfilePicture() == 4) {
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage4.png"));
+                }
+                goToProfileBtn.setImage(profileImage);
+
                 setBudget(user);
             }
         } catch (Exception e) {
@@ -305,7 +319,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         nameLabel.setFont(new Font("Segoe UI Semibold", 15));
         nameLabel.setStyle("-fx-text-fill: #3700b3;");
 
-        Label amountLabel = new Label(getCurrencySymbol() + amount);
+        Label amountLabel = new Label(amount + getCurrencySymbol());
         amountLabel.setFont(new Font("Segoe UI Semibold", 15));
         amountLabel.setStyle("-fx-text-fill: #3700b3;");
 

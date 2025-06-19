@@ -229,7 +229,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <ImageView fx:id="goToProfileBtn" fitHeight="40.0" fitWidth="34.0" layoutX="1117.0" layoutY="77.0" onMouseClicked="#profileNavAnimationOut" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToProfileBtn" fitHeight="44.0" fitWidth="51.0" layoutX="1112.0" layoutY="74.0" onMouseClicked="#profileNavAnimationOut" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/user-solid.png" />
          </image>

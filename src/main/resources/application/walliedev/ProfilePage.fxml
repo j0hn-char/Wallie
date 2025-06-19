@@ -90,7 +90,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="808.0" layoutY="74.0" prefHeight="46.0" prefWidth="298.0" text="username" textFill="#3700b3">
+      <Label fx:id="usernameLabelNav" alignment="CENTER_RIGHT" layoutX="808.0" layoutY="74.0" prefHeight="46.0" prefWidth="298.0" text="username" textFill="#3700b3">
          <font>
             <Font name="Segoe UI Semibold" size="20.0" />
          </font>
@@ -164,7 +164,7 @@
             <Color red="0.13725490868091583" green="0.0117647061124444" blue="0.4156862795352936" opacity="0.8700000047683716" />
          </textFill>
       </MFXPasswordField>
-      <ImageView fitHeight="194.0" fitWidth="227.0" layoutX="925.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="profilePicture" fitHeight="194.0" fitWidth="227.0" layoutX="925.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/user-solid.png" />
          </image>
@@ -181,10 +181,13 @@
             </DropShadow>
          </effect>
       </Rectangle>
-      <ImageView fitHeight="26.0" fitWidth="50.0" layoutX="1081.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="26.0" fitWidth="50.0" layoutX="1081.0" layoutY="367.0" onMouseClicked="#editProfileImage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/pencil-edit-button.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <Label fx:id="displayUsernameLabel" layoutX="962.0" layoutY="408.0" text="\@username">
          <font>
@@ -221,7 +224,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MFXButton>
-      <Label fx:id="usernameLabel1" alignment="CENTER_RIGHT" layoutX="606.0" layoutY="237.0" prefHeight="46.0" prefWidth="298.0" text="username" textFill="#3700b3">
+      <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="606.0" layoutY="237.0" prefHeight="46.0" prefWidth="298.0" text="username" textFill="#3700b3">
          <font>
             <Font name="Segoe UI Semibold" size="60.0" />
          </font>
@@ -238,30 +241,6 @@
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>
       </Label>
-      <Rectangle fx:id="whiteOut" fill="WHITE" height="706.0" layoutY="144.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
-      <HBox fx:id="topBar" alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="1200.0" spacing="20.0" style="-fx-padding: 0 15px;">
-         <children>
-            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#minimizeApp" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/window-minimize-solid.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/image-removebg-preview.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </children>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </HBox>
       <Rectangle fx:id="blur" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="800.0" layoutY="49.0" opacity="0.6" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
       <AnchorPane fx:id="confirmDeletionPane" layoutX="489.0" layoutY="324.0" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
@@ -317,7 +296,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="profileImagePane" layoutX="83.0" layoutY="245.0" prefHeight="432.0" prefWidth="1043.0">
+      <AnchorPane fx:id="profileImagePane" layoutX="83.0" layoutY="245.0" prefHeight="432.0" prefWidth="1043.0" visible="false">
          <children>
             <Rectangle arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="459.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1047.0">
                <effect>
@@ -353,7 +332,7 @@
                   <Image url="@../../assets/profileImage4.png" />
                </image>
             </ImageView>
-            <MFXRadioButton fx:id="radioBtn1" layoutX="136.0" layoutY="320.0" prefHeight="26.0" prefWidth="11.0" radius="12.0" text=" " textFill="WHITE">
+            <MFXRadioButton fx:id="radioBtn1" layoutX="136.0" layoutY="320.0" onAction="#selectProfileImage" prefHeight="26.0" prefWidth="11.0" radius="12.0" text=" " textFill="WHITE">
                <toggleGroup>
                   <ToggleGroup fx:id="profilePic" />
                </toggleGroup>
@@ -362,10 +341,10 @@
             <Circle fx:id="circle2" fill="#1f93ff00" layoutX="402.0" layoutY="193.0" radius="110.0" stroke="#6200ee" strokeType="INSIDE" strokeWidth="5.0" visible="false" />
             <Circle fx:id="circle3" fill="#1f93ff00" layoutX="645.0" layoutY="193.0" radius="110.0" stroke="#6200ee" strokeType="INSIDE" strokeWidth="5.0" visible="false" />
             <Circle fx:id="circle4" fill="#1f93ff00" layoutX="899.0" layoutY="193.0" radius="110.0" stroke="#6200ee" strokeType="INSIDE" strokeWidth="5.0" visible="false" />
-            <MFXRadioButton fx:id="radioBtn2" layoutX="389.0" layoutY="320.0" prefHeight="26.0" prefWidth="11.0" radius="12.0" text=" " textFill="WHITE" toggleGroup="$profilePic" />
-            <MFXRadioButton fx:id="radioBtn3" layoutX="633.0" layoutY="320.0" prefHeight="26.0" prefWidth="11.0" radius="12.0" text=" " textFill="WHITE" toggleGroup="$profilePic" />
-            <MFXRadioButton fx:id="radioBtn4" layoutX="888.0" layoutY="320.0" prefHeight="26.0" prefWidth="11.0" radius="12.0" text=" " textFill="WHITE" toggleGroup="$profilePic" />
-            <MFXButton buttonType="RAISED" layoutX="353.0" layoutY="379.0" prefHeight="44.0" prefWidth="342.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Save selection" textFill="#d1d0d0">
+            <MFXRadioButton fx:id="radioBtn2" layoutX="389.0" layoutY="320.0" onAction="#selectProfileImage" prefHeight="26.0" prefWidth="11.0" radius="12.0" text=" " textFill="WHITE" toggleGroup="$profilePic" />
+            <MFXRadioButton fx:id="radioBtn3" layoutX="633.0" layoutY="320.0" onAction="#selectProfileImage" prefHeight="26.0" prefWidth="11.0" radius="12.0" text=" " textFill="WHITE" toggleGroup="$profilePic" />
+            <MFXRadioButton fx:id="radioBtn4" layoutX="888.0" layoutY="320.0" onAction="#selectProfileImage" prefHeight="26.0" prefWidth="11.0" radius="12.0" text=" " textFill="WHITE" toggleGroup="$profilePic" />
+            <MFXButton buttonType="RAISED" layoutX="353.0" layoutY="379.0" onMouseClicked="#saveProfileImage" prefHeight="44.0" prefWidth="342.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: cdc1e1; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Save selection" textFill="#d1d0d0">
                <font>
                   <Font name="Segoe UI Symbol" size="1.0" />
                </font>
@@ -373,7 +352,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MFXButton>
-            <ImageView fitHeight="44.0" fitWidth="39.0" layoutX="980.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="44.0" fitWidth="39.0" layoutX="980.0" layoutY="32.0" onDragDetected="#closeProfileImagePane" onMouseClicked="#closeProfileImagePane" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../assets/image-removebg-preview.png" />
                </image>
@@ -383,5 +362,29 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <Rectangle fx:id="whiteOut" fill="WHITE" height="706.0" layoutY="144.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <HBox fx:id="topBar" alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="1200.0" spacing="20.0" style="-fx-padding: 0 15px;">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#minimizeApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/window-minimize-solid.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/image-removebg-preview.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </HBox>
    </children>
 </AnchorPane>

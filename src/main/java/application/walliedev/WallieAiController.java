@@ -134,8 +134,8 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
         FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(0.7), whiteOut);
         whiteOutAnim.setInterpolator(Interpolator.EASE_OUT);
-        whiteOutAnim.setFromValue(0);
-        whiteOutAnim.setToValue(1);
+        whiteOutAnim.setFromValue(1);
+        whiteOutAnim.setToValue(0);
 
         ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
         anim.setOnFinished(e -> {
@@ -205,8 +205,8 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
         FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(1.4), whiteOut);
         whiteOutAnim.setInterpolator(Interpolator.EASE_OUT);
-        whiteOutAnim.setFromValue(0);
-        whiteOutAnim.setToValue(1);
+        whiteOutAnim.setFromValue(1);
+        whiteOutAnim.setToValue(0);
 
         ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
         anim.setOnFinished(e -> {
