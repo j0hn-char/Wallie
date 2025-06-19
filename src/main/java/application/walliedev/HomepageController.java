@@ -340,15 +340,27 @@ public class HomepageController implements Form, NavBar, AppControls{
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
+        double parsedAmount = Double.parseDouble(amount);
+
         String insertFields = "INSERT INTO PaymentHistory(budgetId, userId, categoryId, name, amount, paymentDate) VALUES ('";
-        String insertValues = budget.getID() + "','" + user.getID() + "','" + categoryIDList.get(category) + "','" + name + "','" + Double.parseDouble(amount) + "','" + date + "')";
+        String insertValues = budget.getID() + "','" + user.getID() + "','" + categoryIDList.get(category) + "','" + name + "','" + amount + "','" + date + "')";
         String insertToPaymentList = insertFields + insertValues;
+
+        String updateBudgetSpent = "UPDATE Budgets SET totalAmountSpent = totalAmountSpent + " + parsedAmount + " WHERE budgetid = " + budget.getID();
+        String updateCategorySpent = "UPDATE BudgetCategoryAmounts SET amount = amount + " + parsedAmount + " WHERE budgetid = " + budget.getID() + " AND categoryId = " + categoryIDList.get(category);
 
         try {
             Statement statement = connectDB.createStatement();
 
             statement.executeUpdate(insertToPaymentList);
             System.out.println("Expense added!");
+
+            statement.executeUpdate(updateBudgetSpent);
+            System.out.println("Budget amount spent updated");
+
+            statement.executeUpdate(updateCategorySpent);
+            System.out.println("Category amount spent updated");
+
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();

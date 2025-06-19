@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/application/walliedev/DatabaseConnection.java&#10;#&#9;src/main/resources/application/walliedev/WallieAiPage.fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/bag-shopping-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/bus-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/cube-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/heart-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/house-solid (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/utensils-solid (1).png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/bag-shopping-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/bus-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/cube-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/heart-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/house-solid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/utensils-solid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +81,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "dev/1.0",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/application/walliedev",
