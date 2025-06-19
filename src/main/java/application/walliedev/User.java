@@ -1,10 +1,13 @@
 package application.walliedev;
 
+import io.github.palexdev.materialfx.controls.MFXTextField;
+
 public class User {
     private int userID;
     private String username;
     private String password;
     private String email;
+
     private int currency;
     private int profilePicture; //ID(number) of the picture selected by the user
 
@@ -37,10 +40,18 @@ public class User {
         return userID;
     }
 
+    public int getProfilePicture() {
+        return profilePicture;
+    }
+
     public String getUsername() {
         return username;
     }
 
     public String getEmail() { return email;
+    }
+
+    public String getPassword() {
+        return this.password;
     }
 }

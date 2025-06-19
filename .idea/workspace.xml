@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="updated ai page fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/WelcomeChime.mp3" afterDir="false" />
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="fixed fxml problems">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/profileImage1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/profileImage2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/profileImage3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/profileImage4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/IntroVideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +204,7 @@
       <workItem from="1750279895994" duration="9000" />
       <workItem from="1750280171789" duration="209000" />
       <workItem from="1750324456960" duration="1152000" />
-      <workItem from="1750353028664" duration="674000" />
+      <workItem from="1750353028664" duration="7370000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -465,7 +470,31 @@
       <option name="project" value="LOCAL" />
       <updated>1750344085206</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added sound to intro video">
+      <option name="closed" value="true" />
+      <created>1750354091852</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1750354091852</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added sound to intro video">
+      <option name="closed" value="true" />
+      <created>1750356679610</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1750356679610</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fixed fxml problems">
+      <option name="closed" value="true" />
+      <created>1750357368179</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1750357368179</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +543,9 @@
     <MESSAGE value="fixed minor bugs" />
     <MESSAGE value="changed some colors" />
     <MESSAGE value="updated ai page fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated ai page fxml" />
+    <MESSAGE value="added sound to intro video" />
+    <MESSAGE value="fixed fxml problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed fxml problems" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,6 +2,7 @@ package application.walliedev;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
+import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.animation.*;
 import javafx.beans.property.DoubleProperty;
@@ -15,11 +16,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.RadialGradient;
 import javafx.scene.paint.Stop;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -34,23 +37,23 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     @FXML
     private MFXComboBox<String> currencyBox;
     @FXML
-    private Label displayUsernameLabel;
+    private Label emailLabel, usernameLabel, displayUsernameLabel, errorLabel, deleteErrorLabel;
     @FXML
-    private Label emailLabel;
+    private MFXTextField currPswdTxt, newPswdTxt, retypeTxt, deletePasswordTxt;
     @FXML
-    private Label usernameLabel;
-    @FXML
-    private MFXTextField currPswdTxt, newPswdTxt, retypeTxt;
-    @FXML
-    private Label errorLabel;
-    @FXML
-    private Rectangle focusGradient, whiteOut;
+    private Rectangle focusGradient, whiteOut, blur;
     @FXML
     private ImageView homePageLogo, goToProfileBtn;
     @FXML
     private MFXButton wallieAiBtn;
     @FXML
     private HBox topBar;
+    @FXML
+    private AnchorPane confirmDeletionPane, profileImagePane;
+    @FXML
+    private MFXRadioButton radioBtn1, radioBtn2, radioBtn3, radioBtn4;
+    @FXML
+    private Circle circle1, circle2, circle3, circle4;
 
     private User user;
     private Stage stage;
@@ -175,6 +178,32 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             throw new RuntimeException(e);
         }
     }
+
+    public void deleteBtnPressed(ActionEvent event) throws IOException {
+        confirmDeletionPane.setVisible(true);
+        blur.setVisible(true);
+    }
+
+    public void cancelDeletion(ActionEvent event) {
+
+        confirmDeletionPane.setVisible(false);
+        blur.setVisible(false);
+        deleteErrorLabel.setText("");
+        deletePasswordTxt.getStyleClass().remove("error-field");
+    }
+
+    public void confirmDeletion(ActionEvent event) throws IOException {
+        deleteErrorLabel.setText("");
+        deletePasswordTxt.getStyleClass().remove("error-field");
+
+        if(deletePasswordTxt.getText().equals(user.getPassword())) {
+            deleteAccount(event);
+        } else {
+            deleteErrorLabel.setText("Incorrect Password");
+            deletePasswordTxt.getStyleClass().add("error-field");
+        }
+    }
+
     public void deleteAccount(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -188,6 +217,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
         }
         logOut(event);
     }
+
     public void logOut(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -196,6 +226,52 @@ public class ProfilePageController implements Form, NavBar, AppControls{
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void editProfileImage(MouseEvent event) {
+        switch (user.getProfilePicture()) {
+            case 1:
+                circle1.setVisible(true);
+                radioBtn1.setSelected(true);
+                break;
+            case 2:
+                circle2.setVisible(true);
+                radioBtn2.setSelected(true);
+                break;
+            case 3:
+                circle3.setVisible(true);
+                radioBtn3.setSelected(true);
+                break;
+            case 4:
+                circle4.setVisible(true);
+                radioBtn4.setSelected(true);
+                break;
+        }
+
+        profileImagePane.setVisible(true);
+        blur.setVisible(true);
+    }
+
+    public void closeProfileImagePane(MouseEvent event) {
+        profileImagePane.setVisible(false);
+        blur.setVisible(false);
+    }
+
+    public void selectProfileImage(ActionEvent event) {
+        circle1.setVisible(false);
+        circle2.setVisible(false);
+        circle3.setVisible(false);
+        circle4.setVisible(false);
+
+        if(radioBtn1.isSelected()) {
+            circle1.setVisible(true);
+        } else if(radioBtn2.isSelected()) {
+            circle2.setVisible(true);
+        } else if(radioBtn3.isSelected()) {
+            circle3.setVisible(true);
+        } else if(radioBtn4.isSelected()) {
+            circle4.setVisible(true);
+        }
     }
 
     public void homepageNavAnimationIn(){
