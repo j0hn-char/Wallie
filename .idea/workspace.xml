@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="changed some colors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +38,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ProfilePage/Lina" />
+        <entry key="$PROJECT_DIR$" value="Homepage/Giannis" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,7 +52,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/j0hn-char/Wallie.git&quot;,
-    &quot;accountId&quot;: &quot;9578ffc1-1b2d-44f3-80d0-b36543df3e6e&quot;
+    &quot;accountId&quot;: &quot;16778457-fa30-4f36-9c63-f8c193ec570b&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -81,9 +81,10 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;WallieAIPage/Lina&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/empit/OneDrive/Υπολογιστής/Wallie&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/application/walliedev&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -92,7 +93,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -102,7 +103,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\j0hn_char\Desktop\Wallie\src\main\resources\application\walliedev" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\j0hn_char\Desktop\Wallie" />
       <recent name="C:\Users\empit\OneDrive\Υπολογιστής\Wallie\src\main\resources\images" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -117,6 +122,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -163,6 +176,28 @@
       <workItem from="1748864908706" duration="724000" />
       <workItem from="1748865651518" duration="1038000" />
       <workItem from="1748871409304" duration="2147000" />
+      <workItem from="1749634480523" duration="678000" />
+      <workItem from="1749641468196" duration="285000" />
+      <workItem from="1749675048403" duration="4242000" />
+      <workItem from="1749686594136" duration="2665000" />
+      <workItem from="1749737679371" duration="2410000" />
+      <workItem from="1749756544696" duration="5998000" />
+      <workItem from="1750081131349" duration="24000" />
+      <workItem from="1750171877214" duration="1759000" />
+      <workItem from="1750278897276" duration="71000" />
+      <workItem from="1750278981839" duration="328000" />
+      <workItem from="1750279325072" duration="113000" />
+      <workItem from="1750279450385" duration="28000" />
+      <workItem from="1750279504422" duration="60000" />
+      <workItem from="1750279574647" duration="57000" />
+      <workItem from="1750279642062" duration="52000" />
+      <workItem from="1750279710133" duration="14000" />
+      <workItem from="1750279733617" duration="38000" />
+      <workItem from="1750279786101" duration="29000" />
+      <workItem from="1750279825056" duration="46000" />
+      <workItem from="1750279895994" duration="9000" />
+      <workItem from="1750280171789" duration="209000" />
+      <workItem from="1750324456960" duration="1152000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -332,43 +367,94 @@
       <option name="project" value="LOCAL" />
       <updated>1749296449482</updated>
     </task>
-    <task id="LOCAL-00022" summary="changes 7/6">
+    <task id="LOCAL-00022" summary="first commit">
       <option name="closed" value="true" />
-      <created>1749303912308</created>
+      <created>1749496672806</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1749303912308</updated>
+      <updated>1749496672806</updated>
     </task>
-    <task id="LOCAL-00023" summary="changes 7/6">
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/master' into ProfilepageChanges/Giannis&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/application/walliedev/HomepageController.java&#10;#&#9;src/main/java/application/walliedev/LoginController.java&#10;#&#9;src/main/resources/application/walliedev/Homepage.fxml&#10;#&#9;src/main/resources/assets/pencil-edit-button.png">
       <option name="closed" value="true" />
-      <created>1750174087234</created>
+      <created>1750023702049</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1750174087234</updated>
+      <updated>1750023702049</updated>
     </task>
-    <task id="LOCAL-00024" summary="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+    <task id="LOCAL-00024" summary="fixed drag window bug">
       <option name="closed" value="true" />
-      <created>1750174401070</created>
+      <created>1750072954488</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1750174401070</updated>
+      <updated>1750072954488</updated>
     </task>
-    <task id="LOCAL-00025" summary="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+    <task id="LOCAL-00025" summary="first Ai commit">
       <option name="closed" value="true" />
-      <created>1750175500991</created>
+      <created>1750248677186</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1750175500991</updated>
+      <updated>1750248677186</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="first pie chart commit">
+      <option name="closed" value="true" />
+      <created>1750248861249</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1750248861249</updated>
+    </task>
+    <task id="LOCAL-00027" summary="finished pie chart">
+      <option name="closed" value="true" />
+      <created>1750260479079</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1750260479079</updated>
+    </task>
+    <task id="LOCAL-00028" summary="finished pie chart">
+      <option name="closed" value="true" />
+      <created>1750260584579</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1750260584579</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fixed api key problem">
+      <option name="closed" value="true" />
+      <created>1750274704222</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1750274704222</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fixed minor bugs">
+      <option name="closed" value="true" />
+      <created>1750276508296</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1750276508296</updated>
+    </task>
+    <task id="LOCAL-00031" summary="changed some colors">
+      <option name="closed" value="true" />
+      <created>1750278695554</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1750278695554</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -401,8 +487,15 @@
     <MESSAGE value="new expense list look" />
     <MESSAGE value="changes 27/5" />
     <MESSAGE value="changes 7/6" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="first commit" />
+    <MESSAGE value="fixed drag window bug" />
+    <MESSAGE value="first Ai commit" />
+    <MESSAGE value="first pie chart commit" />
+    <MESSAGE value="finished pie chart" />
+    <MESSAGE value="fixed api key problem" />
+    <MESSAGE value="fixed minor bugs" />
+    <MESSAGE value="changed some colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed some colors" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

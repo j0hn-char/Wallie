@@ -64,7 +64,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <MFXButton fx:id="wallieAiBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="45.0" layoutY="73.0" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Wallie Ai" textFill="WHITE">
+      <MFXButton fx:id="wallieAiBtn" buttonType="RAISED" depthLevel="LEVEL3" layoutX="45.0" layoutY="73.0" onMouseClicked="#wallieAiNavAnimationOut" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #6200ee; -fx-font-size: 15; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-family: Segoe UI; -fx-border-radius: 15; -fx-background-radius: 15;" text="Wallie Ai" textFill="WHITE">
          <font>
             <Font name="Segoe UI Symbol" size="1.0" />
          </font>

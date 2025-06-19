@@ -1,5 +1,7 @@
 package application.walliedev;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -8,8 +10,9 @@ import java.util.Properties;
 public class EmailSender {
 
     public static void sendEmail(String to, String subject, String username) throws MessagingException {
-        final String from = "mywallieapp@gmail.com";
-        final String password = "ewrayvwkjkkzxswk";
+        Dotenv dotenv = Dotenv.load();
+        String from = dotenv.get("EMAIL_ADDRESS");
+        String password = dotenv.get("EMAIL_PASSWORD");
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

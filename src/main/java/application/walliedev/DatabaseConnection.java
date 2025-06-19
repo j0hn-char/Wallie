@@ -1,5 +1,7 @@
 package application.walliedev;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -7,9 +9,11 @@ public class DatabaseConnection {
     public Connection databaseLink;
 
     public Connection getConnection(){
-        String databaseName = "wallie";
-        String databaseUser = "root";
-        String databasePassword = "090605lina";
+        Dotenv dotenv = Dotenv.load();
+        String databaseName = dotenv.get("DB_DATABASE");
+        String databaseUser = dotenv.get("DB_USERNAME");
+        String databasePassword = dotenv.get("DB_PASSWORD");
+
         String url = "jdbc:mysql://localhost/" + databaseName;
 
         try {

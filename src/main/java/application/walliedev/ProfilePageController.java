@@ -268,6 +268,78 @@ public class ProfilePageController implements Form, NavBar, AppControls{
         anim.play();
     }
 
+    public void wallieAiNavAnimationIn(){
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+        focusGradient.setTranslateX(focusGradient.getTranslateX() - 266);
+
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 1.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH))
+        );
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(1.4), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_OUT);
+        moveGradient.setByX(532);
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(1.4), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_OUT);
+        whiteOutAnim.setFromValue(1);
+        whiteOutAnim.setToValue(0);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            whiteOut.setVisible(false);
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
+        });
+        anim.play();
+    }
+
+    public void wallieAiNavAnimationOut(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WallieAiPage.fxml"));
+        root = loader.load();
+
+        whiteOut.setVisible(true);
+        goToProfileBtn.setDisable(true);
+        wallieAiBtn.setDisable(true);
+        homePageLogo.setDisable(true);
+        focusDistance.addListener((obs, oldVal, newVal) -> updateGradient(newVal.doubleValue()));
+
+        Timeline focusAnim = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(focusDistance, 0.0, Interpolator.EASE_BOTH)),
+                new KeyFrame(Duration.seconds(0.5), new KeyValue(focusDistance, -1.0, Interpolator.EASE_BOTH))
+        );
+
+        TranslateTransition moveGradient = new TranslateTransition(Duration.seconds(1.4), focusGradient);
+        moveGradient.setInterpolator(Interpolator.EASE_IN);
+        moveGradient.setByX(-532);
+
+        FadeTransition whiteOutAnim = new FadeTransition(Duration.seconds(1.4), whiteOut);
+        whiteOutAnim.setInterpolator(Interpolator.EASE_IN);
+        whiteOutAnim.setFromValue(0);
+        whiteOutAnim.setToValue(1);
+
+        ParallelTransition anim = new ParallelTransition(focusAnim, moveGradient, whiteOutAnim);
+        anim.setOnFinished(e -> {
+            whiteOut.setVisible(false);
+            goToProfileBtn.setDisable(false);
+            wallieAiBtn.setDisable(false);
+            homePageLogo.setDisable(false);
+            try {
+                switchToBudgetCalc(event, root, loader);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        anim.play();
+    }
+
     private void updateGradient(double focusDistance) {
         focusGradient.setFill(new RadialGradient(
                 0,
@@ -300,8 +372,19 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     @Override
     public void switchToProfile(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {}
 
-    public void switchToBudgetCalc(ActionEvent event, String username) {
+    @Override
+    public void switchToBudgetCalc(MouseEvent event, Parent root, FXMLLoader loader) throws IOException{
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
+        WallieAiController controller = loader.getController();
+        controller.setUser(user);
+        controller.dragWindow(stage);
+        controller.profileNavAnimationIn(event);
+
+        root.getStylesheets().add(getClass().getResource("/custom-materialfx.css").toExternalForm());
+
+        Scene currentScene = ((Node)event.getSource()).getScene();
+        currentScene.setRoot(root);
     }
 
     @Override
