@@ -62,9 +62,6 @@ public class HomepageController implements Form, NavBar, AppControls{
     private AnchorPane confirmExpensePane;
 
     @FXML
-    private ProgressBar healthProgressBar, homeProgressBar, leisureProgressBar, shoppingProgressBar, transportProgressBar, otherProgressBar;
-
-    @FXML
     private ImageView logoForAnim, goToProfileBtn, homePageLogo;
 
     @FXML
@@ -74,8 +71,6 @@ public class HomepageController implements Form, NavBar, AppControls{
     private PieChart pieChart;
 
     private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     private User user;
     private Budget budget;
@@ -85,6 +80,7 @@ public class HomepageController implements Form, NavBar, AppControls{
     private final HashMap<String, Integer> categoryIDList = new HashMap<>();
     private final HashMap<Integer, String> categoryNameList = new HashMap<>();
     private final HashMap<String, String> categoryColorList = new HashMap<>();
+    private final HashMap<String, String> categoryChartColorList = new HashMap<>();
     private Image profileImage;
 
     public void initializeCategoryLists() {
@@ -102,30 +98,27 @@ public class HomepageController implements Form, NavBar, AppControls{
         categoryIDList.put("Transport", 5);
         categoryIDList.put("Other", 6);
 
-        categoryColorList.put("Health", "linear-gradient(from 0% 0% to 100% 100%, white, #f9d7c4);");      // very soft peach
-        categoryColorList.put("Home", "linear-gradient(from 0% 0% to 100% 100%, white, #fff3d9);");        // pale creamy yellow
-        categoryColorList.put("Leisure", "linear-gradient(from 0% 0% to 100% 100%, white, #d1e6d1);");     // very soft mint green
-        categoryColorList.put("Shopping", "linear-gradient(from 0% 0% to 100% 100%, white, #bbd4df);");    // desaturated powder blue
-        categoryColorList.put("Transport", "linear-gradient(from 0% 0% to 100% 100%, white, #b4b8e1);");   // soft muted periwinkle
-        categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #dbc3e7);");       // soft pastel lilac
+        categoryColorList.put("Health", "linear-gradient(from 0% 0% to 100% 100%, white, #f9d7c4);");
+        categoryColorList.put("Home", "linear-gradient(from 0% 0% to 100% 100%, white, #ffe3a7);");
+        categoryColorList.put("Leisure", "linear-gradient(from 0% 0% to 100% 100%, white, #d1e6d1);");
+        categoryColorList.put("Shopping", "linear-gradient(from 0% 0% to 100% 100%, white, #bbd4df);");
+        categoryColorList.put("Transport", "linear-gradient(from 0% 0% to 100% 100%, white, #b4b8e1);");
+        categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #dbc3e7);");
+
+        categoryChartColorList.put("Health", "#e46537");
+        categoryChartColorList.put("Home", "#f0a834");
+        categoryChartColorList.put("Leisure", "#61b661");
+        categoryChartColorList.put("Shopping", "#51acc7");
+        categoryChartColorList.put("Transport", "#475bbf");
+        categoryChartColorList.put("Other", "#8a3cb5");
 
         initializeCategoryComboBox();
-//        initializeProgressBars();
     }
 
     private void initializeCategoryComboBox() {
         categoryBox.getItems().addAll(categoryIDList.keySet());
         categoryBox.setMinWidth(150);
 
-    }
-
-    public void initializeProgressBars(){
-        healthProgressBar.getStyleClass().add("health-bar");
-        homeProgressBar.getStyleClass().add("home-bar");
-        leisureProgressBar.getStyleClass().add("leisure-bar");
-        shoppingProgressBar.getStyleClass().add("shopping-bar");
-        transportProgressBar.getStyleClass().add("transport-bar");
-        otherProgressBar.getStyleClass().add("other-bar");
     }
 
     public void setUser(String username){ 
@@ -273,15 +266,22 @@ public class HomepageController implements Form, NavBar, AppControls{
 
         for (int i = 1; i <= 6; i++) {
             String categoryName = categoryNameList.get(i);
-            Double categoryAmount = budget.getCategoryBudget().get(i);
+            Double categorySpentAmount = budget.getCategorySpent().get(i);
 
-            if (categoryAmount != null && budget.getTotalAmount() > 0) {
-                double percentage = categoryAmount / budget.getTotalAmount() * 100;
-                String label = String.format("%s (%.1f%%)", categoryName, percentage);
+            if (categorySpentAmount != null && budget.getTotalAmountSpent() > 0) {
+                if(categorySpentAmount == 0) {
+                    continue;
+                }
+                double percentage = categorySpentAmount / budget.getTotalAmountSpent() * 100;
+                String label = String.format("%s (%.2f%%)", categoryName, percentage);
                 pieChart.getData().add(new PieChart.Data(label, percentage));
             } else {
                 System.err.println("There is an issue here: category " + categoryName + " has no amount or totalAmount is 0");
             }
+        }
+
+        for(PieChart.Data data : pieChart.getData()) {
+            data.getNode().setStyle("-fx-pie-color: " + categoryChartColorList.get(data.getName().split(" ")[0]) + ";");
         }
     }
 
@@ -386,6 +386,7 @@ public class HomepageController implements Form, NavBar, AppControls{
 
                 spentLabel.setText(convertedAmount + getCurrencySymbol());
                 balanceLabel.setText(budget.getTotalAmount()-convertedAmount + getCurrencySymbol());
+                budget.setExpenseHistory();
                 initializePieChart();
 
             }

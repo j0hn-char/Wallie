@@ -61,12 +61,6 @@ public class Budget {
         }
     }
 
-    public void addExpense(Expense expense){
-        this.expenseHistory.add(expense);
-    }
-
-    private void checkBalance(){}
-
     public int getID(){
         return budgetID;
     }
@@ -79,7 +73,7 @@ public class Budget {
         return categoryBudget;
     }
 
-    private void checkCategoryBalance(){}
+    public HashMap<Integer, Double> getCategorySpent(){return categorySpent;}
 
     public ArrayList<Expense> getExpenseHistory(){
         return expenseHistory;

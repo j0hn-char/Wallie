@@ -40,7 +40,7 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Rectangle fill="WHITE" height="706.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0">
+      <Rectangle height="706.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0">
          <effect>
             <DropShadow height="53.24" radius="18.060000000000002">
                <color>
@@ -48,6 +48,22 @@
                </color>
             </DropShadow>
          </effect>
+         <fill>
+            <RadialGradient centerX="0.850828729281768" centerY="0.2061611374407583" cycleMethod="REFLECT" radius="0.3218390804597701">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.7407407164573669" blue="0.7407407164573669" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
       </Rectangle>
       <Label fx:id="usernameLabel111" alignment="CENTER_RIGHT" layoutX="-191.0" layoutY="6.0" prefHeight="292.0" prefWidth="1724.0" text="usernameusername" textFill="#d4c2ff" visible="false">
          <font>
