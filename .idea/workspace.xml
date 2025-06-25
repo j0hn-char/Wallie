@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Synchronized db with the amount spent label and with the balance label. They are being updated immediately after adding an expense.">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,12 +49,12 @@
     &quot;assignee&quot;: &quot;paschalina-aggelousi&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/j0hn-char/Wallie.git",
-    "accountId": "50434323-9ef9-4981-bfe3-3b99bbfcea62"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/j0hn-char/Wallie.git&quot;,
+    &quot;accountId&quot;: &quot;50434323-9ef9-4981-bfe3-3b99bbfcea62&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -454,7 +455,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750363794461</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1750884510924</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1750884510924</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

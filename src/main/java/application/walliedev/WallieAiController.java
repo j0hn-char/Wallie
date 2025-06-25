@@ -400,7 +400,8 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
                         if(checkBudgetExistance())
                         {
-                            String prevBudgetQuery = "The specific user in the previous budget had spent 30%, 10%, 15%, 25%, 5%, 15% of his expenses in each category respectively.";
+
+                            String prevBudgetQuery = "The specific user in the previous budget had spent " + getPercentages() + " of his expenses in each category respectively. If the percentages don't add up to 100 or some of them have 0% then the user hasn't spent his previous budget. In your new distribution also give the most percentage in the important categories but change the less important accordingly. The distribution must cover all the available budget after the fixed expenses";
                             budgetQuery = budgetQuery + prevBudgetQuery;
 
                             String deleteBudget = "DELETE FROM Budgets where userID ='" + user.getID() + "'"; // Delete the previous budget
@@ -631,6 +632,22 @@ public class WallieAiController implements NavBar, AppControls, Form{
         balanceLabel.setText(budget.getTotalAmount() - budget.getTotalAmountSpent() + user.getCurrencySymbol());
         totalLabel.setText("out of " + budget.getTotalAmount() + user.getCurrencySymbol() +" left");
 
+    }
+
+    public String getPercentages(){
+        String percentages = "";
+        double heathPercent, homePercent, leisurePercent, shoppingPercent, transportPercent, otherPercent;
+
+        heathPercent = Math.round((budget.getCategorySpent().get(1) / budget.getCategoryBudget().get(1)) * 10000.0) / 100.0;
+        homePercent = Math.round((budget.getCategorySpent().get(2) / budget.getCategoryBudget().get(2)) * 10000.0) / 100.0;
+        leisurePercent = Math.round((budget.getCategorySpent().get(3) / budget.getCategoryBudget().get(3)) * 10000.0) / 100.0;
+        shoppingPercent = Math.round((budget.getCategorySpent().get(4) / budget.getCategoryBudget().get(4)) * 10000.0) / 100.0;
+        transportPercent = Math.round((budget.getCategorySpent().get(5) / budget.getCategoryBudget().get(5)) * 10000.0) / 100.0;
+        otherPercent = Math.round((budget.getCategorySpent().get(6) / budget.getCategoryBudget().get(6)) * 10000.0) / 100.0;
+
+        percentages = heathPercent + "%, " + homePercent + "%, " + leisurePercent + "%, " + shoppingPercent + "%, " + transportPercent + "%, " + otherPercent + "%";
+
+        return percentages;
     }
 
 }
