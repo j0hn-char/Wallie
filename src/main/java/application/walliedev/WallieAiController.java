@@ -7,6 +7,7 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.animation.*;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -50,10 +51,7 @@ public class WallieAiController implements NavBar, AppControls, Form{
     private Rectangle focusGradient, whiteOut;
 
     @FXML
-    private Label usernameLabel, errorLabel;
-
-    @FXML
-    private MFXButton calculateBtn;
+    private Label usernameLabel, errorLabel, healthLeftLabel, homeLeftLabel, leisureLeftLabel, shoppingLeftLabel, transportLeftLabel, otherLeftLabel, healthLimitLabel, homeLimitLabel, leisureLimitLabel, shoppingLimitLabel, transportLimitLabel, otherLimitLabel, healthPercentLabel, homePercentLabel, leisurePercentLabel, shoppingPercentLabel, transportPercentLabel, otherPercentLabel, balanceLabel, totalLabel;
 
     @FXML
     private MFXTextField budgetAmountTxt, fixedExpensesTxt;
@@ -73,6 +71,56 @@ public class WallieAiController implements NavBar, AppControls, Form{
     public void setUser(User user) {
         this.user=user;
         usernameLabel.setText(user.getUsername());
+        if(!checkBudgetExistance()){
+            healthLeftLabel.setText("-");
+            homeLeftLabel.setText("-");
+            leisureLeftLabel.setText("-");
+            transportLeftLabel.setText("-");
+            shoppingLeftLabel.setText("-");
+            otherLeftLabel.setText("-");
+
+            healthLimitLabel.setText("-");
+            homeLimitLabel.setText("-");
+            leisureLimitLabel.setText("-");
+            transportLimitLabel.setText("-");
+            shoppingLimitLabel.setText("-");
+            otherLimitLabel.setText("-");
+
+            healthPercentLabel.setText("-");
+            homePercentLabel.setText("-");
+            leisurePercentLabel.setText("-");
+            transportPercentLabel.setText("-");
+            shoppingPercentLabel.setText("-");
+            otherPercentLabel.setText("-");
+
+            balanceLabel.setText("-");
+            totalLabel.setText("out of - left");
+        } else {
+
+            DatabaseConnection connectNow = new DatabaseConnection();
+            Connection connectDB = connectNow.getConnection();
+
+            String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
+
+            try {
+                Statement statement = connectDB.createStatement();
+                ResultSet queryResult = statement.executeQuery(getBudgetInfo);
+
+                if (queryResult.next()) {
+                    budget = new Budget(
+                            queryResult.getInt("budgetId"),
+                            queryResult.getDouble("totalAmount"),
+                            queryResult.getDouble("totalAmountSpent")
+                    );
+                }
+
+                budget.setExpenseHistory();
+            } catch (Exception e){
+                e.printStackTrace();
+                e.getCause();
+            }
+            setLabels();
+        }
     }
 
     public void setBudget(Budget budget) {
@@ -294,11 +342,22 @@ public class WallieAiController implements NavBar, AppControls, Form{
         });
     }
 
+    public void clearTextFields(ActionEvent event) throws IOException {
+        fixedExpensesTxt.setText("");
+        budgetAmountTxt.setText("");
+        budgetAmountTxt.getStyleClass().remove("error-field");
+        fixedExpensesTxt.getStyleClass().remove("error-field");
+        errorLabel.setVisible(false);
+    }
+
     public void calculateBudget() throws Exception {
 
         if(checkFields()) {
             budgetAmount = Double.parseDouble(budgetAmountTxt.getText());
-            fixedExpenses = Double.parseDouble(fixedExpensesTxt.getText());
+
+            if(!fixedExpensesTxt.getText().trim().isEmpty()) {
+                fixedExpenses = Double.parseDouble(fixedExpensesTxt.getText());
+            }
             totalBudget = budgetAmount - fixedExpenses;
 
             try {
@@ -353,6 +412,7 @@ public class WallieAiController implements NavBar, AppControls, Form{
                         queryResult.getDouble("totalAmountSpent")
                 );
 
+
                 for(Map.Entry<String, Object> entry : json.entrySet()){
                     String categoryName = entry.getKey();
                     double limit = (double) entry.getValue();
@@ -368,10 +428,12 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
                     statement.executeUpdate(insertCategoryLimit);
 
+
                     System.out.println(categoryName + " " + limit);
                 }
 
-
+                budget.setExpenseHistory();
+                setLabels();
 
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -416,17 +478,59 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
         if(budgetAmountTxt.getText().trim().isEmpty() || !budgetAmountTxt.getText().trim().matches("\\d*\\.?\\d+")) {
             budgetAmountTxt.getStyleClass().add("error-field");
+            errorLabel.setText("Please fill out all the necessary budget information properly");
             errorLabel.setVisible(true);
             flag = false;
         }
 
-        if(fixedExpensesTxt.getText().trim().isEmpty() || !fixedExpensesTxt.getText().trim().matches("\\d*\\.?\\d+")) {
+        if(!fixedExpensesTxt.getText().trim().isEmpty() && !fixedExpensesTxt.getText().trim().matches("\\d*\\.?\\d+")) {
             fixedExpensesTxt.getStyleClass().add("error-field");
+            errorLabel.setText("Please fill out all the necessary budget information properly");
+            errorLabel.setVisible(true);
+            flag = false;
+        } else if (fixedExpensesTxt.getText().trim().isEmpty()) {
+            fixedExpenses = 0.0;
+        } else {
+            fixedExpenses = Double.parseDouble(fixedExpensesTxt.getText().trim());
+        }
+
+        if(flag && (fixedExpenses > Double.parseDouble(budgetAmountTxt.getText()))){
+            fixedExpensesTxt.getStyleClass().add("error-field");
+            budgetAmountTxt.getStyleClass().add("error-field");
+            errorLabel.setText("Fixed expenses can't be greater than budget amount");
             errorLabel.setVisible(true);
             flag = false;
         }
 
         return flag;
+    }
+
+    public void setLabels() {
+
+        healthLeftLabel.setText(budget.getCategoryBudget().get(1) - budget.getCategorySpent().get(1) + user.getCurrencySymbol());
+        homeLeftLabel.setText(budget.getCategoryBudget().get(2) - budget.getCategorySpent().get(2) + user.getCurrencySymbol());
+        leisureLeftLabel.setText(budget.getCategoryBudget().get(3) - budget.getCategorySpent().get(3) + user.getCurrencySymbol());
+        shoppingLeftLabel.setText(budget.getCategoryBudget().get(4) - budget.getCategorySpent().get(4) + user.getCurrencySymbol());
+        transportLeftLabel.setText(budget.getCategoryBudget().get(5) - budget.getCategorySpent().get(5) + user.getCurrencySymbol());
+        otherLeftLabel.setText(budget.getCategoryBudget().get(6) - budget.getCategorySpent().get(6) + user.getCurrencySymbol());
+
+        healthLimitLabel.setText(budget.getCategoryBudget().get(1) + user.getCurrencySymbol());
+        homeLimitLabel.setText(budget.getCategoryBudget().get(2) + user.getCurrencySymbol());
+        leisureLimitLabel.setText(budget.getCategoryBudget().get(3) + user.getCurrencySymbol());
+        shoppingLimitLabel.setText(budget.getCategoryBudget().get(4) + user.getCurrencySymbol());
+        transportLimitLabel.setText(budget.getCategoryBudget().get(5) + user.getCurrencySymbol());
+        otherLimitLabel.setText(budget.getCategoryBudget().get(6) + user.getCurrencySymbol());
+
+        healthPercentLabel.setText(String.format("%.2f", ((budget.getCategorySpent().get(1) / budget.getCategoryBudget().get(1)) * 100)) + "%");
+        homePercentLabel.setText(String.format("%.2f", ((budget.getCategorySpent().get(2) / budget.getCategoryBudget().get(2)) * 100)) + "%");
+        leisurePercentLabel.setText(String.format("%.2f", ((budget.getCategorySpent().get(3) / budget.getCategoryBudget().get(3)) * 100)) + "%");
+        shoppingPercentLabel.setText(String.format("%.2f", ((budget.getCategorySpent().get(4) / budget.getCategoryBudget().get(4)) * 100)) + "%");
+        transportPercentLabel.setText(String.format("%.2f", ((budget.getCategorySpent().get(5) / budget.getCategoryBudget().get(5)) * 100)) + "%");
+        otherPercentLabel.setText(String.format("%.2f", ((budget.getCategorySpent().get(6) / budget.getCategoryBudget().get(6)) * 100)) + "%");
+
+        balanceLabel.setText(budget.getTotalAmount() - budget.getTotalAmountSpent() + user.getCurrencySymbol());
+        totalLabel.setText("out of " + budget.getTotalAmount() + user.getCurrencySymbol() +" left");
+
     }
 
 }

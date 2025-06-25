@@ -1,0 +1,10 @@
+ENDPOINT ="https://api.openai.com/v1/chat/completions"
+APIKEY = "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"
+
+
+DB_DATABASE = "wallie"
+DB_USERNAME = "root"
+DB_PASSWORD = "sqlStelios"
+
+EMAIL_ADDRESS = "mywallieapp@gmail.com"
+EMAIL_PASSWORD = "ewrayvwkjkkzxswk"

@@ -86,4 +86,8 @@ public class Budget {
     public double getTotalAmountSpent() {
         return totalAmountSpent;
     }
+
+    public void setTotalAmountSpent(Double totalAmountSpent) {
+        this.totalAmountSpent = totalAmountSpent;
+    }
 }

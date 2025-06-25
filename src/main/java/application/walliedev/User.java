@@ -2,7 +2,7 @@ package application.walliedev;
 
 import io.github.palexdev.materialfx.controls.MFXTextField;
 
-public class User {
+public class User extends IntroVideoController {
     private int userID;
     private String username;
     private String password;
@@ -22,6 +22,14 @@ public class User {
 
     public void setCurrency(int currency) {
         this.currency = currency;
+    }
+
+    public String getCurrencySymbol() {
+        return switch (this.currency) {
+            case 1 -> "€";
+            case 2 -> "$";
+            default -> "€";
+        };
     }
 
     public void setProfilePicture(int profilePicture) {
