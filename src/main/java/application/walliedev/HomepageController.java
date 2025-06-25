@@ -398,6 +398,7 @@ public class HomepageController implements Form, NavBar, AppControls{
                 spentLabel.setText(convertedAmount + getCurrencySymbol());
                 balanceLabel.setText(budget.getTotalAmount()-convertedAmount + getCurrencySymbol());
                 budget.setExpenseHistory();
+                budget.setTotalAmountSpent(convertedAmount);
                 initializePieChart();
 
             }

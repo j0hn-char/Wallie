@@ -2,7 +2,7 @@ package application.walliedev;
 
 import io.github.palexdev.materialfx.controls.MFXTextField;
 
-public class User {
+public class User extends IntroVideoController {
     private int userID;
     private String username;
     private String password;
