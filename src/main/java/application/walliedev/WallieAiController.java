@@ -3,10 +3,12 @@ package application.walliedev;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXProgressSpinner;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.animation.*;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,17 +18,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.CycleMethod;
-import javafx.scene.paint.RadialGradient;
-import javafx.scene.paint.Stop;
+import javafx.scene.paint.*;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.mail.MessagingException;
 import javax.xml.transform.Result;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -48,10 +49,19 @@ public class WallieAiController implements NavBar, AppControls, Form{
     private ImageView homePageLogo, goToProfileBtn;
 
     @FXML
-    private Rectangle focusGradient, whiteOut;
+    private Rectangle focusGradient, whiteOut, healthBackground,
+            homeBackground, leisureBackground, shoppingBackground,
+            transportBackground, otherBackground, blur;
 
     @FXML
-    private Label usernameLabel, errorLabel, healthLeftLabel, homeLeftLabel, leisureLeftLabel, shoppingLeftLabel, transportLeftLabel, otherLeftLabel, healthLimitLabel, homeLimitLabel, leisureLimitLabel, shoppingLimitLabel, transportLimitLabel, otherLimitLabel, healthPercentLabel, homePercentLabel, leisurePercentLabel, shoppingPercentLabel, transportPercentLabel, otherPercentLabel, balanceLabel, totalLabel;
+    private Label usernameLabel, errorLabel, healthLeftLabel, homeLeftLabel, leisureLeftLabel,
+            shoppingLeftLabel, transportLeftLabel, otherLeftLabel, healthLimitLabel, homeLimitLabel,
+            leisureLimitLabel, shoppingLimitLabel, transportLimitLabel, otherLimitLabel, healthPercentLabel,
+            homePercentLabel, leisurePercentLabel, shoppingPercentLabel, transportPercentLabel, otherPercentLabel,
+            balanceLabel, totalLabel;
+
+    @FXML
+    private MFXProgressSpinner spinner;
 
     @FXML
     private MFXTextField budgetAmountTxt, fixedExpensesTxt;
@@ -67,6 +77,7 @@ public class WallieAiController implements NavBar, AppControls, Form{
     private double xOffset = 0;
     private double yOffset = 0;
     private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
+    private Image profileImage;
 
     public void setUser(User user) {
         this.user=user;
@@ -121,6 +132,19 @@ public class WallieAiController implements NavBar, AppControls, Form{
             }
             setLabels();
         }
+
+        if(user.getProfilePicture() == 0){
+            profileImage = new Image(getClass().getResourceAsStream("/assets/user-solid.png"));
+        } else if(user.getProfilePicture() == 1) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage1.png"));
+        } else if(user.getProfilePicture() == 2) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage2.png"));
+        } else if(user.getProfilePicture() == 3) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage3.png"));
+        } else if(user.getProfilePicture() == 4) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage4.png"));
+        }
+        goToProfileBtn.setImage(profileImage);
     }
 
     public void setBudget(Budget budget) {
@@ -360,84 +384,100 @@ public class WallieAiController implements NavBar, AppControls, Form{
             }
             totalBudget = budgetAmount - fixedExpenses;
 
-            try {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
+            spinner.setVisible(true);
+            blur.setVisible(true);
 
-                String budgetQuery = "I have a budget of " + totalBudget + ". I want you to make me a distribution of my money in the following categories based on their importance and anything else you consider important. The categories are as follows. Health, Home, Leisure, Shopping, Tranport, Other.";
-
-
-                Statement statement = connectDB.createStatement();
-
-
-                if(checkBudgetExistance())
-                {
-                    String prevBudgetQuery = "The specific user in the previous budget had spent 30%, 10%, 15%, 25%, 5%, 15% of his expenses in each category respectively.";
-                    budgetQuery = budgetQuery + prevBudgetQuery;
-
-                    String deleteBudget = "DELETE FROM Budgets where userID ='" + user.getID() + "'";
-
+            Task<Void> aiTask = new Task<>() {
+                @Override
+                protected Void call() {
                     try {
+                        DatabaseConnection connectNow = new DatabaseConnection();
+                        Connection connectDB = connectNow.getConnection();
+
+                        Statement statement;
+
+                        String budgetQuery = "I have a budget of " + totalBudget + ". I want you to make me the best practical distribution of my money in the following categories based on their importance and anything else you consider important. The categories are as follows. Health, Home, Leisure, Shopping, Transport, Other.";
+
+                        if(checkBudgetExistance())
+                        {
+                            String prevBudgetQuery = "The specific user in the previous budget had spent 30%, 10%, 15%, 25%, 5%, 15% of his expenses in each category respectively.";
+                            budgetQuery = budgetQuery + prevBudgetQuery;
+
+                            String deleteBudget = "DELETE FROM Budgets where userID ='" + user.getID() + "'"; // Delete the previous budget
+
+                            try {
+                                statement = connectDB.createStatement();
+                                statement.executeUpdate(deleteBudget);
+                                System.out.println("Deleted budget");
+
+                            }catch (Exception e){
+                                e.printStackTrace();
+                                e.getCause();
+                            }
+                        }
+                        String formattingQuery = "I want you to return it to me in json. Give it to me without writing anything extra and without using text formatting or markdown.";
+
+                        String aiResponse = OpenAi.getResponse(budgetQuery + formattingQuery);
+
+                        Gson gson = new Gson();
+                        Type type = new TypeToken<Map<String, Object>>(){}.getType();
+                        Map<String, Object> json = gson.fromJson(aiResponse, type);
+
                         statement = connectDB.createStatement();
-                        statement.executeUpdate(deleteBudget);
-                        System.out.println("Deleted budget");
 
-                    }catch (Exception e){
+                        String insertBudget = "INSERT INTO Budgets(userId, totalAmount, totalAmountSpent) VALUES('" + user.getID() + "','" + totalBudget + "','" + 0 + "')";
+
+                        statement.executeUpdate(insertBudget);
+                        System.out.println("New Budget created!!");
+
+                        String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
+                        ResultSet queryResult = statement.executeQuery(getBudgetInfo);
+                        queryResult = statement.executeQuery(getBudgetInfo);
+                        queryResult.next();
+                        budget = new Budget(
+                                queryResult.getInt("budgetId"),
+                                queryResult.getDouble("totalAmount"),
+                                queryResult.getDouble("totalAmountSpent")
+                        );
+
+                        for(Map.Entry<String, Object> entry : json.entrySet()){
+                            String categoryName = entry.getKey();
+                            double limit = (double) entry.getValue();
+
+                            statement = connectDB.createStatement();
+
+                            //String insertCategoryLimit = "INSERT INTO BudgetCategoryAmounts(budgetId, categoryId, amount, limit) VALUES('" + budget.getID() + "'," + "(SELECT categoryID FROM budgetcategories WHERE name = '" + categoryName +"'),'" + 0.0 +"','" + limit +"'");
+                            String insertCategoryLimit = "INSERT INTO BudgetCategoryAmounts (budgetId, categoryId, amount, `limit`) " +
+                                    "VALUES (" + budget.getID() + ", " +
+                                    "(SELECT categoryId FROM BudgetCategories WHERE name = '" + categoryName + "'), " +
+                                    "0.0, " + limit + ")";
+
+                            statement.executeUpdate(insertCategoryLimit);
+                            System.out.println(categoryName + " " + limit);
+                        }
+
+                    } catch (Exception e) {
                         e.printStackTrace();
-                        e.getCause();
                     }
+                    return null;
                 }
-                String formattingQuery = "I want you to return it to me in json. Give it to me without writing anything extra and without using text formatting or markdown.";
+            };
 
-                String aiResponse = OpenAi.getResponse(budgetQuery + formattingQuery);
-
-                Gson gson = new Gson();
-                Type type = new TypeToken<Map<String, Object>>(){}.getType();
-                Map<String, Object> json = gson.fromJson(aiResponse, type);
-
-                statement = connectDB.createStatement();
-
-                String insertBudget = "INSERT INTO Budgets(userId, totalAmount, totalAmountSpent) VALUES('" + user.getID() + "','" + totalBudget + "','" + 0 + "')";
-
-                statement.executeUpdate(insertBudget);
-                System.out.println("New Budget created!!");
-
-                String getBudgetInfo = "SELECT * FROM budgets WHERE userId = '" + user.getID() + "'";
-                ResultSet queryResult = statement.executeQuery(getBudgetInfo);
-                queryResult = statement.executeQuery(getBudgetInfo);
-                queryResult.next();
-                budget = new Budget(
-                        queryResult.getInt("budgetId"),
-                        queryResult.getDouble("totalAmount"),
-                        queryResult.getDouble("totalAmountSpent")
-                );
-
-
-                for(Map.Entry<String, Object> entry : json.entrySet()){
-                    String categoryName = entry.getKey();
-                    double limit = (double) entry.getValue();
-
-                    statement = connectDB.createStatement();
-
-                    //String insertCategoryLimit = "INSERT INTO BudgetCategoryAmounts(budgetId, categoryId, amount, limit) VALUES('" + budget.getID() + "'," + "(SELECT categoryID FROM budgetcategories WHERE name = '" + categoryName +"'),'" + 0.0 +"','" + limit +"'");
-                    String insertCategoryLimit = "INSERT INTO BudgetCategoryAmounts (budgetId, categoryId, amount, `limit`) " +
-                            "VALUES (" + budget.getID() + ", " +
-                            "(SELECT categoryId FROM BudgetCategories WHERE name = '" + categoryName + "'), " +
-                            "0.0, " + limit + ")";
-
-
-                    statement.executeUpdate(insertCategoryLimit);
-
-
-                    System.out.println(categoryName + " " + limit);
-                }
-
+            aiTask.setOnSucceeded(e -> {
+                spinner.setVisible(false);
+                blur.setVisible(false);
+                System.out.println("AI task completed successfully");
                 budget.setExpenseHistory();
                 setLabels();
+            });
 
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            aiTask.setOnFailed(e -> {
+                spinner.setVisible(false);
+                blur.setVisible(false);
+                System.err.println("AI task failed");
+            });
+
+            new Thread(aiTask).start();
         }
     }
 
@@ -508,11 +548,71 @@ public class WallieAiController implements NavBar, AppControls, Form{
     public void setLabels() {
 
         healthLeftLabel.setText(budget.getCategoryBudget().get(1) - budget.getCategorySpent().get(1) + user.getCurrencySymbol());
+        if(budget.getCategoryBudget().get(1) - budget.getCategorySpent().get(1) <= 0) {
+            healthBackground.setFill(new Color(0.6842, 0.6842, 0.6842, 1.0));
+        }else {
+            healthBackground.setFill(new LinearGradient(
+                            0.0, 0.0, 1.0, 1.0, true, CycleMethod.NO_CYCLE,
+                            new Stop(0.0, new Color(0.8824, 0.3804, 0.2, 1.0)),
+                            new Stop(1.0, new Color(0.9605, 0.547, 0.4091, 1.0)))
+            );
+        }
+
         homeLeftLabel.setText(budget.getCategoryBudget().get(2) - budget.getCategorySpent().get(2) + user.getCurrencySymbol());
+        if(budget.getCategoryBudget().get(2) - budget.getCategorySpent().get(2) <= 0) {
+            homeBackground.setFill(new Color(0.6842, 0.6842, 0.6842, 1.0));
+        }else {
+            homeBackground.setFill(new LinearGradient(
+                    0.0, 0.0, 1.0, 1.0, true, CycleMethod.NO_CYCLE,
+                    new Stop(0.0, new Color(0.8941, 0.5843, 0.1529, 1.0)),
+                    new Stop(1.0, new Color(1.0, 0.7333, 0.3843, 1.0)))
+            );
+        }
+
         leisureLeftLabel.setText(budget.getCategoryBudget().get(3) - budget.getCategorySpent().get(3) + user.getCurrencySymbol());
+        if(budget.getCategoryBudget().get(3) - budget.getCategorySpent().get(3) <= 0) {
+            leisureBackground.setFill(new Color(0.6842, 0.6842, 0.6842, 1.0));
+        } else {
+            leisureBackground.setFill(new LinearGradient(
+                            0.0, 0.0, 1.0, 1.0, true, CycleMethod.NO_CYCLE,
+                            new Stop(0.0, new Color(0.3059, 0.6588, 0.3059, 1.0)),
+                            new Stop(1.0, new Color(0.5961, 0.8157, 0.5961, 1.0)))
+            );
+        }
+
         shoppingLeftLabel.setText(budget.getCategoryBudget().get(4) - budget.getCategorySpent().get(4) + user.getCurrencySymbol());
+        if(budget.getCategoryBudget().get(4) - budget.getCategorySpent().get(4) <= 0) {
+            shoppingBackground.setFill(new Color(0.6842, 0.6842, 0.6842, 1.0));
+        } else {
+            shoppingBackground.setFill(new LinearGradient(
+                    0.0, 0.0, 1.0, 1.0, true, CycleMethod.NO_CYCLE,
+                    new Stop(0.0, new Color(0.2549, 0.6196, 0.7294, 1.0)),
+                    new Stop(1.0, new Color(0.4745, 0.8039, 0.8941, 1.0)))
+            );
+
+        }
+
         transportLeftLabel.setText(budget.getCategoryBudget().get(5) - budget.getCategorySpent().get(5) + user.getCurrencySymbol());
+        if(budget.getCategoryBudget().get(5) - budget.getCategorySpent().get(5) <= 0) {
+            transportBackground.setFill(new Color(0.6842, 0.6842, 0.6842, 1.0));
+        }else {
+            transportBackground.setFill(new LinearGradient(
+                    0.0, 0.0, 1.0, 1.0, true, CycleMethod.NO_CYCLE,
+                    new Stop(0.0, new Color(0.2314, 0.3098, 0.7059, 1.0)),
+                    new Stop(1.0, new Color(0.4353, 0.5098, 0.8941, 1.0)))
+            );
+        }
+
         otherLeftLabel.setText(budget.getCategoryBudget().get(6) - budget.getCategorySpent().get(6) + user.getCurrencySymbol());
+        if(budget.getCategoryBudget().get(6) - budget.getCategorySpent().get(6) <= 0) {
+            otherBackground.setFill(new Color(0.6842, 0.6842, 0.6842, 1.0));
+        }else {
+            otherBackground.setFill(new LinearGradient(
+                    0.0, 0.0, 1.0, 1.0, true, CycleMethod.NO_CYCLE,
+                    new Stop(0.0, new Color(0.549, 0.2431, 0.7176, 1.0)),
+                    new Stop(1.0, new Color(0.7922, 0.4549, 1.0, 1.0)))
+            );
+        }
 
         healthLimitLabel.setText(budget.getCategoryBudget().get(1) + user.getCurrencySymbol());
         homeLimitLabel.setText(budget.getCategoryBudget().get(2) + user.getCurrencySymbol());

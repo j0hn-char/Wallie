@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -101,7 +102,7 @@
          <children>
             <Pane prefHeight="171.0" prefWidth="298.0" GridPane.columnIndex="1">
                <children>
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
+                  <Rectangle fx:id="healthBackground" arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -136,7 +137,7 @@
                         <Font name="Segoe UI Semibold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="healthPercentLabel" layoutX="191.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                  <Label fx:id="healthPercentLabel" layoutX="118.0" layoutY="128.0" prefHeight="27.0" prefWidth="131.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -150,7 +151,7 @@
             </Pane>
             <Pane prefHeight="171.0" prefWidth="298.0" GridPane.columnIndex="2">
                <children>
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
+                  <Rectangle fx:id="homeBackground" arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -185,7 +186,7 @@
                         <Font name="Segoe UI Semibold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="homePercentLabel" layoutX="191.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                  <Label fx:id="homePercentLabel" layoutX="118.0" layoutY="128.0" prefHeight="27.0" prefWidth="131.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -199,7 +200,7 @@
             </Pane>
             <Pane prefHeight="171.0" prefWidth="298.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
+                  <Rectangle fx:id="leisureBackground" arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -234,7 +235,7 @@
                         <Font name="Segoe UI Semibold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="leisurePercentLabel" layoutX="191.0" layoutY="127.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                  <Label fx:id="leisurePercentLabel" layoutX="118.0" layoutY="127.0" prefHeight="27.0" prefWidth="131.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -248,7 +249,7 @@
             </Pane>
             <Pane prefHeight="171.0" prefWidth="298.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
+                  <Rectangle fx:id="shoppingBackground" arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -283,7 +284,7 @@
                         <Font name="Segoe UI Semibold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="shoppingPercentLabel" layoutX="191.0" layoutY="128.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                  <Label fx:id="shoppingPercentLabel" layoutX="118.0" layoutY="128.0" prefHeight="27.0" prefWidth="131.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -297,7 +298,7 @@
             </Pane>
             <Pane prefHeight="182.0" prefWidth="256.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="28.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
+                  <Rectangle fx:id="transportBackground" arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="28.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -332,7 +333,7 @@
                         <Font name="Segoe UI Semibold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="transportPercentLabel" layoutX="190.0" layoutY="132.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                  <Label fx:id="transportPercentLabel" layoutX="117.0" layoutY="132.0" prefHeight="27.0" prefWidth="131.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -346,7 +347,14 @@
             </Pane>
             <Pane prefHeight="177.0" prefWidth="0.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
-                  <Rectangle arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
+                  <Rectangle fx:id="otherBackground" arcHeight="60.0" arcWidth="60.0" height="139.0" layoutX="29.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="239.0">
+                     <effect>
+                        <DropShadow height="40.0" radius="19.5" width="40.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -363,13 +371,6 @@
                            </stops>
                         </LinearGradient>
                      </fill>
-                     <effect>
-                        <DropShadow height="40.0" radius="19.5" width="40.0">
-                           <color>
-                              <Color opacity="0.5" />
-                           </color>
-                        </DropShadow>
-                     </effect>
                   </Rectangle>
                   <Label fx:id="otherLeftLabel" layoutX="29.0" layoutY="55.0" prefHeight="69.0" prefWidth="239.0" style="-fx-alignment: center; -fx-font-weight: bold; -fx-font-family: Segoe UI Black;" text="500$" textFill="WHITE">
                      <font>
@@ -381,7 +382,7 @@
                         <Font name="Segoe UI Semibold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="otherPercentLabel" layoutX="191.0" layoutY="131.0" prefHeight="25.0" prefWidth="58.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
+                  <Label fx:id="otherPercentLabel" layoutX="118.0" layoutY="131.0" prefHeight="27.0" prefWidth="131.0" style="-fx-alignment: center-right;" text="10%" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
@@ -753,6 +754,21 @@
          </children>
       </VBox>
       <Rectangle fx:id="whiteOut" fill="WHITE" height="706.0" layoutY="144.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <Rectangle fx:id="blur" arcHeight="5.0" arcWidth="5.0" fill="#f3e9ff" height="800.0" layoutY="50.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <MFXProgressSpinner fx:id="spinner" layoutX="544.0" layoutY="394.0" prefHeight="113.0" prefWidth="113.0" visible="false">
+         <color1>
+            <Color red="0.5555555820465088" green="0.25925925374031067" blue="1.0" />
+         </color1>
+         <color2>
+            <Color red="0.34385964274406433" green="0.011695906519889832" blue="0.8421052694320679" />
+         </color2>
+         <color3>
+            <Color red="0.44070014357566833" green="0.24025341868400574" blue="0.7631579041481018" />
+         </color3>
+         <color4>
+            <Color red="0.38333332538604736" blue="1.0" />
+         </color4>
+      </MFXProgressSpinner>
       <HBox fx:id="topBar" alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="1200.0" spacing="20.0" style="-fx-padding: 0 15px;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#minimizeApp" pickOnBounds="true" preserveRatio="true">
