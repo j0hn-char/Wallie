@@ -84,7 +84,9 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             currencyBox.setValue("$");
         }
 
-        if(user.getProfilePicture() == 1) {
+        if(user.getProfilePicture() == 0) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/user-solid.png"));
+        } else if(user.getProfilePicture() == 1) {
             profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage1.png"));
         } else if(user.getProfilePicture() == 2) {
             profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage2.png"));

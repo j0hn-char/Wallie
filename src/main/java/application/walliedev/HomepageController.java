@@ -44,7 +44,7 @@ public class HomepageController implements Form, NavBar, AppControls{
     private VBox paymentListBox, categoriesVBox;
 
     @FXML
-    private Label noBudgetLabel, currencyLabel, balanceLabel, spentLabel, errorLabel, expenseInfoLabel, usernameLabel;
+    private Label noBudgetLabel, currencyLabel, balanceLabel, spentLabel, errorLabel, expenseInfoLabel, usernameLabel, noExpenseLabel;
 
     @FXML
     private MFXButton addBtn, clearBtn, wallieAiBtn;
@@ -56,7 +56,7 @@ public class HomepageController implements Form, NavBar, AppControls{
     private MFXComboBox<String> categoryBox;
 
     @FXML
-    private Rectangle noBudgetBlur, confirmExpenseBlur, focusGradient, whiteOut;
+    private Rectangle noBudgetBlur, confirmExpenseBlur, focusGradient, whiteOut, pieChartBlur;
 
     @FXML
     private AnchorPane confirmExpensePane;
@@ -144,7 +144,9 @@ public class HomepageController implements Form, NavBar, AppControls{
                 currencyLabel.setText(getCurrencySymbol());
                 usernameLabel.setText(user.getUsername());
 
-                if(user.getProfilePicture() == 1) {
+                if(user.getProfilePicture() == 0){
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/user-solid.png"));
+                } else if(user.getProfilePicture() == 1) {
                     profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage1.png"));
                 } else if(user.getProfilePicture() == 2) {
                     profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage2.png"));
@@ -264,24 +266,34 @@ public class HomepageController implements Form, NavBar, AppControls{
     private void initializePieChart() {
         pieChart.getData().clear();  // Clear existing data
 
-        for (int i = 1; i <= 6; i++) {
-            String categoryName = categoryNameList.get(i);
-            Double categorySpentAmount = budget.getCategorySpent().get(i);
+        if(budget.getTotalAmountSpent() != 0) {
 
-            if (categorySpentAmount != null && budget.getTotalAmountSpent() > 0) {
-                if(categorySpentAmount == 0) {
-                    continue;
+            pieChartBlur.setVisible(false);
+            noExpenseLabel.setVisible(false);
+
+            for (int i = 1; i <= 6; i++) {
+                String categoryName = categoryNameList.get(i);
+                Double categorySpentAmount = budget.getCategorySpent().get(i);
+
+                if (categorySpentAmount != null && budget.getTotalAmountSpent() > 0) {
+                    if (categorySpentAmount == 0) {
+                        continue;
+                    }
+                    double percentage = categorySpentAmount / budget.getTotalAmountSpent() * 100;
+                    String label = String.format("%s (%.2f%%)", categoryName, percentage);
+                    pieChart.getData().add(new PieChart.Data(label, percentage));
+                } else {
+                    System.err.println("There is an issue here: category " + categoryName + " has no amount or totalAmount is 0");
                 }
-                double percentage = categorySpentAmount / budget.getTotalAmountSpent() * 100;
-                String label = String.format("%s (%.2f%%)", categoryName, percentage);
-                pieChart.getData().add(new PieChart.Data(label, percentage));
-            } else {
-                System.err.println("There is an issue here: category " + categoryName + " has no amount or totalAmount is 0");
             }
-        }
 
-        for(PieChart.Data data : pieChart.getData()) {
-            data.getNode().setStyle("-fx-pie-color: " + categoryChartColorList.get(data.getName().split(" ")[0]) + ";");
+            for (PieChart.Data data : pieChart.getData()) {
+                data.getNode().setStyle("-fx-pie-color: " + categoryChartColorList.get(data.getName().split(" ")[0]) + ";");
+
+            }
+        }else{
+            pieChartBlur.setVisible(true);
+            noExpenseLabel.setVisible(true);
         }
     }
 
@@ -305,7 +317,6 @@ public class HomepageController implements Form, NavBar, AppControls{
         return switch (user.getCurrency()) {
             case 1 -> "€";
             case 2 -> "$";
-            case 3 -> "£";
             default -> "€";
         };
     }

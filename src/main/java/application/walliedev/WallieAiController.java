@@ -298,7 +298,12 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
         if(checkFields()) {
             budgetAmount = Double.parseDouble(budgetAmountTxt.getText());
-            fixedExpenses = Double.parseDouble(fixedExpensesTxt.getText());
+
+            if(fixedExpensesTxt.getText().trim().isEmpty()) {
+                fixedExpenses = 0;
+            } else {
+                fixedExpenses = Double.parseDouble(fixedExpensesTxt.getText());
+            }
             totalBudget = budgetAmount - fixedExpenses;
 
             try {
@@ -420,8 +425,16 @@ public class WallieAiController implements NavBar, AppControls, Form{
             flag = false;
         }
 
-        if(fixedExpensesTxt.getText().trim().isEmpty() || !fixedExpensesTxt.getText().trim().matches("\\d*\\.?\\d+")) {
+        if(!fixedExpensesTxt.getText().trim().matches("\\d*\\.?\\d+")) {
             fixedExpensesTxt.getStyleClass().add("error-field");
+            errorLabel.setVisible(true);
+            flag = false;
+        }
+
+        if(flag && (Double.parseDouble(fixedExpensesTxt.getText()) > Double.parseDouble(budgetAmountTxt.getText()))){
+            fixedExpensesTxt.getStyleClass().add("error-field");
+            budgetAmountTxt.getStyleClass().add("error-field");
+            errorLabel.setText("Fixed expenses can't be greater than budget amount");
             errorLabel.setVisible(true);
             flag = false;
         }
