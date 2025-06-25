@@ -141,7 +141,7 @@ public class HomepageController implements Form, NavBar, AppControls{
                         queryResult.getInt("profileImg")
                 );
                 System.out.println(queryResult.getString("username") + " " + queryResult.getString("password") + " " + queryResult.getString("email"));
-                currencyLabel.setText(getCurrencySymbol());
+                currencyLabel.setText(user.getCurrencySymbol());
                 usernameLabel.setText(user.getUsername());
 
                 if(user.getProfilePicture() == 0){
@@ -233,8 +233,8 @@ public class HomepageController implements Form, NavBar, AppControls{
                 }
                 budget.setCategoryBudget(categoryAmountMap);
 
-                balanceLabel.setText(budget.getTotalAmount()-budget.getTotalAmountSpent() + getCurrencySymbol());
-                spentLabel.setText(budget.getTotalAmountSpent() + getCurrencySymbol());
+                balanceLabel.setText(budget.getTotalAmount()-budget.getTotalAmountSpent() + user.getCurrencySymbol());
+                spentLabel.setText(budget.getTotalAmountSpent() + user.getCurrencySymbol());
                 budget.setExpenseHistory();
 
                 addBtn.setDisable(false);
@@ -313,13 +313,6 @@ public class HomepageController implements Form, NavBar, AppControls{
         }
     }
 
-    private String getCurrencySymbol() {
-        return switch (user.getCurrency()) {
-            case 1 -> "€";
-            case 2 -> "$";
-            default -> "€";
-        };
-    }
 
     private void addPaymentRow(Date date, String name, String amount, String category) {
         Label dateLabel = new Label(date.toString());
@@ -330,7 +323,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         nameLabel.setFont(new Font("Segoe UI Semibold", 15));
         nameLabel.setStyle("-fx-text-fill: #3700b3;");
 
-        Label amountLabel = new Label(amount + getCurrencySymbol());
+        Label amountLabel = new Label(amount + user.getCurrencySymbol());
         amountLabel.setFont(new Font("Segoe UI Semibold", 15));
         amountLabel.setStyle("-fx-text-fill: #3700b3;");
 
@@ -395,8 +388,8 @@ public class HomepageController implements Form, NavBar, AppControls{
             if(rs.next()){
                 convertedAmount = rs.getDouble("totalAmountSpent");
 
-                spentLabel.setText(convertedAmount + getCurrencySymbol());
-                balanceLabel.setText(budget.getTotalAmount()-convertedAmount + getCurrencySymbol());
+                spentLabel.setText(convertedAmount + user.getCurrencySymbol());
+                balanceLabel.setText(budget.getTotalAmount()-convertedAmount + user.getCurrencySymbol());
                 budget.setExpenseHistory();
                 initializePieChart();
 
@@ -415,7 +408,7 @@ public class HomepageController implements Form, NavBar, AppControls{
             confirmExpensePane.setVisible(true);
             confirmExpenseBlur.setVisible(true);
             System.out.println(confirmExpenseBlur.isVisible());
-            expenseInfoLabel.setText("Name: " + expenseNameTxt.getText() + ", Amount: " + amountTxt.getText() + getCurrencySymbol() +", Category: " + categoryBox.getValue());
+            expenseInfoLabel.setText("Name: " + expenseNameTxt.getText() + ", Amount: " + amountTxt.getText() + user.getCurrencySymbol() +", Category: " + categoryBox.getValue());
 
         }
     }

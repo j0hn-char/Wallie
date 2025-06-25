@@ -24,6 +24,14 @@ public class User {
         this.currency = currency;
     }
 
+    public String getCurrencySymbol() {
+        return switch (this.currency) {
+            case 1 -> "€";
+            case 2 -> "$";
+            default -> "€";
+        };
+    }
+
     public void setProfilePicture(int profilePicture) {
         this.profilePicture = profilePicture;
     }
