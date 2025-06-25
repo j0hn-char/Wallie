@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/application/walliedev/DatabaseConnection.java&#10;#&#9;src/main/resources/application/walliedev/WallieAiPage.fxml">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Synchronized db with the amount spent label and with the balance label. They are being updated immediately after adding an expense.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,12 +48,12 @@
     &quot;assignee&quot;: &quot;paschalina-aggelousi&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/j0hn-char/Wallie.git&quot;,
-    &quot;accountId&quot;: &quot;16778457-fa30-4f36-9c63-f8c193ec570b&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/j0hn-char/Wallie.git",
+    "accountId": "50434323-9ef9-4981-bfe3-3b99bbfcea62"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -124,14 +121,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -457,7 +446,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750338550712</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Synchronized db with the amount spent label and with the balance label. They are being updated immediately after adding an expense.">
+      <option name="closed" value="true" />
+      <created>1750363794461</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1750363794461</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +502,8 @@
     <MESSAGE value="fixed api key problem" />
     <MESSAGE value="fixed minor bugs" />
     <MESSAGE value="changed some colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed some colors" />
+    <MESSAGE value="Synchronized db with the amount spent label and with the balance label. They are being updated immediately after adding an expense." />
+    <option name="LAST_COMMIT_MESSAGE" value="Synchronized db with the amount spent label and with the balance label. They are being updated immediately after adding an expense." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
