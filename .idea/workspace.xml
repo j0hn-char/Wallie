@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="finished pie chart">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="finished ai page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/bag-shopping-solid (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/bag-shopping-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/bus-solid (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/bus-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/cube-solid (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/cube-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/heart-solid (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/heart-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/house-solid (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/house-solid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/utensils-solid (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/utensils-solid.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +213,7 @@
       <workItem from="1750704963832" duration="60000" />
       <workItem from="1750799075712" duration="13000" />
       <workItem from="1750844416257" duration="4313000" />
-      <workItem from="1750850359001" duration="3466000" />
+      <workItem from="1750850359001" duration="4371000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -515,7 +519,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750368266160</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="finished ai page">
+      <option name="closed" value="true" />
+      <created>1750854805583</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1750854805583</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +554,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created the Budget class" />
     <MESSAGE value="added the Budget class" />
     <MESSAGE value="connected homepage with DB" />
     <MESSAGE value="fixed bug with double saves in the DB" />
@@ -567,7 +578,8 @@
     <MESSAGE value="added sound to intro video" />
     <MESSAGE value="fixed fxml problems" />
     <MESSAGE value="updated profile picture functionality and improved navigation" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated profile picture functionality and improved navigation" />
+    <MESSAGE value="finished ai page" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished ai page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
