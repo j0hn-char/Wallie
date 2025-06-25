@@ -283,7 +283,7 @@ public class HomepageController implements Form, NavBar, AppControls{
                     String label = String.format("%s (%.2f%%)", categoryName, percentage);
                     pieChart.getData().add(new PieChart.Data(label, percentage));
                 } else {
-                    System.err.println("There is an issue here: category " + categoryName + " has no amount or totalAmount is 0");
+                    System.out.println("Category " + categoryName + " has no amount or totalAmount is 0");
                 }
             }
 
