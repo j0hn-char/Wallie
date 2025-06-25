@@ -33,6 +33,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 
 public class ProfilePageController implements Form, NavBar, AppControls{
     @FXML
@@ -42,7 +43,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     @FXML
     private MFXTextField currPswdTxt, newPswdTxt, retypeTxt, deletePasswordTxt;
     @FXML
-    private Rectangle focusGradient, whiteOut, blur;
+    private Rectangle focusGradient, whiteOut, blur, profileBanner;
     @FXML
     private ImageView homePageLogo, goToProfileBtn, profilePicture;
     @FXML
@@ -95,10 +96,11 @@ public class ProfilePageController implements Form, NavBar, AppControls{
         } else if(user.getProfilePicture() == 4) {
             profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage4.png"));
         }
-
+        initializeProfileBanner();
         profilePicture.setImage(profileImage);
         goToProfileBtn.setImage(profileImage);
     }
+
     public boolean checkFields() {
         String currPswd = currPswdTxt.getText();
         String newPswd = newPswdTxt.getText();
@@ -142,6 +144,24 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             System.out.println("passwords match");
 
         return fieldsAreOk;
+    }
+
+    private void initializeProfileBanner() {
+        String color = switch (this.user.getProfilePicture()) {
+            case 0 -> "#b787ff";
+            case 1 -> "#9ec6e4";
+            case 2 -> "#f2e99d";
+            case 3 -> "#9ec4a9";
+            case 4 -> "#f7bf9c";
+            default -> null;
+        };
+
+        profileBanner.setFill(new RadialGradient(
+                0.0, 0.0, 0.8508, 0.2062, 0.3218, true, CycleMethod.REFLECT,
+                new Stop(0.0, Color.web(color)),
+                new Stop(1.0, Color.web("#ffffff"))
+        ));
+
     }
 
     public void saveChangesBtnPressed(){
