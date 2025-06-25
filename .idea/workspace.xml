@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="updated profile picture functionality and improved navigation">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="finished pie chart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/Budget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/WallieAiPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="WallieAIPage/Lina" />
+        <entry key="$PROJECT_DIR$" value="HomepageChanges/Giannis" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,7 +53,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/j0hn-char/Wallie.git&quot;,
-    &quot;accountId&quot;: &quot;16778457-fa30-4f36-9c63-f8c193ec570b&quot;
+    &quot;accountId&quot;: &quot;c27dedde-6ce1-428e-9d44-67e359d312b4&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -128,8 +127,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
       </set>
     </attachedChunks>
   </component>
@@ -208,6 +207,9 @@
       <workItem from="1750545156978" duration="357000" />
       <workItem from="1750687193865" duration="4313000" />
       <workItem from="1750704963832" duration="60000" />
+      <workItem from="1750799075712" duration="13000" />
+      <workItem from="1750844416257" duration="4313000" />
+      <workItem from="1750850359001" duration="3466000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
