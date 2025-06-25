@@ -441,7 +441,7 @@
             <Font name="Segoe UI Semibold" size="31.0" />
          </font>
       </Label>
-      <Label fx:id="errorLabel" alignment="CENTER" layoutX="364.0" layoutY="814.0" prefHeight="20.0" prefWidth="512.0" text="Please fill out all the necessary budget information properly" textAlignment="CENTER" textFill="#eb5858" visible="false" wrapText="true">
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="494.0" layoutY="815.0" prefHeight="20.0" prefWidth="512.0" text="Please fill out all the necessary budget information properly" textAlignment="CENTER" textFill="#eb5858" visible="false" wrapText="true">
          <font>
             <Font name="Segoe UI Symbol" size="14.0" />
          </font>
@@ -460,30 +460,6 @@
             <Font name="Segoe UI Semibold" size="31.0" />
          </font>
       </Label>
-      <Rectangle fx:id="whiteOut" fill="WHITE" height="706.0" layoutY="144.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
-      <HBox fx:id="topBar" alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="1200.0" spacing="20.0" style="-fx-padding: 0 15px;">
-         <children>
-            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#minimizeApp" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/window-minimize-solid.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/image-removebg-preview.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </children>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </HBox>
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#6200ee" height="102.0" layoutX="14.0" layoutY="282.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="290.0">
          <effect>
             <DropShadow height="60.0" radius="29.5" width="60.0">
@@ -776,5 +752,29 @@
             </Pane>
          </children>
       </VBox>
+      <Rectangle fx:id="whiteOut" fill="WHITE" height="706.0" layoutY="144.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="1200.0" />
+      <HBox fx:id="topBar" alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="1200.0" spacing="20.0" style="-fx-padding: 0 15px;">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#minimizeApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/window-minimize-solid.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/image-removebg-preview.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </HBox>
    </children>
 </AnchorPane>
