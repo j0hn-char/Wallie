@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Enhanced budget distribution automation with AI, improved UI with dynamic category backgrounds, and added profile picture handling features.">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,8 +129,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
       </set>
     </attachedChunks>
   </component>
@@ -214,6 +218,11 @@
       <workItem from="1750875418117" duration="18000" />
       <workItem from="1750875445004" duration="32000" />
       <workItem from="1750875484893" duration="19000" />
+      <workItem from="1750937626907" duration="51000" />
+      <workItem from="1750937729017" duration="54000" />
+      <workItem from="1750937799189" duration="25000" />
+      <workItem from="1750937833940" duration="28000" />
+      <workItem from="1750937870858" duration="72000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -543,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750875167185</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1750936265320</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1750936265320</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="connected homepage with DB" />
     <MESSAGE value="fixed bug with double saves in the DB" />
     <MESSAGE value="changed homepage a lot" />
     <MESSAGE value="change" />
@@ -595,7 +611,8 @@
     <MESSAGE value="updated profile picture functionality and improved navigation" />
     <MESSAGE value="Refactored budget and category handling, added pie chart colors, and improved UI elements." />
     <MESSAGE value="Enhanced budget distribution automation with AI, improved UI with dynamic category backgrounds, and added profile picture handling features." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhanced budget distribution automation with AI, improved UI with dynamic category backgrounds, and added profile picture handling features." />
+    <MESSAGE value="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

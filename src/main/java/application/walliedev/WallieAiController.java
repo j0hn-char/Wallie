@@ -396,7 +396,7 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
                         Statement statement;
 
-                        String budgetQuery = "I have a budget of " + totalBudget + ". I want you to make me the best practical distribution of my money in the following categories based on their importance and anything else you consider important. The categories are as follows. Health, Home, Leisure, Shopping, Transport, Other.";
+                        String budgetQuery = "I have a budget of " + totalBudget + ". I want you to make me the best practical distribution of my money without leaving anything left in the following categories based on their importance and anything else you consider important. The categories are as follows. Health, Home, Leisure, Shopping, Transport, Other.";
 
                         if(checkBudgetExistance())
                         {
