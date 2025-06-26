@@ -40,9 +40,15 @@ public class EmailSender {
 
                         "<p style='font-size: 18px; color: #333; text-align: center; line-height: 1.6; margin-top: 20px;'>We're so glad you've joined 📈<br>Let Wallie help you budget smarter and save better 💰</p>" +
 
-                        "<div style='display: flex; justify-content: center; margin: 30px 0;'>" +
-                        "  <a href='#' style='display: inline-block; padding: 14px 24px; font-size: 16px; font-weight: 600; color: white; background-color: #6200ee; border-radius: 50px; text-decoration: none; text-align: center; width: 100%; max-width: 260px; box-shadow: 0 4px 12px rgba(98,0,238,0.3);'>Start Budgeting Now</a>" +
-                        "</div>" +
+                        "<table align='center' role='presentation' cellspacing='0' cellpadding='0' border='0' style='margin: 30px auto;'>" +
+                        "  <tr>" +
+                        "    <td align='center'>" +
+                        "      <a href='#' style='display: inline-block; padding: 14px 24px; font-size: 16px; font-weight: 600; color: white; background-color: #6200ee; border-radius: 50px; text-decoration: none; text-align: center; box-shadow: 0 4px 12px rgba(98,0,238,0.3);'>" +
+                        "        Start Budgeting Now" +
+                        "      </a>" +
+                        "    </td>" +
+                        "  </tr>" +
+                        "</table>" +
 
                         "<p style='font-size: 16px; color: #444; line-height: 1.6; margin-bottom: 0;'>Here’s what you can do with Wallie:</p>" +
                         "<ul style='color: #555; font-size: 16px; margin-top: 10px; padding-left: 20px;'>" +
@@ -63,6 +69,7 @@ public class EmailSender {
 
                         "</body>" +
                         "</html>";
+
 
 
 

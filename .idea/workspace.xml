@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Refined ProfilePage UI elements, improved username display formatting, removed debug print from HomepageController, and adjusted budget query in WallieAiController for better precision.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="happy launch day">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +219,7 @@
       <workItem from="1750937799189" duration="25000" />
       <workItem from="1750937833940" duration="28000" />
       <workItem from="1750937870858" duration="72000" />
-      <workItem from="1750937956027" duration="112000" />
+      <workItem from="1750937956027" duration="921000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -565,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750938001293</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="happy launch day">
+      <option name="closed" value="true" />
+      <created>1750938091195</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1750938091195</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +600,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed homepage a lot" />
     <MESSAGE value="change" />
     <MESSAGE value="fixed minor styling issue" />
     <MESSAGE value="animation done on login" />
@@ -617,7 +624,8 @@
     <MESSAGE value="Enhanced budget distribution automation with AI, improved UI with dynamic category backgrounds, and added profile picture handling features." />
     <MESSAGE value="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="Refined ProfilePage UI elements, improved username display formatting, removed debug print from HomepageController, and adjusted budget query in WallieAiController for better precision." />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="happy launch day" />
+    <option name="LAST_COMMIT_MESSAGE" value="happy launch day" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
