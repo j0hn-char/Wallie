@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="FINISHED!!!!!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/WallieAiController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -463,7 +462,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750884510924</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="FINISHED!!!!!!!">
+      <option name="closed" value="true" />
+      <created>1750895155519</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1750895155519</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +519,8 @@
     <MESSAGE value="fixed minor bugs" />
     <MESSAGE value="changed some colors" />
     <MESSAGE value="Synchronized db with the amount spent label and with the balance label. They are being updated immediately after adding an expense." />
-    <option name="LAST_COMMIT_MESSAGE" value="Synchronized db with the amount spent label and with the balance label. They are being updated immediately after adding an expense." />
+    <MESSAGE value="FINISHED!!!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINISHED!!!!!!!" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
