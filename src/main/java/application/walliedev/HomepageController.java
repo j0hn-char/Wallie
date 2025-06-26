@@ -41,7 +41,7 @@ import java.util.HashMap;
 
 public class HomepageController implements Form, NavBar, AppControls{
     @FXML
-    private VBox paymentListBox, categoriesVBox;
+    private VBox paymentListBox;
 
     @FXML
     private Label noBudgetLabel, currencyLabel, balanceLabel, spentLabel, errorLabel, expenseInfoLabel, usernameLabel, noExpenseLabel;
