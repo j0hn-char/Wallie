@@ -2,6 +2,7 @@ package application.walliedev;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
+import io.github.palexdev.materialfx.controls.MFXRadioButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.animation.*;
 import javafx.beans.property.DoubleProperty;
@@ -13,13 +14,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.RadialGradient;
 import javafx.scene.paint.Stop;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -29,28 +33,29 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 
 public class ProfilePageController implements Form, NavBar, AppControls{
     @FXML
     private MFXComboBox<String> currencyBox;
     @FXML
-    private Label displayUsernameLabel;
+    private Label emailLabel, usernameLabel, displayUsernameLabel, errorLabel, deleteErrorLabel, usernameLabelNav;
     @FXML
-    private Label emailLabel;
+    private MFXTextField currPswdTxt, newPswdTxt, retypeTxt, deletePasswordTxt;
     @FXML
-    private Label usernameLabel;
+    private Rectangle focusGradient, whiteOut, blur, profileBanner;
     @FXML
-    private MFXTextField currPswdTxt, newPswdTxt, retypeTxt;
-    @FXML
-    private Label errorLabel;
-    @FXML
-    private Rectangle focusGradient, whiteOut;
-    @FXML
-    private ImageView homePageLogo, goToProfileBtn;
+    private ImageView homePageLogo, goToProfileBtn, profilePicture;
     @FXML
     private MFXButton wallieAiBtn;
     @FXML
     private HBox topBar;
+    @FXML
+    private AnchorPane confirmDeletionPane, profileImagePane;
+    @FXML
+    private MFXRadioButton radioBtn1, radioBtn2, radioBtn3, radioBtn4;
+    @FXML
+    private Circle circle1, circle2, circle3, circle4;
 
     private User user;
     private Stage stage;
@@ -59,6 +64,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     private double xOffset = 0;
     private double yOffset = 0;
     private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
+    private Image profileImage;
 
     public void initializeCurrencyComboBox() {
         currencyBox.getItems().addAll("€","$");
@@ -68,10 +74,33 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     public void setUser(User user) {
         this.user=user;
 
-        displayUsernameLabel.setText(user.getUsername());
+        displayUsernameLabel.setText("@" + user.getUsername());
         usernameLabel.setText(user.getUsername());
+        usernameLabelNav.setText(user.getUsername());
         emailLabel.setText(user.getEmail());
+
+        if(user.getCurrency() == 1) {
+            currencyBox.setValue("€");
+        } else if(user.getCurrency() == 2) {
+            currencyBox.setValue("$");
+        }
+
+        if(user.getProfilePicture() == 0) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/user-solid.png"));
+        } else if(user.getProfilePicture() == 1) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage1.png"));
+        } else if(user.getProfilePicture() == 2) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage2.png"));
+        } else if(user.getProfilePicture() == 3) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage3.png"));
+        } else if(user.getProfilePicture() == 4) {
+            profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage4.png"));
+        }
+        initializeProfileBanner();
+        profilePicture.setImage(profileImage);
+        goToProfileBtn.setImage(profileImage);
     }
+
     public boolean checkFields() {
         String currPswd = currPswdTxt.getText();
         String newPswd = newPswdTxt.getText();
@@ -115,6 +144,24 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             System.out.println("passwords match");
 
         return fieldsAreOk;
+    }
+
+    private void initializeProfileBanner() {
+        String color = switch (this.user.getProfilePicture()) {
+            case 0 -> "#b787ff";
+            case 1 -> "#9ec6e4";
+            case 2 -> "#f2e99d";
+            case 3 -> "#9ec4a9";
+            case 4 -> "#f7bf9c";
+            default -> null;
+        };
+
+        profileBanner.setFill(new RadialGradient(
+                0.0, 0.0, 0.8508, 0.2062, 0.3218, true, CycleMethod.REFLECT,
+                new Stop(0.0, Color.web(color)),
+                new Stop(1.0, Color.web("#ffffff"))
+        ));
+
     }
 
     public void saveChangesBtnPressed(){
@@ -175,6 +222,32 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             throw new RuntimeException(e);
         }
     }
+
+    public void deleteBtnPressed(ActionEvent event) throws IOException {
+        confirmDeletionPane.setVisible(true);
+        blur.setVisible(true);
+    }
+
+    public void cancelDeletion(ActionEvent event) {
+
+        confirmDeletionPane.setVisible(false);
+        blur.setVisible(false);
+        deleteErrorLabel.setText("");
+        deletePasswordTxt.getStyleClass().remove("error-field");
+    }
+
+    public void confirmDeletion(ActionEvent event) throws IOException {
+        deleteErrorLabel.setText("");
+        deletePasswordTxt.getStyleClass().remove("error-field");
+
+        if(deletePasswordTxt.getText().equals(user.getPassword())) {
+            deleteAccount(event);
+        } else {
+            deleteErrorLabel.setText("Incorrect Password");
+            deletePasswordTxt.getStyleClass().add("error-field");
+        }
+    }
+
     public void deleteAccount(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -188,6 +261,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
         }
         logOut(event);
     }
+
     public void logOut(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -196,6 +270,82 @@ public class ProfilePageController implements Form, NavBar, AppControls{
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void editProfileImage(MouseEvent event) {
+        switch (user.getProfilePicture()) {
+            case 1:
+                circle1.setVisible(true);
+                radioBtn1.setSelected(true);
+                break;
+            case 2:
+                circle2.setVisible(true);
+                radioBtn2.setSelected(true);
+                break;
+            case 3:
+                circle3.setVisible(true);
+                radioBtn3.setSelected(true);
+                break;
+            case 4:
+                circle4.setVisible(true);
+                radioBtn4.setSelected(true);
+                break;
+        }
+
+        profileImagePane.setVisible(true);
+        blur.setVisible(true);
+    }
+
+    public void closeProfileImagePane(MouseEvent event) {
+        profileImagePane.setVisible(false);
+        blur.setVisible(false);
+    }
+
+    public void selectProfileImage(ActionEvent event) {
+        circle1.setVisible(false);
+        circle2.setVisible(false);
+        circle3.setVisible(false);
+        circle4.setVisible(false);
+
+        if(radioBtn1.isSelected()) {
+            circle1.setVisible(true);
+        } else if(radioBtn2.isSelected()) {
+            circle2.setVisible(true);
+        } else if(radioBtn3.isSelected()) {
+            circle3.setVisible(true);
+        } else if(radioBtn4.isSelected()) {
+            circle4.setVisible(true);
+        }
+    }
+
+    public void saveProfileImage(MouseEvent event) {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        Statement statement = null;
+        int selectedProfilePicture = 0;
+
+        if(circle1.isVisible()) {
+            selectedProfilePicture = 1;
+        } else if(circle2.isVisible()) {
+            selectedProfilePicture = 2;
+        } else if(circle3.isVisible()) {
+            selectedProfilePicture = 3;
+        } else if(circle4.isVisible()) {
+            selectedProfilePicture = 4;
+        }
+
+        if(selectedProfilePicture != user.getProfilePicture()) {
+            try {
+                statement = connectDB.createStatement();
+                statement.executeUpdate("UPDATE Users SET profileImg = '" + selectedProfilePicture + "' WHERE username = '" + user.getUsername() + "';");
+                user.setProfilePicture(selectedProfilePicture);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        setUser(user);
+        closeProfileImagePane(event);
     }
 
     public void homepageNavAnimationIn(){

@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -40,10 +41,10 @@ import java.util.HashMap;
 
 public class HomepageController implements Form, NavBar, AppControls{
     @FXML
-    private VBox paymentListBox, categoriesVBox;
+    private VBox paymentListBox;
 
     @FXML
-    private Label noBudgetLabel, currencyLabel, balanceLabel, spentLabel, errorLabel, expenseInfoLabel, usernameLabel;
+    private Label noBudgetLabel, currencyLabel, balanceLabel, spentLabel, errorLabel, expenseInfoLabel, usernameLabel, noExpenseLabel;
 
     @FXML
     private MFXButton addBtn, clearBtn, wallieAiBtn;
@@ -55,13 +56,10 @@ public class HomepageController implements Form, NavBar, AppControls{
     private MFXComboBox<String> categoryBox;
 
     @FXML
-    private Rectangle noBudgetBlur, confirmExpenseBlur, focusGradient, whiteOut;
+    private Rectangle noBudgetBlur, confirmExpenseBlur, focusGradient, whiteOut, pieChartBlur;
 
     @FXML
     private AnchorPane confirmExpensePane;
-
-    @FXML
-    private ProgressBar healthProgressBar, homeProgressBar, leisureProgressBar, shoppingProgressBar, transportProgressBar, otherProgressBar;
 
     @FXML
     private ImageView logoForAnim, goToProfileBtn, homePageLogo;
@@ -73,8 +71,6 @@ public class HomepageController implements Form, NavBar, AppControls{
     private PieChart pieChart;
 
     private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     private User user;
     private Budget budget;
@@ -84,6 +80,8 @@ public class HomepageController implements Form, NavBar, AppControls{
     private final HashMap<String, Integer> categoryIDList = new HashMap<>();
     private final HashMap<Integer, String> categoryNameList = new HashMap<>();
     private final HashMap<String, String> categoryColorList = new HashMap<>();
+    private final HashMap<String, String> categoryChartColorList = new HashMap<>();
+    private Image profileImage;
 
     public void initializeCategoryLists() {
         categoryNameList.put(1, "Health");
@@ -100,30 +98,27 @@ public class HomepageController implements Form, NavBar, AppControls{
         categoryIDList.put("Transport", 5);
         categoryIDList.put("Other", 6);
 
-        categoryColorList.put("Health", "linear-gradient(from 0% 0% to 100% 100%, white, #f9d7c4);");      // very soft peach
-        categoryColorList.put("Home", "linear-gradient(from 0% 0% to 100% 100%, white, #fff3d9);");        // pale creamy yellow
-        categoryColorList.put("Leisure", "linear-gradient(from 0% 0% to 100% 100%, white, #d1e6d1);");     // very soft mint green
-        categoryColorList.put("Shopping", "linear-gradient(from 0% 0% to 100% 100%, white, #bbd4df);");    // desaturated powder blue
-        categoryColorList.put("Transport", "linear-gradient(from 0% 0% to 100% 100%, white, #b4b8e1);");   // soft muted periwinkle
-        categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #dbc3e7);");       // soft pastel lilac
+        categoryColorList.put("Health", "linear-gradient(from 0% 0% to 100% 100%, white, #f9d7c4);");
+        categoryColorList.put("Home", "linear-gradient(from 0% 0% to 100% 100%, white, #ffe3a7);");
+        categoryColorList.put("Leisure", "linear-gradient(from 0% 0% to 100% 100%, white, #d1e6d1);");
+        categoryColorList.put("Shopping", "linear-gradient(from 0% 0% to 100% 100%, white, #bbd4df);");
+        categoryColorList.put("Transport", "linear-gradient(from 0% 0% to 100% 100%, white, #b4b8e1);");
+        categoryColorList.put("Other", "linear-gradient(from 0% 0% to 100% 100%, white, #dbc3e7);");
+
+        categoryChartColorList.put("Health", "#e46537");
+        categoryChartColorList.put("Home", "#f0a834");
+        categoryChartColorList.put("Leisure", "#61b661");
+        categoryChartColorList.put("Shopping", "#51acc7");
+        categoryChartColorList.put("Transport", "#475bbf");
+        categoryChartColorList.put("Other", "#8a3cb5");
 
         initializeCategoryComboBox();
-//        initializeProgressBars();
     }
 
     private void initializeCategoryComboBox() {
         categoryBox.getItems().addAll(categoryIDList.keySet());
         categoryBox.setMinWidth(150);
 
-    }
-
-    public void initializeProgressBars(){
-        healthProgressBar.getStyleClass().add("health-bar");
-        homeProgressBar.getStyleClass().add("home-bar");
-        leisureProgressBar.getStyleClass().add("leisure-bar");
-        shoppingProgressBar.getStyleClass().add("shopping-bar");
-        transportProgressBar.getStyleClass().add("transport-bar");
-        otherProgressBar.getStyleClass().add("other-bar");
     }
 
     public void setUser(String username){ 
@@ -145,9 +140,22 @@ public class HomepageController implements Form, NavBar, AppControls{
                         queryResult.getInt("preferredCurrency"),
                         queryResult.getInt("profileImg")
                 );
-                System.out.println(queryResult.getString("username") + " " + queryResult.getString("password") + " " + queryResult.getString("email"));
-                currencyLabel.setText(getCurrencySymbol());
+                currencyLabel.setText(user.getCurrencySymbol());
                 usernameLabel.setText(user.getUsername());
+
+                if(user.getProfilePicture() == 0){
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/user-solid.png"));
+                } else if(user.getProfilePicture() == 1) {
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage1.png"));
+                } else if(user.getProfilePicture() == 2) {
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage2.png"));
+                } else if(user.getProfilePicture() == 3) {
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage3.png"));
+                } else if(user.getProfilePicture() == 4) {
+                    profileImage = new Image(getClass().getResourceAsStream("/assets/profileImage4.png"));
+                }
+                goToProfileBtn.setImage(profileImage);
+
                 setBudget(user);
             }
         } catch (Exception e) {
@@ -224,8 +232,8 @@ public class HomepageController implements Form, NavBar, AppControls{
                 }
                 budget.setCategoryBudget(categoryAmountMap);
 
-                balanceLabel.setText(budget.getTotalAmount()-budget.getTotalAmountSpent() + getCurrencySymbol());
-                spentLabel.setText(budget.getTotalAmountSpent() + getCurrencySymbol());
+                balanceLabel.setText(budget.getTotalAmount()-budget.getTotalAmountSpent() + user.getCurrencySymbol());
+                spentLabel.setText(budget.getTotalAmountSpent() + user.getCurrencySymbol());
                 budget.setExpenseHistory();
 
                 addBtn.setDisable(false);
@@ -257,17 +265,34 @@ public class HomepageController implements Form, NavBar, AppControls{
     private void initializePieChart() {
         pieChart.getData().clear();  // Clear existing data
 
-        for (int i = 1; i <= 6; i++) {
-            String categoryName = categoryNameList.get(i);
-            Double categoryAmount = budget.getCategoryBudget().get(i);
+        if(budget.getTotalAmountSpent() != 0) {
 
-            if (categoryAmount != null && budget.getTotalAmount() > 0) {
-                double percentage = categoryAmount / budget.getTotalAmount() * 100;
-                String label = String.format("%s (%.1f%%)", categoryName, percentage);
-                pieChart.getData().add(new PieChart.Data(label, percentage));
-            } else {
-                System.err.println("There is an issue here: category " + categoryName + " has no amount or totalAmount is 0");
+            pieChartBlur.setVisible(false);
+            noExpenseLabel.setVisible(false);
+
+            for (int i = 1; i <= 6; i++) {
+                String categoryName = categoryNameList.get(i);
+                Double categorySpentAmount = budget.getCategorySpent().get(i);
+
+                if (categorySpentAmount != null && budget.getTotalAmountSpent() > 0) {
+                    if (categorySpentAmount == 0) {
+                        continue;
+                    }
+                    double percentage = categorySpentAmount / budget.getTotalAmountSpent() * 100;
+                    String label = String.format("%s (%.2f%%)", categoryName, percentage);
+                    pieChart.getData().add(new PieChart.Data(label, percentage));
+                } else {
+                    System.out.println("Category " + categoryName + " has no amount or totalAmount is 0");
+                }
             }
+
+            for (PieChart.Data data : pieChart.getData()) {
+                data.getNode().setStyle("-fx-pie-color: " + categoryChartColorList.get(data.getName().split(" ")[0]) + ";");
+
+            }
+        }else{
+            pieChartBlur.setVisible(true);
+            noExpenseLabel.setVisible(true);
         }
     }
 
@@ -287,14 +312,6 @@ public class HomepageController implements Form, NavBar, AppControls{
         }
     }
 
-    private String getCurrencySymbol() {
-        return switch (user.getCurrency()) {
-            case 1 -> "€";
-            case 2 -> "$";
-            case 3 -> "£";
-            default -> "€";
-        };
-    }
 
     private void addPaymentRow(Date date, String name, String amount, String category) {
         Label dateLabel = new Label(date.toString());
@@ -305,7 +322,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         nameLabel.setFont(new Font("Segoe UI Semibold", 15));
         nameLabel.setStyle("-fx-text-fill: #3700b3;");
 
-        Label amountLabel = new Label(getCurrencySymbol() + amount);
+        Label amountLabel = new Label(amount + user.getCurrencySymbol());
         amountLabel.setFont(new Font("Segoe UI Semibold", 15));
         amountLabel.setStyle("-fx-text-fill: #3700b3;");
 
@@ -340,15 +357,46 @@ public class HomepageController implements Form, NavBar, AppControls{
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
+        double parsedAmount = Double.parseDouble(amount);
+
         String insertFields = "INSERT INTO PaymentHistory(budgetId, userId, categoryId, name, amount, paymentDate) VALUES ('";
-        String insertValues = budget.getID() + "','" + user.getID() + "','" + categoryIDList.get(category) + "','" + name + "','" + Double.parseDouble(amount) + "','" + date + "')";
+        String insertValues = budget.getID() + "','" + user.getID() + "','" + categoryIDList.get(category) + "','" + name + "','" + amount + "','" + date + "')";
         String insertToPaymentList = insertFields + insertValues;
+
+        String updateBudgetSpent = "UPDATE Budgets SET totalAmountSpent = totalAmountSpent + " + parsedAmount + " WHERE budgetid = " + budget.getID();
+        String updateCategorySpent = "UPDATE BudgetCategoryAmounts SET amount = amount + " + parsedAmount + " WHERE budgetid = " + budget.getID() + " AND categoryId = " + categoryIDList.get(category);
 
         try {
             Statement statement = connectDB.createStatement();
 
             statement.executeUpdate(insertToPaymentList);
             System.out.println("Expense added!");
+
+            statement.executeUpdate(updateBudgetSpent);
+            System.out.println("Budget amount spent updated");
+
+            statement.executeUpdate(updateCategorySpent);
+            System.out.println("Category amount spent updated");
+
+            String amountSpentQuery = "SELECT totalAmountSpent FROM Budgets where budgetid = " + budget.getID();
+
+            ResultSet rs = statement.executeQuery(amountSpentQuery);
+
+            Double convertedAmount = 0.0;
+
+            if(rs.next()){
+                convertedAmount = rs.getDouble("totalAmountSpent");
+
+                spentLabel.setText(convertedAmount + user.getCurrencySymbol());
+                balanceLabel.setText(budget.getTotalAmount()-convertedAmount + user.getCurrencySymbol());
+                budget.setExpenseHistory();
+                budget.setTotalAmountSpent(convertedAmount);
+                initializePieChart();
+
+            }
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
@@ -360,7 +408,7 @@ public class HomepageController implements Form, NavBar, AppControls{
             confirmExpensePane.setVisible(true);
             confirmExpenseBlur.setVisible(true);
             System.out.println(confirmExpenseBlur.isVisible());
-            expenseInfoLabel.setText("Name: " + expenseNameTxt.getText() + ", Amount: " + amountTxt.getText() + getCurrencySymbol() +", Category: " + categoryBox.getValue());
+            expenseInfoLabel.setText("Name: " + expenseNameTxt.getText() + ", Amount: " + amountTxt.getText() + user.getCurrencySymbol() +", Category: " + categoryBox.getValue());
 
         }
     }

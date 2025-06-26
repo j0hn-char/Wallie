@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="changed some colors">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Refined ProfilePage UI elements, improved username display formatting, removed debug print from HomepageController, and adjusted budget query in WallieAiController for better precision.">
       <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/HomepageController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +37,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Homepage/Giannis" />
+        <entry key="$PROJECT_DIR$" value="WallieAIPage/Lina" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,35 +72,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WallieApplication.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/application/walliedev&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Application.WallieApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "release/1.0",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/j0hn_char/Desktop/Wallie/src/main/resources/application/walliedev",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\j0hn_char\Desktop\Wallie\src\main\resources\application\walliedev" />
@@ -126,8 +125,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
       </set>
     </attachedChunks>
   </component>
@@ -198,6 +197,29 @@
       <workItem from="1750279895994" duration="9000" />
       <workItem from="1750280171789" duration="209000" />
       <workItem from="1750324456960" duration="1152000" />
+      <workItem from="1750353028664" duration="7370000" />
+      <workItem from="1750368240886" duration="36000" />
+      <workItem from="1750379064736" duration="125000" />
+      <workItem from="1750451779499" duration="33000" />
+      <workItem from="1750539848654" duration="2000" />
+      <workItem from="1750545156978" duration="357000" />
+      <workItem from="1750687193865" duration="4313000" />
+      <workItem from="1750704963832" duration="60000" />
+      <workItem from="1750798081666" duration="97000" />
+      <workItem from="1750874480769" duration="647000" />
+      <workItem from="1750875145650" duration="113000" />
+      <workItem from="1750875269599" duration="46000" />
+      <workItem from="1750875325084" duration="51000" />
+      <workItem from="1750875385967" duration="23000" />
+      <workItem from="1750875418117" duration="18000" />
+      <workItem from="1750875445004" duration="32000" />
+      <workItem from="1750875484893" duration="19000" />
+      <workItem from="1750937626907" duration="51000" />
+      <workItem from="1750937729017" duration="54000" />
+      <workItem from="1750937799189" duration="25000" />
+      <workItem from="1750937833940" duration="28000" />
+      <workItem from="1750937870858" duration="72000" />
+      <workItem from="1750937956027" duration="112000" />
     </task>
     <task id="LOCAL-00001" summary="created the Budget class">
       <option name="closed" value="true" />
@@ -447,7 +469,103 @@
       <option name="project" value="LOCAL" />
       <updated>1750278695554</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Merge remote-tracking branch 'origin/master' into WallieAIPage/Lina&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/application/walliedev/DatabaseConnection.java&#10;#&#9;src/main/resources/application/walliedev/WallieAiPage.fxml">
+      <option name="closed" value="true" />
+      <created>1750338550712</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1750338550712</updated>
+    </task>
+    <task id="LOCAL-00033" summary="updated ai page fxml">
+      <option name="closed" value="true" />
+      <created>1750344085206</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1750344085206</updated>
+    </task>
+    <task id="LOCAL-00034" summary="added sound to intro video">
+      <option name="closed" value="true" />
+      <created>1750354091852</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1750354091852</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added sound to intro video">
+      <option name="closed" value="true" />
+      <created>1750356679610</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1750356679610</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fixed fxml problems">
+      <option name="closed" value="true" />
+      <created>1750357368179</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1750357368179</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1750363893875</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1750363893875</updated>
+    </task>
+    <task id="LOCAL-00038" summary="updated profile picture functionality and improved navigation">
+      <option name="closed" value="true" />
+      <created>1750368266160</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1750368266160</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Refactored budget and category handling, added pie chart colors, and improved UI elements.">
+      <option name="closed" value="true" />
+      <created>1750798113066</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1750798113066</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1750871677700</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1750871677700</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Enhanced budget distribution automation with AI, improved UI with dynamic category backgrounds, and added profile picture handling features.">
+      <option name="closed" value="true" />
+      <created>1750875167185</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1750875167185</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1750936265320</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1750936265320</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Refined ProfilePage UI elements, improved username display formatting, removed debug print from HomepageController, and adjusted budget query in WallieAiController for better precision.">
+      <option name="closed" value="true" />
+      <created>1750938001293</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1750938001293</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,10 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created the Budget class" />
-    <MESSAGE value="added the Budget class" />
-    <MESSAGE value="connected homepage with DB" />
-    <MESSAGE value="fixed bug with double saves in the DB" />
     <MESSAGE value="changed homepage a lot" />
     <MESSAGE value="change" />
     <MESSAGE value="fixed minor styling issue" />
@@ -495,7 +609,15 @@
     <MESSAGE value="fixed api key problem" />
     <MESSAGE value="fixed minor bugs" />
     <MESSAGE value="changed some colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed some colors" />
+    <MESSAGE value="updated ai page fxml" />
+    <MESSAGE value="added sound to intro video" />
+    <MESSAGE value="fixed fxml problems" />
+    <MESSAGE value="updated profile picture functionality and improved navigation" />
+    <MESSAGE value="Refactored budget and category handling, added pie chart colors, and improved UI elements." />
+    <MESSAGE value="Enhanced budget distribution automation with AI, improved UI with dynamic category backgrounds, and added profile picture handling features." />
+    <MESSAGE value="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="Refined ProfilePage UI elements, improved username display formatting, removed debug print from HomepageController, and adjusted budget query in WallieAiController for better precision." />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

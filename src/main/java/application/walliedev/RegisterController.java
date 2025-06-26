@@ -74,25 +74,25 @@ public class RegisterController implements Form, AppControls{
         {
             fieldsAreOk = false;
             usernameTxt.getStyleClass().add("error-field");
-            errorLabel.setText("please fill out all the fields");
+            errorLabel.setText("Please fill out all the fields");
         }
         if(pswdTxt.getText().trim().isEmpty())
         {
             fieldsAreOk = false;
             pswdTxt.getStyleClass().add("error-field");
-            errorLabel.setText("please fill out all the fields");
+            errorLabel.setText("Please fill out all the fields");
         }
         if(retypeTxt.getText().trim().isEmpty())
         {
             fieldsAreOk = false;
             retypeTxt.getStyleClass().add("error-field");
-            errorLabel.setText("please fill out all the fields");
+            errorLabel.setText("Please fill out all the fields");
         }
         if(emailTxt.getText().trim().isEmpty())
         {
             fieldsAreOk = false;
             emailTxt.getStyleClass().add("error-field");
-            errorLabel.setText("please fill out all the fields");
+            errorLabel.setText("Please fill out all the fields");
         }
 
         if(!pswdTxt.getText().trim().equals(retypeTxt.getText().trim()))
@@ -121,7 +121,7 @@ public class RegisterController implements Form, AppControls{
         String password = pswdTxt.getText();
         String email = emailTxt.getText().trim();
         int preferredCurrency = 1;
-        int profileImg = 1;
+        int profileImg = 0;
 
         String checkIfExistsQuery = "SELECT COUNT(*) FROM Users WHERE username = '" + username + "' OR email = '" + email + "'";
 
