@@ -74,7 +74,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     public void setUser(User user) {
         this.user=user;
 
-        displayUsernameLabel.setText(user.getUsername());
+        displayUsernameLabel.setText("@" + user.getUsername());
         usernameLabel.setText(user.getUsername());
         usernameLabelNav.setText(user.getUsername());
         emailLabel.setText(user.getEmail());

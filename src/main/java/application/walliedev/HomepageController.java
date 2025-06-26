@@ -140,7 +140,6 @@ public class HomepageController implements Form, NavBar, AppControls{
                         queryResult.getInt("preferredCurrency"),
                         queryResult.getInt("profileImg")
                 );
-                System.out.println(queryResult.getString("username") + " " + queryResult.getString("password") + " " + queryResult.getString("email"));
                 currencyLabel.setText(user.getCurrencySymbol());
                 usernameLabel.setText(user.getUsername());
 

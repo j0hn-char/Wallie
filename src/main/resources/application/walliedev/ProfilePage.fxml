@@ -28,7 +28,7 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.7166666388511658" green="0.5277777910232544" blue="1.0" />
+                        <Color red="0.7176470756530762" green="0.529411792755127" blue="1.0" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
@@ -205,14 +205,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label fx:id="displayUsernameLabel" layoutX="962.0" layoutY="408.0" text="\@username">
+      <Label fx:id="displayUsernameLabel" alignment="CENTER" layoutX="886.0" layoutY="405.0" prefHeight="32.0" prefWidth="244.0" text="\@username" textFill="#6200ee">
          <font>
-            <Font name="Segoe UI Semibold" size="17.0" />
+            <Font name="Segoe UI Semibold" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="emailLabel" layoutX="934.0" layoutY="437.0" text="example@email.com">
+      <Label fx:id="emailLabel" alignment="CENTER" layoutX="839.0" layoutY="441.0" prefHeight="30.0" prefWidth="342.0" text="example@email.com" textFill="#9f81cd">
          <font>
-            <Font name="Segoe UI Semibold" size="17.0" />
+            <Font name="Segoe UI Semibold" size="18.0" />
          </font>
       </Label>
       <Rectangle accessibleRole="PASSWORD_FIELD" arcHeight="80.0" arcWidth="80.0" fill="WHITE" height="154.0" layoutX="934.0" layoutY="670.0" pickOnBounds="true" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="321.0">
