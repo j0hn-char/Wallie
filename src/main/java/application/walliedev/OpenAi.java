@@ -44,6 +44,14 @@ public class OpenAi  {
         Type type = new TypeToken<Map<String, Object>>(){}.getType();
         Map<String, Object> json = gson.fromJson(response.body(), type);
 
+        if (json.containsKey("error")) {
+            @SuppressWarnings("unchecked")
+            Map<String, Object> error = (Map<String, Object>) json.get("error");
+            String message = (String) error.get("message");
+            String typeError = (String) error.get("type");
+            throw new RuntimeException("API Error (" + typeError + "): " + message);
+        }
+
         @SuppressWarnings("unchecked")
         List<Map<String, Object>> choices = (List<Map<String, Object>>)json.get("choices");
         Map<String, Object> firstChoice = choices.get(0);
