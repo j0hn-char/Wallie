@@ -39,7 +39,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     @FXML
     private MFXComboBox<String> currencyBox;
     @FXML
-    private Label emailLabel, usernameLabel, displayUsernameLabel, errorLabel, deleteErrorLabel, usernameLabelNav;
+    private Label emailLabel, usernameLabel, displayUsernameLabel, errorLabel, deleteErrorLabel, usernameLabelNav, updatePassLabel;
     @FXML
     private MFXTextField currPswdTxt, newPswdTxt, retypeTxt, deletePasswordTxt;
     @FXML
@@ -211,6 +211,12 @@ public class ProfilePageController implements Form, NavBar, AppControls{
 
                 if (currPswd.equals(dbPassword)) {
                     statement.executeUpdate("UPDATE Users SET password = '" + newPswd + "' WHERE username = '" + user.getUsername() + "';");
+                    user.setPassword(newPswd);
+                    updatePassLabel.setVisible(true);
+
+                    PauseTransition pause = new PauseTransition(Duration.seconds(3));
+                    pause.setOnFinished(event -> updatePassLabel.setVisible(false));
+                    pause.play();
                 } else {
                     currPswdTxt.getStyleClass().add("error-field");
                     errorLabel.setText("Incorrect Current Password");

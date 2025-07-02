@@ -402,5 +402,10 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </HBox>
+      <Label fx:id="updatePassLabel" alignment="CENTER" layoutX="232.0" layoutY="730.0" prefHeight="6.0" prefWidth="489.0" text="Password updated successfully" textAlignment="CENTER" textFill="#3ec959" visible="false" wrapText="true">
+         <font>
+            <Font name="Segoe UI Symbol" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

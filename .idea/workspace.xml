@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="FINISHED!!!!!!!">
+    <list default="true" id="2c613704-6106-4bca-adf0-a8156f860389" name="Changes" comment="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/ProfilePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/walliedev/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/walliedev/ProfilePage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -470,7 +473,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750895155519</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Merge branch 'dev/1.0' of https://github.com/j0hn-char/Wallie into dev/1.0&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1750958761188</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1750958761188</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
