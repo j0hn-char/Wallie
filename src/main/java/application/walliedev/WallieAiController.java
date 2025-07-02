@@ -481,7 +481,7 @@ public class WallieAiController implements NavBar, AppControls, Form{
             new Thread(aiTask).start();
         }
     }
-
+//checks whether a budget already exists in the database
     public boolean checkBudgetExistance(){
 
         boolean flag = false;
@@ -508,7 +508,10 @@ public class WallieAiController implements NavBar, AppControls, Form{
 
         return flag;
     }
-
+/* form interface implementation. checks whether:
+ -the fields are empty -
+ -the input (income, fixed expenses) is a positive number
+ -the fixed expenses do not exceed the income*/
     @Override
     public boolean checkFields() {
 

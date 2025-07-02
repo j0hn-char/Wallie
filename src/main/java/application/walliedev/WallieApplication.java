@@ -12,7 +12,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-
+/* Wallie is an AI-powered budget calculator and expense manager which enables the user to optimize their finances.
+*  The user adds their income, fixed expenses and categories to spend the income and the app creates a budget,
+*  based on the user's selections */
 public class WallieApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {

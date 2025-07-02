@@ -66,11 +66,12 @@ public class ProfilePageController implements Form, NavBar, AppControls{
     private final DoubleProperty focusDistance = new SimpleDoubleProperty(0);
     private Image profileImage;
 
+// initializes the drop-down list from which the user can change currency
     public void initializeCurrencyComboBox() {
         currencyBox.getItems().addAll("€","$");
         currencyBox.setMinWidth(150);
     }
-
+//displays the user's information in the profile page
     public void setUser(User user) {
         this.user=user;
 
@@ -100,7 +101,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
         profilePicture.setImage(profileImage);
         goToProfileBtn.setImage(profileImage);
     }
-
+//form interface implementation. checks the 'change password' fields
     public boolean checkFields() {
         String currPswd = currPswdTxt.getText();
         String newPswd = newPswdTxt.getText();
@@ -112,6 +113,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
         newPswdTxt.getStyleClass().remove("error-field");
         retypeTxt.getStyleClass().remove("error-field");
 
+        //checks if the 'current password', 'new password' or 'retype password' fields are empty
         if(currPswd.isEmpty())
         {
             fieldsAreOk = false;
@@ -130,7 +132,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             retypeTxt.getStyleClass().add("error-field");
             errorLabel.setText("please fill out all the fields");
         }
-
+    // checks if the new password is equal to the repeated password
         if(!newPswd.equals(retypePswd) && !newPswd.isEmpty() && !retypePswd.isEmpty())
         {
             newPswdTxt.getStyleClass().add("error-field");
@@ -182,7 +184,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             newCurr = 2;
 
        Statement statement = null;
-        if(newCurr!=user.getCurrency() && newCurr>0){
+        if(newCurr!=user.getCurrency() && newCurr>0){ //updates the changes in the database
             try {
                 statement = connectDB.createStatement();
                 statement.executeUpdate("UPDATE Users SET preferredCurrency = '" +newCurr + "' WHERE username = '" + user.getUsername() + "';");
@@ -193,7 +195,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             }
         }
     }
-
+// stores the changes in the database if the user's input matches the current password
     public void updatePassword(){
         String currPswd = currPswdTxt.getText();
         String newPswd = newPswdTxt.getText();
@@ -247,7 +249,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
             deletePasswordTxt.getStyleClass().add("error-field");
         }
     }
-
+// deletes the user's account from the database, after the user's confirmation
     public void deleteAccount(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -502,7 +504,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
                 new Stop(1, Color.TRANSPARENT)
         ));
     }
-
+// navbar interface implementation
     @Override
     public void switchToHomepage(MouseEvent event, String username, Parent root, FXMLLoader loader) throws IOException {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -536,7 +538,7 @@ public class ProfilePageController implements Form, NavBar, AppControls{
         Scene currentScene = ((Node)event.getSource()).getScene();
         currentScene.setRoot(root);
     }
-
+// appcontrols interface implementation
     @Override
     public void closeApp() {
         stage = (Stage) currPswdTxt.getScene().getWindow();
