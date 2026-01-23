@@ -60,7 +60,9 @@ public class RegisterController implements Form, AppControls{
         stage.setScene(scene);
         stage.show();
     }
-
+/* form interface implementation. checks if:
+*  -the fields are complete
+*  -the password matches the repeated password */
     public boolean checkFields() {
 
         boolean fieldsAreOk = true;
@@ -112,7 +114,7 @@ public class RegisterController implements Form, AppControls{
             registerUser(event);
         }
     }
-
+// if register is successful (the username or email do not already exist), the new user is added to the database and registration email is sent
     public void registerUser(ActionEvent event) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -180,7 +182,7 @@ public class RegisterController implements Form, AppControls{
         }
 
     }
-
+//app controls interface implementation
     @Override
     public void closeApp() {
         stage = (Stage) usernameTxt.getScene().getWindow();

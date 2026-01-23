@@ -83,6 +83,7 @@ public class HomepageController implements Form, NavBar, AppControls{
     private final HashMap<String, String> categoryChartColorList = new HashMap<>();
     private Image profileImage;
 
+// initializes the table which shows the user's expense history
     public void initializeCategoryLists() {
         categoryNameList.put(1, "Health");
         categoryNameList.put(2, "Home");
@@ -120,7 +121,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         categoryBox.setMinWidth(150);
 
     }
-
+//gets the information for the specific user from the database
     public void setUser(String username){ 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -195,7 +196,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         });
         animation.play();
     }
-
+// gets the user's budget from the database and displays the budget information in the homepage
     public void setBudget(User user) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -251,7 +252,7 @@ public class HomepageController implements Form, NavBar, AppControls{
             e.getCause();
         }
     }
-
+//initializes the new expense box, from which the user can add new expenses to their budget
     private void initializeNewExpenseBox(){
         amountTxt.setTextFormatter(new TextFormatter<String>(change -> {
             String newText = change.getControlNewText();
@@ -261,7 +262,7 @@ public class HomepageController implements Form, NavBar, AppControls{
             return null;
         }));
     }
-
+// initializes the pie chart, which displays the percentage of the income, spent on each category
     private void initializePieChart() {
         pieChart.getData().clear();  // Clear existing data
 
@@ -297,7 +298,7 @@ public class HomepageController implements Form, NavBar, AppControls{
     }
 
 
-
+// for each expense, the amount's format is fixed and a new row at the expense history table is added
     private void setExpenseList() {
         for (Expense expense : budget.getExpenseHistory()) {
 
@@ -402,7 +403,7 @@ public class HomepageController implements Form, NavBar, AppControls{
             e.getCause();
         }
     }
-
+// if the user's input-new expense is valid, the user can confirm the new payment
     public void confirmPayment(ActionEvent event) throws IOException {
         if(checkFields()){
             confirmExpensePane.setVisible(true);
@@ -427,13 +428,13 @@ public class HomepageController implements Form, NavBar, AppControls{
         confirmExpensePane.setVisible(false);
         System.out.println("Expense added!");
     }
-
+// if the uses clicks the 'clear' button at the new expense box, the form fields are reset
     public void clearPayments(ActionEvent event) throws IOException {
         expenseNameTxt.setText("");
         amountTxt.setText("");
         categoryBox.setValue(null);
     }
-
+// form interface implementation. this method checks whether the expense amount is a positive number, which does not exceed the amount left to spend
     @Override
     public boolean checkFields() {
         boolean flag = true;
@@ -482,7 +483,7 @@ public class HomepageController implements Form, NavBar, AppControls{
         currentScene.setRoot(root);
     }
 
-
+// navbar interface implementation
     @Override
     public void switchToBudgetCalc(MouseEvent event, Parent root, FXMLLoader loader) throws IOException {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

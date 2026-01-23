@@ -47,6 +47,7 @@ public class LoginController implements Form, AppControls{
     private double xOffset = 0;
     private double yOffset = 0;
 
+    //if the user clicks the 'sign up' button, the register page is shown
     public void switchToRegister(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterPage.fxml"));
         root = loader.load();
@@ -60,7 +61,7 @@ public class LoginController implements Form, AppControls{
         stage.setScene(scene);
         stage.show();
     }
-
+    //if login is successful, homepage is shown
     private void switchToHomepage(ActionEvent event, String username) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
         root = loader.load();
@@ -79,7 +80,7 @@ public class LoginController implements Form, AppControls{
         stage.setScene(scene);
         stage.show();
     }
-
+// form interface implementation. this method checks whether the fields are empty
     public boolean checkFields(){
         errorLabel.setText("");
         usernameTxt.getStyleClass().remove("error-field");
@@ -109,7 +110,7 @@ public class LoginController implements Form, AppControls{
             validateLogin(event);
         }
     }
-
+// this method checks if the username exists and the password is correct
     public void validateLogin(ActionEvent event){
         errorLabel.setText("");
         spinner.setVisible(true);
@@ -181,7 +182,7 @@ public class LoginController implements Form, AppControls{
         }
 
     }
-
+// app controls interface implementation
     @Override
     public void closeApp() {
         stage = (Stage) usernameTxt.getScene().getWindow();

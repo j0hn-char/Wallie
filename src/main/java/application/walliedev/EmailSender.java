@@ -7,9 +7,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+//when the user creates an account, the application sends a confirmation email
 public class EmailSender {
 
     public static void sendEmail(String to, String subject, String username) throws MessagingException {
+       //loads information from .env file
         Dotenv dotenv = Dotenv.load();
         String from = dotenv.get("EMAIL_ADDRESS");
         String password = dotenv.get("EMAIL_PASSWORD");
@@ -25,7 +27,7 @@ public class EmailSender {
                 return new PasswordAuthentication(from, password);
             }
         });
-
+        //the email's content
         String htmlContent =
                 "<html>" +
                         "<body style='margin: 0; padding: 0; background-color: #f3f3f3; font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;'>" +
@@ -72,7 +74,7 @@ public class EmailSender {
 
 
 
-
+    //assembles the message
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(from));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
@@ -83,6 +85,6 @@ public class EmailSender {
         message.setContent(htmlContent, "text/html; charset=utf-8");
 
         System.out.println("sending...");
-        Transport.send(message);
+        Transport.send(message); //sends the message
     }
 }

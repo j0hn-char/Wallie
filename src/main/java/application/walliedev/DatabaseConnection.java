@@ -4,7 +4,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+// this class connects the application with the database
 public class DatabaseConnection {
     public Connection databaseLink;
 

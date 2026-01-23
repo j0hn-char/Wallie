@@ -8,11 +8,11 @@ import java.util.HashMap;
 
 public class Budget {
     private int budgetID;
-    private double totalAmount;
-    private double totalAmountSpent;
-    private ArrayList<Expense> expenseHistory = new ArrayList<>();
-    private HashMap<Integer, Double> categoryBudget = new HashMap<>();
-    private HashMap<Integer, Double> categorySpent = new HashMap<>();
+    private double totalAmount; //the user's income
+    private double totalAmountSpent; //the total amount the user has spent
+    private ArrayList<Expense> expenseHistory = new ArrayList<>(); //the user's expenses in the current budget
+    private HashMap<Integer, Double> categoryBudget = new HashMap<>(); //the amount the user can spend on each category
+    private HashMap<Integer, Double> categorySpent = new HashMap<>(); //the amount the user has spent on each category
 
     public Budget(int budgetID, double totalAmount, double totalAmountSpent) {
         this.budgetID = budgetID;
@@ -26,7 +26,7 @@ public class Budget {
         categorySpent.put(5, 0.0);
         categorySpent.put(6, 0.0);
     }
-
+//this method gets the user's expense history from the database
     public void setExpenseHistory(){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
